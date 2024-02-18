@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.CodeCommanders.controllers.MainWindow">
+   <children>
+      <Button layoutX="325.0" layoutY="80.0" mnemonicParsing="false" onAction="#switchToEnchere" text="Ajouter">
+         <font>
+            <Font size="24.0" />
+         </font></Button>
+      <Label layoutX="316.0" layoutY="14.0" text="Menu :" textFill="#ffaa00b4">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
+      <Button layoutX="325.0" layoutY="149.0" mnemonicParsing="false" onAction="#switchToDelEnchere" prefHeight="51.0" prefWidth="110.0" text="Delete">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="328.0" layoutY="289.0" mnemonicParsing="false" onAction="#switchToAffEnchere" text="Afficher">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="321.0" layoutY="220.0" mnemonicParsing="false" onAction="#switchToModEnchere" text="UPDATE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -61,8 +61,9 @@ public Transactions(){
         return encheres;
     }
 
-    public void update(String idsql) {
+    public void update(String idsql,String stock,String produit,String prixinit) {
 
+    /*
         Scanner obj = new Scanner(System.in);
 
         System.out.println("Enter new id or press enter to not change \n");
@@ -78,7 +79,7 @@ public Transactions(){
 
 
         System.out.println("Enter new prixint or press enter to not change \n");
-        String prixinit = (obj.nextLine());
+        String prixinit = (obj.nextLine());*/
 
 
 
@@ -97,7 +98,7 @@ public Transactions(){
             }
         }
 
-        if (!stock.equals("")){
+        if (!produit.equals("")){
             String query="UPDATE `Enchere` SET `produit` = ? WHERE `id` = ?";
             try {
                 PreparedStatement stm = cnx.prepareStatement(query);
@@ -112,26 +113,11 @@ public Transactions(){
             }
         }
 
-        if (!stock.equals("")){
+        if (!prixinit.equals("")){
             String query="UPDATE `Enchere` SET `prixinit` = ? WHERE `id` = ?";
             try {
                 PreparedStatement stm = cnx.prepareStatement(query);
                 stm.setString(1,prixinit);
-                stm.setString(2,idsql);
-
-                stm.executeUpdate();
-
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-
-            }
-        }
-
-        if (!id.equals("")){
-            String query="UPDATE `Enchere` SET `id` = ? WHERE `id` = ?";
-            try {
-                PreparedStatement stm = cnx.prepareStatement(query);
-                stm.setString(1,id);
                 stm.setString(2,idsql);
 
                 stm.executeUpdate();

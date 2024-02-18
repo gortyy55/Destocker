@@ -13,14 +13,19 @@ public class MainFX extends Application{
     public static void main(String[] args) {
         launch(args);
     }
+
+
+
+
+
     @Override
     public void start(Stage stage) {
         FXMLLoader loader = new FXMLLoader(getClass()
-                .getResource("/Enchere.fxml"));
+                .getResource("/MainWindow.fxml"));
         try{
             Parent root = loader.load();
             Scene scene = new Scene(root);
-            stage.setTitle("Ajouter Enchere");
+            stage.setTitle("Destocker");
             stage.setScene(scene);
             stage.show();
         }catch (IOException e){
