@@ -1,4 +1,4 @@
-package tn.CodeCommanders.test.enchere;
+package tn.CodeCommanders.enchere;
 
 public class Enchere {
 

@@ -1,7 +1,7 @@
-package tn.CodeCommanders.test.Transaction;
+package tn.CodeCommanders.Transaction;
 
-import tn.CodeCommanders.test.enchere.Enchere;
-import tn.CodeCommanders.test.JDBC.JDBC;
+import tn.CodeCommanders.JDBC.JDBC;
+import tn.CodeCommanders.enchere.Enchere;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ private Connection cnx;
 
 public Transactions(){
 
-    cnx=JDBC.getInstance().getCnx();
+    cnx= JDBC.getInstance().getCnx();
 
 }
 

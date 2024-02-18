@@ -1,8 +1,11 @@
-package tn.CodeCommanders.test.JDBC;
+package tn.CodeCommanders.JDBC;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import tn.CodeCommanders.controllers.EnchereController;
+
+
 public class JDBC {
 
 
@@ -20,9 +23,12 @@ public class JDBC {
             cnx = DriverManager.getConnection(URL,USERNAME,PASSWORD);
 
             System.out.println("Connected ...");
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             System.out.println("____not connected____ ");
+
+
             System. exit(0);
 
         }
