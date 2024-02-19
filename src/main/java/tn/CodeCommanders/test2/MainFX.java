@@ -22,8 +22,11 @@ public class MainFX extends Application{
     public void start(Stage stage) {
         FXMLLoader loader = new FXMLLoader(getClass()
                 .getResource("/MainWindow.fxml"));
+
         try{
             Parent root = loader.load();
+            Image image = new Image("logo.png");
+            stage.getIcons().add(image);
             Scene scene = new Scene(root);
             stage.setTitle("Destocker");
             stage.setScene(scene);
