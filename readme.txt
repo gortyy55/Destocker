@@ -2,6 +2,11 @@ First Step --> Go to pom.xml and change <mainClass></mainClass> to <mainClass>"t
 Second Step --> got on the right to maven and reload all maven projects
 Third Step --> go to maven -> plugins -> javafx -> javafx:run to run your project
 
+
+JDBC is the CONNECTOR TO THE MYSQL DB
+
+Transactions is the class where you put all your SQL Requests
+
 NOTES !!!!! : 
 1) when you add a new fxml window in your project under resouces please make sure to link fx:controller="tn.CodeCommanders.path-to-the-controller class-of-this-window"
 2) verify that in your MainFX in the method start that your are linking <<<<< FXMLLoader loader = new FXMLLoader(getClass().getResource("/name_of_your_main_window.fxml")); >>>>
