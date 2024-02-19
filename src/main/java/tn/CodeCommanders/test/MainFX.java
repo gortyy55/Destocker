@@ -1,4 +1,4 @@
-package tn.CodeCommanders.test2;
+package tn.CodeCommanders.test;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

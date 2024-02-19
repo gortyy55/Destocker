@@ -40,7 +40,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>C:\Users\amine\IdeaProjects\Enchere\src\main\java\tn\CodeCommanders\test2\MainFX.java</mainClass>
+                    <mainClass>C:\Users\amine\IdeaProjects\Enchere\src\main\java\tn\CodeCommanders\test\MainFX.java</mainClass>
                 </configuration>
             </plugin>
         </plugins>
