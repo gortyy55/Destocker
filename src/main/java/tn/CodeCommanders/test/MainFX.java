@@ -24,7 +24,7 @@ public class MainFX extends Application {
             try{
                 Parent root = loader.load();
                 Scene scene = new Scene(root);
-                stage.setTitle("Destocker");
+                stage.setTitle("Window");
                 stage.setScene(scene);
                 stage.show();
             }catch (IOException e){
