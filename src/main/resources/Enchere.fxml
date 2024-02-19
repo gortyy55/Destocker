@@ -1,44 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.CodeCommanders.controllers.EnchereController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="491.0" prefWidth="667.0" style="-fx-background-color: Orange; -fx-border-color: #012438; -fx-border-radius: 20; -fx-border-width: 4; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.CodeCommanders.controllers.EnchereController">
    <children>
-      <Label layoutX="255.0" layoutY="21.0" prefHeight="54.0" prefWidth="122.0" text="Enchere" textAlignment="CENTER">
+      <Label layoutX="167.0" layoutY="8.0" prefHeight="61.0" prefWidth="322.0" style="-fx-border-width: 3; -fx-border-color: #012438; -fx-border-radius: 20;" text="  Ajouter une Enchere " textAlignment="CENTER">
          <font>
-            <Font name="SFUIDisplay-Regular" size="24.0" />
+            <Font name="SFUIDisplay-Regular" size="32.0" />
          </font>
       </Label>
-      <TextField fx:id="eid" layoutX="70.0" layoutY="116.0" prefHeight="25.0" prefWidth="162.0" />
-      <Label layoutX="70.0" layoutY="83.0" prefWidth="89.0" style="-fx-text-fill: red; -fx-alignment: center;" text="Entrer l'id :">
+      <TextField fx:id="eid" layoutX="248.0" layoutY="117.0" prefHeight="30.0" prefWidth="162.0" />
+      <Label layoutX="248.0" layoutY="85.0" prefHeight="40.0" prefWidth="149.0" text="ID :" textFill="#012438">
          <font>
-            <Font size="18.0" />
+            <Font size="23.0" />
          </font>
       </Label>
-      <Label layoutX="70.0" layoutY="150.0" prefHeight="27.0" prefWidth="149.0" style="-fx-text-fill: RED;" text="Entrer le stock :">
+      <Label layoutX="248.0" layoutY="151.0" prefHeight="34.0" prefWidth="162.0" text="Quantité :" textFill="#012438">
          <font>
-            <Font size="18.0" />
+            <Font size="23.0" />
          </font>
       </Label>
-      <TextField fx:id="estock" layoutX="70.0" layoutY="177.0" prefHeight="25.0" prefWidth="162.0" />
-      <Button layoutX="273.0" layoutY="347.0" mnemonicParsing="false" onAction="#addenchere" text="Ajouter" />
-      <Label layoutX="70.0" layoutY="210.0" prefHeight="27.0" prefWidth="162.0" style="-fx-text-fill: RED;" text="Entrer le produit :">
+      <TextField fx:id="estock" layoutX="248.0" layoutY="182.0" prefHeight="25.0" prefWidth="162.0" />
+      <Button layoutX="265.0" layoutY="410.0" mnemonicParsing="false" onAction="#addenchere" prefHeight="54.0" prefWidth="129.0" style="-fx-background-color: #012438;" text="Ajouter" textFill="#ff8800">
          <font>
-            <Font size="18.0" />
+            <Font size="22.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Label layoutX="248.0" layoutY="211.0" prefHeight="34.0" prefWidth="180.0" text="Produit :" textFill="#012438">
+         <font>
+            <Font size="23.0" />
          </font>
       </Label>
-      <TextField fx:id="eproduit" layoutX="70.0" layoutY="237.0" prefHeight="25.0" prefWidth="162.0" />
-      <Label layoutX="70.0" layoutY="268.0" prefHeight="27.0" prefWidth="172.0" style="-fx-text-fill: RED;" text="Entrer le prix initial :">
+      <TextField fx:id="eproduit" layoutX="248.0" layoutY="239.0" prefHeight="25.0" prefWidth="162.0" />
+      <Label layoutX="248.0" layoutY="269.0" prefHeight="34.0" prefWidth="259.0" text="Prix Demander :" textFill="#012438">
          <font>
-            <Font size="18.0" />
+            <Font size="23.0" />
          </font>
       </Label>
-      <TextField fx:id="eprixinit" layoutX="70.0" layoutY="295.0" prefHeight="25.0" prefWidth="162.0" />
-      <Label fx:id="confirm" layoutX="292.0" layoutY="163.0" prefHeight="53.0" prefWidth="313.0" text="">
+      <TextField fx:id="eprixinit" layoutX="248.0" layoutY="297.0" prefHeight="30.0" prefWidth="162.0" />
+      <Label fx:id="confirm" layoutX="179.0" layoutY="337.0" prefHeight="53.0" prefWidth="313.0" text="">
          <font>
             <Font size="24.0" />
          </font></Label>
