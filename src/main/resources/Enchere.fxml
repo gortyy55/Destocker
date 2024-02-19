@@ -50,5 +50,6 @@
             <Font size="24.0" />
          </font></Label>
       <Label fx:id="err" layoutX="481.0" layoutY="21.0" text="" />
+      <Button fx:id="retour" onAction="#retour" layoutX="14.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: #012438;" text="Retour" textFill="#ff8100" />
    </children>
 </AnchorPane>

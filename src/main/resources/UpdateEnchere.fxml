@@ -43,5 +43,6 @@
          </font>
       </Label>
       <Separator layoutX="3.0" layoutY="122.0" prefHeight="17.0" prefWidth="892.0" style="-fx-background-color: #012438; -fx-border-color: #012438;" />
+      <Button fx:id="retour" layoutX="20.0" layoutY="35.0" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #012438;" text="Retour" textFill="#ff8100" />
    </children>
 </AnchorPane>

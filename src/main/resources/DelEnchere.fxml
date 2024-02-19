@@ -12,7 +12,7 @@
          <font>
             <Font size="23.0" />
          </font></Button>
-      <Label layoutX="76.0" layoutY="24.0" style="-fx-border-color: #012438; -fx-border-radius: 20; -fx-border-width: 2;" text=" Supprimer une enchere ">
+      <Label layoutX="81.0" layoutY="61.0" style="-fx-border-color: #012438; -fx-border-radius: 20; -fx-border-width: 2;" text=" Supprimer une enchere ">
          <font>
             <Font size="40.0" />
          </font>
@@ -27,5 +27,6 @@
          <font>
             <Font size="24.0" />
          </font></Label>
+      <Button fx:id="retour" layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #012438;" text="Retour" textFill="#ff8100" />
    </children>
 </AnchorPane>
