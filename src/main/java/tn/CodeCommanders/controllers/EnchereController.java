@@ -41,7 +41,7 @@ public class EnchereController {
 
         Enchere e = new Enchere(id,stock,produit,prixinit);
         Transactions t = new Transactions();
-        //t.add(e);
+        t.add(e);
 
         eid.setText("");
         estock.setText("");
