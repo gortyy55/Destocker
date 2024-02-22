@@ -45,7 +45,7 @@
                 <version>0.0.8</version>
                 <configuration>
                     <!--put the full path to your MainFX here blow-->
-                    <mainClass>tn.CodeCommanders.test.MainFX</mainClass>
+                    <mainClass>C:\Users\karim\OneDrive\Bureau\Destocker-main\Destocker-main\src\main\java\tn\CodeCommanders\test\MainFX.java</mainClass>
                 </configuration>
             </plugin>
         </plugins>

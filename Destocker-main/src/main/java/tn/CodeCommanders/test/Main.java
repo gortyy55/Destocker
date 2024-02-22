@@ -12,8 +12,8 @@ public class Main {
         // Create an instance of ServiceUser
         ServiceUser serviceUser = new ServiceUser();
 
-        // Test adding a user
-     /*   User newUser = new User();
+        // test adding a user
+       User newUser = new User();
         //newUser.setId(1);
         newUser.setEmail("test@example.com");
         newUser.setPassword("testpassword");
@@ -27,11 +27,11 @@ public class Main {
         newUser.setBan(0);
 
         serviceUser.ajouter(newUser);
-        }*/
+        }
 
 
         // Test getting a user by ID
-        int userIdToRetrieve = 2;
+     /*   int userIdToRetrieve = 2;
         User retrievedUser = serviceUser.getOneByID(userIdToRetrieve);
 
         /*if (retrievedUser != null) {
@@ -45,7 +45,7 @@ public class Main {
 
 
 
-        // Test updating a user
+    /*    // Test updating a user
         retrievedUser.setFirstname("UpdatedFirstName");
         retrievedUser.setLastname("UpdatedLastName");
         serviceUser.modifier(retrievedUser);
@@ -61,12 +61,12 @@ public class Main {
         System.out.println("\nAll Users after Deletion:");
         for (User user : userList) {
             System.out.println(user);
-        }
+        }*/
     }
 
 
 
-    }
+
 
 
 
