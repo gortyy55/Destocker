@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import tn.CodeCommanders.Transaction.Transactions;
@@ -52,7 +53,7 @@ public class EnchereController {
 
         Enchere e = new Enchere(id,stock,produit,prixinit);
         Transactions t = new Transactions();
-        t.add(e);
+       // t.add(e);
 
         eid.setText("");
         estock.setText("");
@@ -76,5 +77,10 @@ public class EnchereController {
         }catch (IOException e){
             System.out.println(e.getMessage());
         }
+    }
+@FXML
+    public void clear(KeyEvent event) {
+    confirm.setText("");
+
     }
 }

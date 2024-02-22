@@ -14,7 +14,7 @@
             <Font name="SFUIDisplay-Regular" size="32.0" />
          </font>
       </Label>
-      <TextField fx:id="eid" layoutX="248.0" layoutY="117.0" prefHeight="30.0" prefWidth="162.0" />
+      <TextField fx:id="eid" onKeyPressed="#clear" layoutX="248.0" layoutY="117.0" prefHeight="30.0" prefWidth="162.0" />
       <Label layoutX="248.0" layoutY="85.0" prefHeight="40.0" prefWidth="149.0" text="ID :" textFill="#012438">
          <font>
             <Font size="23.0" />
