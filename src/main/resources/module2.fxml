@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+
+<AnchorPane prefHeight="210.0" prefWidth="271.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.CodeCommanders.controllers.modulecontroller">
+   <children>
+      <HBox prefHeight="63.0" prefWidth="271.0">
+         <children>
+            <Label fx:id="namelabel" prefHeight="40.0" prefWidth="212.0" text="Produit" />
+            <Label fx:id="idlabel" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="54.0" text="number" />
+         </children>
+      </HBox>
+      <ImageView fx:id="img" fitHeight="96.0" fitWidth="83.0" layoutX="82.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="prixlabel" layoutX="110.0" layoutY="151.0" text="prix" />
+   </children>
+</AnchorPane>

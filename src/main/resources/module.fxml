@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="215.0" prefWidth="255.0" style="-fx-background-color: #012438; -fx-border-color: #ff8a00; -fx-border-width: 4;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.CodeCommanders.controllers.modulecontroller">
+   <children>
+      <VBox alignment="CENTER" fillWidth="false" layoutX="78.0" layoutY="8.0" prefHeight="200.0" prefWidth="100.0" snapToPixel="false" style="-fx-background-radius: 20;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="30.0" prefWidth="247.0" style="-fx-border-radius: 20;">
+               <children>
+                  <Label fx:id="namelabel" prefHeight="54.0" prefWidth="210.0" text="Produit" textFill="#ff8a00">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="MS UI Gothic" size="27.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="idlabel" prefHeight="54.0" prefWidth="82.0" text="8854" textFill="#ff8a00">
+                     <font>
+                        <Font name="MS UI Gothic" size="21.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets left="20.0" right="20.0" />
+               </opaqueInsets>
+            </HBox>
+            <ImageView fx:id="img" fitHeight="112.0" fitWidth="121.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="prixlabel" alignment="CENTER" prefHeight="33.0" prefWidth="68.0" text="1500DT" textAlignment="CENTER" textFill="#ff8a00">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>

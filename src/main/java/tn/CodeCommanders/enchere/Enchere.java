@@ -7,6 +7,15 @@ public class Enchere {
 
     private double prixint;
 
+   // private String imgSrc;
+    //public String getImgSrc() {
+    //    return imgSrc;
+  //  }
+
+   // public void setImgSrc(String imgSrc) {
+    //    this.imgSrc = imgSrc;
+   // }
+
     public Enchere(){
 
     }

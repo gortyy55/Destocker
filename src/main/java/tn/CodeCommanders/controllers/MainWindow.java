@@ -2,24 +2,13 @@ package tn.CodeCommanders.controllers;
 
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.ImagePattern;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class MainWindow{
     private Stage stage;
@@ -77,10 +66,10 @@ private Parent parent;
     public void switchToAffEnchere(ActionEvent event){
         try{
 
-            Parent root=FXMLLoader.load(getClass().getResource("/AfficheEnchere.fxml"));
+            Parent root=FXMLLoader.load(getClass().getResource("/Affichecard.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
-            stage.setScene(scene);
+            //stage.setScene(scene);
             stage.show();
 
         }catch (IOException e){

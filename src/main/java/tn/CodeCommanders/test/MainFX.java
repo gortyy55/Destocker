@@ -21,7 +21,7 @@ public class MainFX extends Application{
     @Override
     public void start(Stage stage) {
         FXMLLoader loader = new FXMLLoader(getClass()
-                .getResource("/MainWindow.fxml"));
+                .getResource("/Affichecard.fxml"));
 
         try{
             Parent root = loader.load();
