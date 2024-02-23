@@ -1,14 +1,19 @@
 package tn.CodeCommanders.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
+import javafx.stage.Stage;
 import tn.CodeCommanders.enchere.Enchere;
 import tn.CodeCommanders.Transaction.Transactions;
 
@@ -19,6 +24,10 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class affichecard implements Initializable {
+
+    private Stage stage;
+    private Scene scene;
+    private Parent parent;
 
     Transactions t = new Transactions();
 
@@ -79,5 +88,21 @@ public class affichecard implements Initializable {
         }
 
         }
+
+
+    public void back(ActionEvent event) {
+
+        try{
+
+            Parent root=FXMLLoader.load(getClass().getResource("/MainWindow.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        }catch (IOException e){
+            System.out.println(e.getMessage());
+        }
     }
+}
 

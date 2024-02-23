@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="792.0" prefWidth="1246.0" style="-fx-background-color: #012438;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.CodeCommanders.controllers.affichecard">
    <children>
-      <ScrollPane layoutX="53.0" layoutY="33.0" prefHeight="727.0" prefWidth="1140.0" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="53.0" AnchorPane.rightAnchor="53.0" AnchorPane.topAnchor="33.0">
+
+      <ScrollPane layoutX="83.0" layoutY="124.0" prefHeight="628.0" prefWidth="826.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="124.0">
+
          <content>
-             <!--<GridPane fx:id="grid" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
-                 <rowConstraints>
-                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                 </rowConstraints>
-               </GridPane>-->
-             <GridPane fx:id="grid">
+
+            <GridPane fx:id="grid">
 
              </GridPane>
             </content>
          </ScrollPane>
-      </children>
+
+      <Button onAction="#back" alignment="TOP_CENTER" layoutX="22.0" layoutY="32.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="129.0" style="-fx-background-color: #ff8a00;" text="Retour" textFill="#012438">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+
+   </children>
    </AnchorPane>
