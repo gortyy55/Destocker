@@ -69,7 +69,7 @@ public class affichecard implements Initializable {
 
                 grid.setMinHeight(Region.USE_COMPUTED_SIZE);
                 grid.setMaxHeight(Region.USE_PREF_SIZE);
-                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);*/""
+                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);*/
 
 
                 GridPane.setMargin(anchorPane, new Insets(10));

@@ -9,12 +9,15 @@
    <children>
       <ScrollPane layoutX="53.0" layoutY="33.0" prefHeight="727.0" prefWidth="1140.0" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="53.0" AnchorPane.rightAnchor="53.0" AnchorPane.topAnchor="33.0">
          <content>
-            <GridPane fx:id="grid" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-              </rowConstraints>
-            </GridPane>
-         </content>
-      </ScrollPane>
-   </children>
-</AnchorPane>
+             <!--<GridPane fx:id="grid" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+                 <rowConstraints>
+                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                 </rowConstraints>
+               </GridPane>-->
+             <GridPane fx:id="grid">
+
+             </GridPane>
+            </content>
+         </ScrollPane>
+      </children>
+   </AnchorPane>
