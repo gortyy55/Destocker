@@ -5,8 +5,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import tn.CodeCommanders.enchere.Enchere;
+import tn.CodeCommanders.Transaction.Transactions;
 
 import java.io.IOException;
 import java.net.URL;
@@ -15,6 +19,13 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class affichecard implements Initializable {
+
+    Transactions t = new Transactions();
+
+    private ArrayList<Enchere> getlist(){
+
+                return t.getAll();
+    }
 
     @FXML
     private GridPane grid;
@@ -25,16 +36,8 @@ public class affichecard implements Initializable {
     private List<Enchere> encheres = new ArrayList<>();
 
     private List<Enchere> getData(){
-        List<Enchere> encheres = new ArrayList<>();
-        Enchere enchere;
-        for (int i=0;i<20;i++){
-            enchere = new Enchere();
-            enchere.setProduit("kiwi");
-            enchere.setPrixint(8.22);
-            enchere.setId(122);
-            //enchere.setImgSrc("/resources/logo.png");
-            encheres.add(enchere);
-        }
+
+        List<Enchere> encheres = getlist();
         return encheres;
     }
 
@@ -60,13 +63,13 @@ public class affichecard implements Initializable {
                 }
 
                 grid.add(anchorPane, column++, row);
-                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                /*grid.setMinWidth(Region.USE_COMPUTED_SIZE);
                 grid.setMaxWidth(Region.USE_PREF_SIZE);
                 grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
 
                 grid.setMinHeight(Region.USE_COMPUTED_SIZE);
                 grid.setMaxHeight(Region.USE_PREF_SIZE);
-                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);*/""
 
 
                 GridPane.setMargin(anchorPane, new Insets(10));

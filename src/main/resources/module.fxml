@@ -39,7 +39,7 @@
                   <Image url="@logo.png" />
                </image>
             </ImageView>
-            <Label fx:id="prixlabel" alignment="CENTER" prefHeight="33.0" prefWidth="68.0" text="1500DT" textAlignment="CENTER" textFill="#ff8a00">
+            <Label fx:id="prixlabel" alignment="CENTER" prefHeight="33.0" prefWidth="192.0" text="1500DT" textAlignment="CENTER" textFill="#ff8a00">
                <font>
                   <Font size="14.0" />
                </font>

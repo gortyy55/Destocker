@@ -69,7 +69,7 @@ private Parent parent;
             Parent root=FXMLLoader.load(getClass().getResource("/Affichecard.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
-            //stage.setScene(scene);
+            stage.setScene(scene);
             stage.show();
 
         }catch (IOException e){
