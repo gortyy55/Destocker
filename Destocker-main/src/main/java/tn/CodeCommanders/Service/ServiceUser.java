@@ -30,20 +30,20 @@ public class ServiceUser implements IServiceUser<User> {
 
     @Override
     public void ajouter(User user) {
-        String qry = "INSERT INTO `User`(`id`, `Email`, `Password`, `Role`, `Firstname`, `Lastname`, `Address`, `Telephone`, `Animal`, `Question`, `Ban`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        String qry = "INSERT INTO `User`(`Email`, `Password`, `Firstname`, `Lastname`, `Address`, `Telephone`) VALUES (?,?,?,?,?,?)";
         try {
             PreparedStatement stm = cnx.prepareStatement(qry);
-            stm.setInt(1, user.getId());
-            stm.setString(2, user.getEmail());
-            stm.setString(3, user.getPassword());
-            stm.setString(4, user.getRole());
-            stm.setString(5, user.getFirstname());
-            stm.setString(6, user.getLastname());
-            stm.setString(7, user.getAddress());
-            stm.setInt(8, user.getTelephone());
-            stm.setString(9, user.getAnimal());
-            stm.setString(10, user.getQuestion());
-            stm.setInt(11, user.getBan());
+
+            stm.setString(1, user.getEmail());
+            stm.setString(2, user.getPassword());
+
+            stm.setString(3, user.getFirstname());
+            stm.setString(4, user.getLastname());
+            stm.setString(5, user.getAddress());
+            stm.setInt(6, user.getTelephone());
+
+
+
 
             stm.executeUpdate();
             System.out.println("User added!");

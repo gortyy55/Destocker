@@ -27,11 +27,21 @@ public class User {
 
     }
 
-    public User(int id, String email, String password, String role, String firstname, String lastname, String address, int telephone, String animal, String question, int ban) {
+    public User(String email, String password, String firstname, String lastname, String address, int telephone) {
+        this.Email = email;
+        this.Password = password;
+
+        this.Firstname = firstname;
+        this.Lastname = lastname;
+        this.Address = address;
+        this.Telephone = telephone;
+   }
+
+    /*public User(int id, String email, String password, String firstname, String lastname, String address, int telephone, String animal, String question, int ban) {
         this.id = id;
         this.Email = email;
         this.Password = password;
-        this.Role = role;
+
         this.Firstname = firstname;
         this.Lastname = lastname;
         this.Address = address;
@@ -52,7 +62,7 @@ public class User {
         this.animal = animal;
         this.question = question;
         this.ban = ban;
-    }
+    }*/
 
     public int getId() {
         return id;
