@@ -15,7 +15,6 @@ public class MainWindow{
 private Scene scene;
 private Parent parent;
 
-@FXML
 
 
 

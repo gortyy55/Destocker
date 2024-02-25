@@ -12,8 +12,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import tn.CodeCommanders.Transaction.Transactions;
-import tn.CodeCommanders.enchere.Enchere;
-import tn.CodeCommanders.JDBC.JDBC;
+import tn.CodeCommanders.Objects.Enchere;
 
 import java.io.IOException;
 

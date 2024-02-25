@@ -11,10 +11,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.Region;
 import javafx.stage.Stage;
-import tn.CodeCommanders.enchere.Enchere;
+import tn.CodeCommanders.Objects.Enchere;
 import tn.CodeCommanders.Transaction.Transactions;
 
 import java.io.IOException;

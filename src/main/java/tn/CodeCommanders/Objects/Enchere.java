@@ -1,4 +1,4 @@
-package tn.CodeCommanders.enchere;
+package tn.CodeCommanders.Objects;
 
 public class Enchere {
 
@@ -7,14 +7,14 @@ public class Enchere {
 
     private double prixint;
 
-   /* private String imgSrc;
+    private String imgSrc;
     public String getImgSrc() {
         return imgSrc;
     }
 
     public void setImgSrc(String imgSrc) {
        this.imgSrc = imgSrc;
-    }*/
+    }
 
     public Enchere(){
 

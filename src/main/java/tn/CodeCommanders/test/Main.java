@@ -1,8 +1,5 @@
 package tn.CodeCommanders.test;
 
-import tn.CodeCommanders.Transaction.Transactions;
-import tn.CodeCommanders.enchere.Enchere;
-
 public class Main {
     public static final String CURRENCY = "TND";
 

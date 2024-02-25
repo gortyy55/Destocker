@@ -1,11 +1,12 @@
 package tn.CodeCommanders.Transaction;
 
 import tn.CodeCommanders.JDBC.JDBC;
-import tn.CodeCommanders.enchere.Enchere;
+import tn.CodeCommanders.Objects.Enchere;
+import tn.CodeCommanders.Objects.Produit;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Scanner;
+
 public class Transactions {
 
 private Connection cnx;
@@ -145,6 +146,56 @@ public Transactions(){
             System.out.println(e.getMessage());
 
         }
+
+    }
+
+
+    public ArrayList<Produit> getlot(int idench){
+
+        ArrayList<Integer> prodlot = new ArrayList<>();
+
+        String query1="SELECT idproduit FROM `lot` where idenchere="+idench;
+
+        try {
+            Statement stm1= cnx.createStatement();
+            ResultSet rs1= stm1.executeQuery(query1);
+            while (rs1.next()){
+                prodlot.add(rs1.getInt(1));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
+
+        ArrayList<Produit> produits = new ArrayList();
+
+    for (int i=0;i<prodlot.size();i++){
+        String query="SELECT idproduit,produitname,quantite FROM `stockP` where idproduit="+prodlot.get(i);
+
+        try {
+            Statement stm= cnx.createStatement();
+            ResultSet rs= stm.executeQuery(query);
+            while (rs.next()){
+                Produit e = new Produit();
+                e.setId(rs.getInt(1));
+                e.setName(rs.getString(2));
+                e.setQuantite(rs.getInt(3));
+
+                produits.add(e);
+
+
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }}
+
+
+        return produits;
+
+
 
     }
 

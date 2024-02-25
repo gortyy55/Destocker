@@ -1,5 +1,4 @@
 package tn.CodeCommanders.controllers;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,54 +13,33 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import tn.CodeCommanders.Transaction.Transactions;
-import tn.CodeCommanders.enchere.Enchere;
+import tn.CodeCommanders.Objects.Produit;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class AfficheEnchere implements Initializable{
+public class Affichelot implements Initializable{
 
     private Stage stage;
     private Scene scene;
     private Parent parent;
 
+    public int idp;
 
-    @FXML
-    private TableColumn<Enchere, Integer> ide;
-
-    @FXML
-    private TableColumn<Enchere, Double> prixinit;
-
-    @FXML
-    private TableColumn<Enchere, String> produit;
-
-    @FXML
-    private TableColumn<Enchere, Integer> stock;
-
-    @FXML
-    private TableView<Enchere> table;
-
-
-        Transactions t =new Transactions();
-    ArrayList<Enchere> str=t.getAll();
-
-
-        ObservableList<Enchere> list =FXCollections.observableArrayList(str);
+public void setId(int id){
+    this.idp = id;
+    initializeTableView();
+}
 
 
 
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        ide.setCellValueFactory(new PropertyValueFactory<Enchere,Integer>("id"));
-        prixinit.setCellValueFactory(new PropertyValueFactory<Enchere,Double>("prixint"));
-        produit.setCellValueFactory(new PropertyValueFactory<Enchere,String>("produit"));
-        stock.setCellValueFactory(new PropertyValueFactory<Enchere,Integer>("stock"));
-        table.setItems(list);
 
-    }
+
+
+
 
     @FXML
     public void retour(ActionEvent event){
@@ -76,5 +54,42 @@ public class AfficheEnchere implements Initializable{
         }catch (IOException e){
             System.out.println(e.getMessage());
         }
+    }
+
+    @FXML
+    private TableColumn<Produit, Integer> ide;
+
+    @FXML
+    private TableColumn<Produit, String> name;
+
+    @FXML
+    private TableColumn<Produit, Integer> quantite;
+
+    @FXML
+    private TableView<Produit> table;
+
+
+
+
+
+
+
+
+
+    private void initializeTableView() {
+        Transactions t = new Transactions();
+        ArrayList<Produit> str = t.getlot(idp);
+        ObservableList<Produit> list = FXCollections.observableArrayList(str);
+
+        ide.setCellValueFactory(new PropertyValueFactory<>("id"));
+        name.setCellValueFactory(new PropertyValueFactory<>("name"));
+        quantite.setCellValueFactory(new PropertyValueFactory<>("quantite"));
+        table.setItems(list);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
     }
 }
