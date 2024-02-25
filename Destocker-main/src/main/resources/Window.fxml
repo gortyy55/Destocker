@@ -1,31 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="669.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.CodeCommanders.Controllers.Controller">
    <left>
-      <AnchorPane prefHeight="700.0" prefWidth="400.0" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="700.0" prefWidth="302.0" style="-fx-background-color: #191970;" BorderPane.alignment="CENTER_LEFT">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets right="6.0" />
+         </BorderPane.margin></AnchorPane>
    </left>
    <right>
-      <AnchorPane prefHeight="700.0" prefWidth="750.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="670.0" prefWidth="466.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox layoutX="20.0" layoutY="102.0" prefHeight="515.0" prefWidth="392.0">
+            <VBox layoutX="6.0" layoutY="135.0" prefHeight="485.0" prefWidth="397.0">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox prefHeight="83.0" prefWidth="392.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Firstname">
                            <HBox.margin>
                               <Insets right="-60.0" top="10.0" />
                            </HBox.margin>
                         </Text>
-                        <TextField>
+                        <TextField fx:id="nameLabel">
                            <HBox.margin>
                               <Insets left="10.0" top="30.0" />
                            </HBox.margin>
@@ -38,7 +49,7 @@
                               <Insets left="60.0" right="-60.0" top="10.0" />
                            </HBox.margin>
                         </Text>
-                        <TextField>
+                        <TextField fx:id="lastnameLabel">
                            <HBox.margin>
                               <Insets left="10.0" top="30.0" />
                            </HBox.margin>
@@ -50,17 +61,95 @@
                   </HBox>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
                      <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets top="-3.0" />
                      </VBox.margin>
                   </Text>
-                  <TextField>
+                  <TextField fx:id="emailLabel" prefHeight="26.0" prefWidth="362.0">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
+                     <padding>
+                        <Insets right="20.0" top="10.0" />
+                     </padding>
                   </TextField>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextField fx:id="passLabel">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets right="20.0" top="10.0" />
+                     </padding>
+                  </TextField>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
+                           <HBox.margin>
+                              <Insets top="15.0" />
+                           </HBox.margin>
+                        </Text>
+                        <TextField fx:id="addLabel">
+                           <HBox.margin>
+                              <Insets left="-43.0" top="32.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="20.0" top="10.0" />
+                           </padding>
+                        </TextField>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Telephone">
+                           <HBox.margin>
+                              <Insets left="60.0" right="-60.0" top="10.0" />
+                           </HBox.margin>
+                        </Text>
+                        <TextField fx:id="phoneLabel">
+                           <HBox.margin>
+                              <Insets left="10.0" top="30.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="20.0" top="10.0" />
+                           </padding>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <Button fx:id="btncreate" alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="3.0" mnemonicParsing="false" onAction="#addUser" prefHeight="28.0" prefWidth="394.0" style="-fx-background-color: #ffa500;" text="Create Account" textAlignment="CENTER" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="2.0" top="36.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account? Login">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Text>
                </children>
             </VBox>
+            <Text boundsType="LOGICAL_VERTICAL_CENTER" layoutX="155.0" layoutY="99.0" scaleX="3.0" scaleY="3.0" scaleZ="6.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Account" translateX="2.0" wrappingWidth="81.1171875" />
+            <RadioButton layoutX="53.0" layoutY="29.0" mnemonicParsing="false" text="RadioButton" />
+            <RadioButton layoutX="161.0" layoutY="29.0" mnemonicParsing="false" text="RadioButton" />
          </children>
+         <BorderPane.margin>
+            <Insets right="-15.0" />
+         </BorderPane.margin>
       </AnchorPane>
    </right>
+   <center>
+      <ImageView fitHeight="311.0" fitWidth="436.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@img/login.png" />
+         </image>
+         <BorderPane.margin>
+            <Insets left="-300.0" />
+         </BorderPane.margin>
+      </ImageView>
+   </center>
 </BorderPane>
