@@ -13,56 +13,25 @@ import java.util.Objects;
 public class User {
 
     int id;
-    String Email;
-    String Password;
-    String Role;
-    String Firstname;
-    String Lastname;
-    String Address;
-    int Telephone;
-    String animal;
-    String question;
-    int ban;
+    String email;
+    String password;
+    String role;
+    String firstname;
+    String lastname;
+    String address;
+    int telephone;
    public User(){
-
     }
 
-    public User(String email, String password, String firstname, String lastname, String address, int telephone) {
-        this.Email = email;
-        this.Password = password;
-
-        this.Firstname = firstname;
-        this.Lastname = lastname;
-        this.Address = address;
-        this.Telephone = telephone;
-   }
-
-    /*public User(int id, String email, String password, String firstname, String lastname, String address, int telephone, String animal, String question, int ban) {
-        this.id = id;
-        this.Email = email;
-        this.Password = password;
-
-        this.Firstname = firstname;
-        this.Lastname = lastname;
-        this.Address = address;
-        this.Telephone = telephone;
-        this.animal = animal;
-        this.question = question;
-        this.ban = ban;
+    public User( String email, String password, String role, String firstname, String lastname, String address, int telephone) {
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.address = address;
+        this.telephone = telephone;
     }
-
-    public User(String email, String password, String role, String firstname, String lastname, String address, int telephone, String animal, String question, int ban) {
-        this.Email = email;
-        this.Password = password;
-        this.Role = role;
-        this.Firstname = firstname;
-        this.Lastname = lastname;
-        this.Address = address;
-        this.Telephone = telephone;
-        this.animal = animal;
-        this.question = question;
-        this.ban = ban;
-    }*/
 
     public int getId() {
         return id;
@@ -73,100 +42,59 @@ public class User {
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
     public String getRole() {
-        return Role;
+        return role;
     }
 
     public void setRole(String role) {
-        Role = role;
+        this.role = role;
     }
 
     public String getFirstname() {
-        return Firstname;
+        return firstname;
     }
 
     public void setFirstname(String firstname) {
-        Firstname = firstname;
+        this.firstname = firstname;
     }
 
     public String getLastname() {
-        return Lastname;
+        return lastname;
     }
 
     public void setLastname(String lastname) {
-        Lastname = lastname;
+        this.lastname = lastname;
     }
 
     public String getAddress() {
-        return Address;
+        return address;
     }
 
     public void setAddress(String address) {
-        Address = address;
+        this.address = address;
     }
 
     public int getTelephone() {
-        return Telephone;
+        return telephone;
     }
 
     public void setTelephone(int telephone) {
-        Telephone = telephone;
-    }
-
-    public String getAnimal() {
-        return animal;
-    }
-
-    public void setAnimal(String animal) {
-        this.animal = animal;
-    }
-
-    public String getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(String question) {
-        this.question = question;
-    }
-
-    public int getBan() {
-        return ban;
-    }
-
-    public void setBan(int ban) {
-        this.ban = ban;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", Email='" + Email + '\'' +
-                ", Password='" + Password + '\'' +
-                ", Role='" + Role + '\'' +
-                ", Firstname='" + Firstname + '\'' +
-                ", Lastname='" + Lastname + '\'' +
-                ", Address='" + Address + '\'' +
-                ", Telephone=" + Telephone +
-                ", animal='" + animal + '\'' +
-                ", question='" + question + '\'' +
-                ", ban=" + ban +
-                '}';
+        this.telephone = telephone;
     }
 
     @Override

@@ -3,8 +3,10 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -27,8 +29,22 @@
    <right>
       <AnchorPane prefHeight="670.0" prefWidth="466.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox layoutX="6.0" layoutY="135.0" prefHeight="485.0" prefWidth="397.0">
+            <VBox layoutX="22.0" layoutY="87.0" prefHeight="485.0" prefWidth="397.0">
                <children>
+                  <HBox alignment="CENTER" prefHeight="79.0" prefWidth="398.0" spacing="50.0">
+                     <children>
+                        <RadioButton fx:id="rdBtnClient" mnemonicParsing="false" selected="true" text="Client" textAlignment="CENTER">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="role" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rdBtnAssociation" mnemonicParsing="false" text="Association" toggleGroup="$role" />
+                        <RadioButton fx:id="rdBtnEntreprise" mnemonicParsing="false" text="Entreprise" toggleGroup="$role" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
                   <HBox prefHeight="83.0" prefWidth="392.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Firstname">
@@ -36,7 +52,7 @@
                               <Insets right="-60.0" top="10.0" />
                            </HBox.margin>
                         </Text>
-                        <TextField fx:id="nameLabel">
+                        <TextField fx:id="nameLabel" onKeyReleased="#verifyFirstnameRequired">
                            <HBox.margin>
                               <Insets left="10.0" top="30.0" />
                            </HBox.margin>
@@ -49,7 +65,7 @@
                               <Insets left="60.0" right="-60.0" top="10.0" />
                            </HBox.margin>
                         </Text>
-                        <TextField fx:id="lastnameLabel">
+                        <TextField fx:id="lastnameLabel" onKeyReleased="#verifyLastnameRequired">
                            <HBox.margin>
                               <Insets left="10.0" top="30.0" />
                            </HBox.margin>
@@ -64,7 +80,7 @@
                         <Insets top="-3.0" />
                      </VBox.margin>
                   </Text>
-                  <TextField fx:id="emailLabel" prefHeight="26.0" prefWidth="362.0">
+                  <TextField fx:id="emailLabel" onKeyReleased="#verifyEmail" prefHeight="26.0" prefWidth="362.0">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
@@ -77,14 +93,9 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </Text>
-                  <TextField fx:id="passLabel">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <padding>
-                        <Insets right="20.0" top="10.0" />
-                     </padding>
-                  </TextField>
+                  <PasswordField fx:id="passLabel" onKeyReleased="#verifyPassword" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password" />
+                  <PasswordField fx:id="confirmPassLabel" onKeyReleased="#verifyConfirmPassword" />
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
@@ -92,7 +103,7 @@
                               <Insets top="15.0" />
                            </HBox.margin>
                         </Text>
-                        <TextField fx:id="addLabel">
+                        <TextField fx:id="addLabel" onKeyReleased="#verifyAddressRequired">
                            <HBox.margin>
                               <Insets left="-43.0" top="32.0" />
                            </HBox.margin>
@@ -105,7 +116,7 @@
                               <Insets left="60.0" right="-60.0" top="10.0" />
                            </HBox.margin>
                         </Text>
-                        <TextField fx:id="phoneLabel">
+                        <TextField fx:id="phoneLabel" onKeyReleased="#verifyPhoneNumber">
                            <HBox.margin>
                               <Insets left="10.0" top="30.0" />
                            </HBox.margin>
@@ -126,16 +137,16 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account? Login">
-                     <VBox.margin>
-                        <Insets top="5.0" />
-                     </VBox.margin>
-                  </Text>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account? " />
+                        <Button fx:id="goToLoginBtn" mnemonicParsing="false" onAction="#goToLoginPage" text="Login" />
+                     </children>
+                  </HBox>
                </children>
             </VBox>
-            <Text boundsType="LOGICAL_VERTICAL_CENTER" layoutX="155.0" layoutY="99.0" scaleX="3.0" scaleY="3.0" scaleZ="6.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Account" translateX="2.0" wrappingWidth="81.1171875" />
-            <RadioButton layoutX="53.0" layoutY="29.0" mnemonicParsing="false" text="RadioButton" />
-            <RadioButton layoutX="161.0" layoutY="29.0" mnemonicParsing="false" text="RadioButton" />
+            <Text boundsType="LOGICAL_VERTICAL_CENTER" layoutX="160.0" layoutY="59.0" scaleX="3.0" scaleY="3.0" scaleZ="6.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Account" translateX="2.0" wrappingWidth="81.1171875" />
+            <Text fx:id="errorMessage" layoutX="22.0" layoutY="604.0" strokeType="OUTSIDE" strokeWidth="0.0" />
          </children>
          <BorderPane.margin>
             <Insets right="-15.0" />

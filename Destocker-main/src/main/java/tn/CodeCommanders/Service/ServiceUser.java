@@ -30,7 +30,7 @@ public class ServiceUser implements IServiceUser<User> {
 
     @Override
     public void ajouter(User user) {
-        String qry = "INSERT INTO `User`(`Email`, `Password`, `Firstname`, `Lastname`, `Address`, `Telephone`) VALUES (?,?,?,?,?,?)";
+        String qry = "INSERT INTO `User`(`Email`, `Password`, `Firstname`, `Lastname`, `Address`, `Telephone`, `role`) VALUES (?,?,?,?,?,?,?)";
         try {
             PreparedStatement stm = cnx.prepareStatement(qry);
 
@@ -41,6 +41,7 @@ public class ServiceUser implements IServiceUser<User> {
             stm.setString(4, user.getLastname());
             stm.setString(5, user.getAddress());
             stm.setInt(6, user.getTelephone());
+            stm.setString(7, user.getRole());
 
 
 
@@ -72,7 +73,7 @@ public class ServiceUser implements IServiceUser<User> {
 
     @Override
     public void modifier(User user) {
-        String qry = "UPDATE `User` SET `Email`=?, `Password`=?, `Role`=?, `Firstname`=?, `Lastname`=?, `Address`=?, `Telephone`=?, `Animal`=?, `Question`=?, `Ban`=? WHERE `id`=?";
+        String qry = "UPDATE `User` SET `Email`=?, `Password`=?, `Role`=?, `Firstname`=?, `Lastname`=?, `Address`=?, `Telephone`=? WHERE `id`=?";
         try {
             PreparedStatement stm = cnx.prepareStatement(qry);
             stm.setString(1, user.getEmail());
@@ -82,10 +83,7 @@ public class ServiceUser implements IServiceUser<User> {
             stm.setString(5, user.getLastname());
             stm.setString(6, user.getAddress());
             stm.setInt(7, user.getTelephone());
-            stm.setString(8, user.getAnimal());
-            stm.setString(9, user.getQuestion());
-            stm.setInt(10, user.getBan());
-            stm.setInt(11, user.getId());
+            stm.setInt(8, user.getId());
 
             stm.executeUpdate();
 
@@ -116,10 +114,6 @@ public class ServiceUser implements IServiceUser<User> {
                 user.setLastname(rs.getString("Lastname"));
                 user.setAddress(rs.getString("Address"));
                 user.setTelephone(rs.getInt("Telephone"));
-                user.setAnimal(rs.getString("Animal"));
-                user.setQuestion(rs.getString("Question"));
-                user.setBan(rs.getInt("Ban"));
-
                 userList.add(user);
             }
         } catch (SQLException e) {
@@ -150,9 +144,6 @@ public class ServiceUser implements IServiceUser<User> {
                 user.setLastname(rs.getString("Lastname"));
                 user.setAddress(rs.getString("Address"));
                 user.setTelephone(rs.getInt("Telephone"));
-                user.setAnimal(rs.getString("Animal"));
-                user.setQuestion(rs.getString("Question"));
-                user.setBan(rs.getInt("Ban"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

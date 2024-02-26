@@ -21,15 +21,17 @@ public class MainFX extends Application {
         FXMLLoader loader = new FXMLLoader(getClass()
                 .getResource("/Window.fxml"));
 
-        try{
+        try {
             Parent root = loader.load();
             Scene scene = new Scene(root);
             stage.setTitle("Window");
             stage.setScene(scene);
             stage.show();
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+
+
     }
 
 }

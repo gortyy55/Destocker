@@ -22,9 +22,6 @@ public class Main {
         newUser.setLastname("Doe");
         newUser.setAddress("123 Main St");
         newUser.setTelephone(123456789);
-        newUser.setAnimal("Dog");
-        newUser.setQuestion("What is your favorite color?");
-        newUser.setBan(0);
 
         serviceUser.ajouter(newUser);
         }
