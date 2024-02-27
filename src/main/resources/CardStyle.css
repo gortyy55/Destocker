@@ -1,0 +1,27 @@
+.search-box{
+
+    -fx-background-radius: 100;
+
+}
+.transparent{
+    -fx-background-color:rgba(0,0,0,0) ;
+
+}
+.search-button{
+    -fx-background-color: #828282;
+    -fx-background-radius: 30;
+}
+
+.chosen-lots-card{
+    -fx-background-color: #1D203E;
+    -fx-background-radius: 30;
+}
+.scroll-pane .viewport{
+    -fx-background-color:rgba(255,255,255,0.2);
+    -fx-background-radius: 10;
+}
+
+.lot-item{
+    -fx-background-color: #FFFF;
+    -fx-background-radius: 30;
+}

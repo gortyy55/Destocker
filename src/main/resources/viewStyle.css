@@ -1,0 +1,30 @@
+.container {
+    -fx-spacing: 10;
+}
+
+.label {
+    -fx-padding: 0 10 0 0; / Adjust spacing between labels /
+}
+
+#action-button {
+    -fx-text-fill: white;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-background-color: linear-gradient(#61a2b1, #2A5058);
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+.delete-button {
+    -fx-background-color: #FFB801; / Orange /
+}
+
+.update-button {
+    -fx-background-color: #0000FF; / Blue /
+}
+
+.delete-button:hover {
+    -fx-background-color: #FFB801; / Orange on hover /
+}
+
+.update-button:hover {
+    -fx-background-color: #800080; / Purple on hover */
+}
