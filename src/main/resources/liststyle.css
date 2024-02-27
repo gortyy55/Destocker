@@ -1,0 +1,12 @@
+
+.transparent {
+    -fx-background-color: rgba(0,0,0,0);
+}
+.white-background{
+    -fx-background-color:linear-gradient(from 0% 0% to 100% 100%,#060618,#A9C0EE);;
+
+}
+
+.light-gray-background{
+    -fx-background-color:grey ;
+}
