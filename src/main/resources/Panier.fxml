@@ -4,6 +4,7 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -199,12 +200,12 @@
                         <Insets />
                      </VBox.margin>
                   </VBox>
-                  <HBox prefHeight="472.0" spacing="20.0">
+                  <HBox prefHeight="524.0" prefWidth="1005.0" spacing="20.0">
                      <VBox.margin>
                         <Insets top="50.0" />
                      </VBox.margin>
                      <children>
-                        <VBox prefHeight="472.0" prefWidth="468.0" styleClass="container" stylesheets="@PanierStyle.css">
+                        <VBox prefHeight="520.0" prefWidth="468.0" styleClass="container" stylesheets="@PanierStyle.css">
                            <children>
                               <Label prefHeight="16.0" prefWidth="199.0" styleClass="shadow" text="Ajouter Panier" textFill="#ffffffb5">
                                  <font>
@@ -222,13 +223,13 @@
                                     <Font name="System Bold" size="13.0" />
                                  </font>
                               </Text>
-                              <VBox prefHeight="262.0" prefWidth="468.0">
+                              <VBox prefHeight="348.0" prefWidth="468.0">
                                  <children>
-                                    <HBox prefHeight="48.0" prefWidth="408.0">
+                                    <HBox prefHeight="33.0" prefWidth="412.0">
                                        <children>
                                           <HBox prefHeight="48.0" prefWidth="213.0">
                                              <children>
-                                                <TextField fx:id="numenchere">
+                                                <TextField fx:id="numenchere" prefHeight="33.0" prefWidth="194.0">
                                                    <HBox.margin>
                                                       <Insets left="10.0" />
                                                    </HBox.margin>
@@ -237,7 +238,7 @@
                                           </HBox>
                                        </children>
                                     </HBox>
-                                    <Text fill="#ffb801" strokeType="OUTSIDE" strokeWidth="0.0" text="ID_lots" wrappingWidth="126.193359375">
+                                    <Text fill="#ffb801" strokeType="OUTSIDE" strokeWidth="0.0" text="ID_acteur" wrappingWidth="126.193359375">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
@@ -249,7 +250,7 @@
                                        <children>
                                           <HBox prefHeight="52.0" prefWidth="207.0">
                                              <children>
-                                                <TextField fx:id="numlots">
+                                                <TextField fx:id="idacteur">
                                                    <HBox.margin>
                                                       <Insets left="10.0" />
                                                    </HBox.margin>
@@ -279,11 +280,28 @@
                                           </HBox>
                                        </children>
                                     </HBox>
+                                    <Text fill="#ffb801" strokeType="OUTSIDE" strokeWidth="0.0" text="Prix Total" wrappingWidth="126.193359375">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="20.0" right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <DatePicker fx:id="datepick" prefHeight="25.0" prefWidth="209.0">
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                          </DatePicker>
+                                       </children>
+                                    </HBox>
                                  </children>
                               </VBox>
                               <Button fx:id="btnadd" mnemonicParsing="false" onAction="#addpanier" prefHeight="25.0" prefWidth="283.0" style="-fx-background-color: #ffb801;" text="Ajouter" textFill="WHITE">
                                  <VBox.margin>
-                                    <Insets bottom="20.0" left="100.0" right="20.0" top="20.0" />
+                                    <Insets bottom="50.0" left="100.0" right="20.0" top="20.0" />
                                  </VBox.margin>
                                  <font>
                                     <Font name="System Bold" size="18.0" />

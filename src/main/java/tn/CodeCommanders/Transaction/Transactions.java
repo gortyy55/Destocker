@@ -8,26 +8,65 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class Transactions {
-   private static Connection cnx;
-    public Transactions(){
+    private static Connection cnx;
+
+    public Transactions() {
         cnx = JDBC.getInstance().getCnx();
     }
 
-    public void add(Panier panier){
-        String query ="INSERT INTO `Panier`(`id_lots`, `id_enchere`, `prixTotal`) VALUES (?,?,?)";
-        try{
-            PreparedStatement stm=cnx.prepareStatement(query);
+    public void add(Panier panier) {
+        String query = "INSERT INTO `Panier`(`id_enchere`, `id_acteur`, `prixTotal`, `Date_Enchere`) VALUES (?,?,?,?)";
+        try {
+            PreparedStatement stm = cnx.prepareStatement(query);
 
-            stm.setInt(1,panier.getId_lots());
-            stm.setInt(2, panier.getId_enchere());
-            stm.setDouble(3,panier.getPrixTotal());
+            stm.setInt(1, panier.getId_enchere());
+            stm.setInt(2, panier.getId_acteur());
+            stm.setDouble(3, panier.getPrixTotal());
+            stm.setDate(4, new java.sql.Date(panier.getDate_Enchere().getTime()));
             stm.executeUpdate();
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
+
+    public ArrayList<Panier> getAll() {
+        ArrayList<Panier> paniers = new ArrayList<>();
+
+        String query = "SELECT id_enchere, prixTotal FROM `Panier`";
+
+        try (Statement stm = cnx.createStatement();
+             ResultSet rs = stm.executeQuery(query)) {
+            while (rs.next()) {
+                Panier p = new Panier();
+                p.setId_enchere(rs.getInt("id_enchere"));
+                p.setPrixTotal(rs.getDouble("prixTotal"));
+
+                paniers.add(p);
+            }
+        } catch (SQLException e) {
+            // Handle the exception or log it
+            throw new RuntimeException("Error while retrieving Paniers: " + e.getMessage(), e);
+        }
+
+        return paniers;
+    }
+
+    public static void Delete(int idP) {
+        String query = "DELETE FROM `Panier` WHERE id_panier = ?";
+
+        try (PreparedStatement stm = cnx.prepareStatement(query)) {
+            stm.setInt(1, idP);
+            stm.executeUpdate();
+        } catch (SQLException e) {
+            // Log or handle the exception appropriately
+            System.err.println("Error deleting record with id_panier " + idP + ": " + e.getMessage());
+        }
+    }
+
+
+
+    /*
     public void update(Panier panier) {
         String query = "UPDATE Panier SET id_lots = ?, id_enchere = ?, prixTotal = ? WHERE id_panier = ?";
         try {
@@ -126,6 +165,7 @@ public class Transactions {
     }
 
 
+*/
 
 
 }

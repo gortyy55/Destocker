@@ -1,11 +1,13 @@
 package tn.CodeCommanders.Controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import tn.CodeCommanders.Panier.Panier;
 import tn.CodeCommanders.Transaction.Transactions;
 
 import java.sql.SQLException;
+import java.util.Date;
 
 public class PanierController {
 
@@ -15,25 +17,30 @@ public class PanierController {
     private TextField numenchere;
 
     @FXML
-    private TextField numlots;
+    private TextField idacteur;
 
     @FXML
     private TextField price;
+    @FXML
+    private DatePicker datepick;
 
     @FXML
     private void addpanier() throws SQLException {
 
-        int id_lots = Integer.parseInt(numlots.getText());
         int id_enchere = Integer.parseInt(numenchere.getText());
+        int id_acteur = Integer.parseInt(idacteur.getText());
         double prixTotal = Double.parseDouble(price.getText());
+        Date Date_Enchere = java.sql.Date.valueOf(datepick.getValue());
 
-        Panier p = new Panier(id_lots, id_enchere, prixTotal);
+
+        Panier p = new Panier(id_enchere, id_acteur, prixTotal,Date_Enchere);
         Transactions t = new Transactions();
         t.add(p);
 
 
-        numlots.setText("");
+        idacteur.setText("");
         numenchere.setText("");
         price.setText("");
+        datepick.setValue(null);
     }
 }

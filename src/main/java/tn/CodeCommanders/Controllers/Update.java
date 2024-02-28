@@ -8,7 +8,7 @@ import tn.CodeCommanders.Transaction.Transactions;
 import java.sql.SQLException;
 
 public class Update {
-
+/*
     @FXML
     private TextField numenchere;
 
@@ -59,4 +59,6 @@ public class Update {
         numenchere.setText(String.valueOf(panier.getId_lots()));
         price.setText(String.valueOf(panier.getPrixTotal()));
     }
+
+ */
 }

@@ -5,22 +5,155 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import tn.CodeCommanders.Panier.Panier;
+import tn.CodeCommanders.Transaction.Transactions;
 
+import javax.swing.text.html.ImageView;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class lotitemController {
+public class lotitemController implements Initializable {
 
+
+
+    @FXML
+    private GridPane grid;
+
+    @FXML
+    private ScrollPane scroll;
+Transactions t = new Transactions();
+private  ArrayList<Panier> getlist(){
+    return t.getAll();
+}
+    private List<Panier> paniers = new ArrayList<>();
+
+    private List<Panier> getData() {
+        List<Panier> paniers = getlist();
+
+
+
+        return paniers;
+
+
+    }
+
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        int column = 0;
+        int row = 0;
+        paniers.addAll(getData());
+
+        try {
+            for (int i = 0; i < paniers.size(); i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/Card.fxml"));
+
+                AnchorPane anchorPane = fxmlLoader.load();
+
+
+                CardController CardController = fxmlLoader.getController();
+                CardController.setData(paniers.get(i));
+
+                if (column == 3) {
+                    column = 0;
+                    row++;
+                }
+
+
+                grid.add(anchorPane, column++, row);
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+}
+
+
+
+
+
+/*    private Stage stage;
+    private Scene scene;
+    private Parent parent;
+
+    @FXML
+    private VBox dataVBox;
+
+
+
+    Transactions t = new Transactions();
+
+    private ArrayList<Panier> getlist(){
+
+        return t.getAll();
+    }
+
+    private List<Panier> paniers = new ArrayList<>();
+
+    private List<Panier> getData(){
+
+        List<Panier> paniers = getlist();
+        return paniers;
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        int column = 0;
+        int row = 0;
+        paniers.addAll(getData());
+
+
+        try {
+            for(int i=0;i<paniers.size();i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/afficheC.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+                cardController cardController = fxmlLoader.getController();
+                cardController.setData(paniers.get(i));
+
+                if (column == 4) {
+                    column = 0;
+                    row++;
+                }
+
+                VBox.add(anchorPane, column++, row);
+
+                VBox.setMargin(anchorPane, new Insets(10));
+
+            }}catch (IOException e){
+            throw new RuntimeException(e);
+        }}
+
+
+*/
+
+
+
+
+
+/*
     @FXML
     private TableView<Panier> dataTableView;
     @FXML
@@ -145,4 +278,5 @@ public class lotitemController {
             e.printStackTrace();
         }
     }
-}
+
+ */

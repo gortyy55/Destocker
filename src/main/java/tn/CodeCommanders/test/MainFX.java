@@ -16,8 +16,9 @@ public class MainFX extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Panier.fxml"));
-        FXMLLoader loader1= new FXMLLoader(getClass().getResource("/afficheCard.fxml"));
+       // FXMLLoader loader = new FXMLLoader(getClass().getResource("/Panier.fxml"));
+         FXMLLoader loader= new FXMLLoader(getClass().getResource("/afficheCard.fxml"));
+
 
 
 

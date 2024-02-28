@@ -23,8 +23,7 @@
                </VBox.margin>
                <children>
                   <Label fx:id="lotsLabel" prefHeight="53.0" prefWidth="546.0" />
-               </children>
-            </HBox>
+               </children>            </HBox>
             <HBox prefHeight="0.0" prefWidth="546.0" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="20.0" />
