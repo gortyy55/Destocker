@@ -74,7 +74,6 @@ public class ReclamationInfo implements Initializable {
             throw new RuntimeException(e);
         }
     }
-
     public void setStage(Stage stage) {
         this.stage = stage;
     }
