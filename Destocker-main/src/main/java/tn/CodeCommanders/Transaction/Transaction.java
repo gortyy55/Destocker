@@ -1,8 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package tn.CodeCommanders.Service;
+package tn.CodeCommanders.Transaction;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -11,8 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import tn.CodeCommanders.Controllers.Login;
-import tn.CodeCommanders.JDBC.*;
 import tn.CodeCommanders.Entities.User;
+import tn.CodeCommanders.JDBC.JDBC;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -22,16 +18,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author karim
- */
-public class ServiceUser implements IServiceUser<User> {
-
-    Connection cnx = JDBC.getInstance().getCnx();
+public class Transaction {
+    private Connection cnx;
+    public Transaction() {cnx = JDBC.getInstance().getCnx();}
 
 
-    @Override
+
     public void ajouter(User user) {
         String qry = "INSERT INTO `User`(`Email`, `Password`, `Firstname`, `Lastname`, `Address`, `Telephone`, `role`) VALUES (?,?,?,?,?,?,?)";
         try {
@@ -58,7 +50,7 @@ public class ServiceUser implements IServiceUser<User> {
 
     }
 
-    @Override
+
     public void supprimer(User user) {
         String qry = "DELETE FROM `User` WHERE `id`=?";
         try {
@@ -74,7 +66,7 @@ public class ServiceUser implements IServiceUser<User> {
 
     }
 
-    @Override
+
     public void modifier(User user) {
         String qry = "UPDATE `User` SET `Email`=?, `Password`=?, `Role`=?, `Firstname`=?, `Lastname`=?, `Address`=?, `Telephone`=? WHERE `id`=?";
         try {
@@ -98,7 +90,7 @@ public class ServiceUser implements IServiceUser<User> {
 
     }
 
-    @Override
+
     public ArrayList<User> getAll() {
         ArrayList<User> userList = new ArrayList<>();
 
@@ -127,7 +119,7 @@ public class ServiceUser implements IServiceUser<User> {
 
     }
 
-    @Override
+
     public User getOneByID(int id) {
         User user = null;
 
@@ -138,7 +130,7 @@ public class ServiceUser implements IServiceUser<User> {
             ResultSet rs = stm.executeQuery();
 
             if (rs.next()) {
-                user = new User(rs.getInt("ID"), rs.getString("EMAIL"), rs.getString("PASSWORD"), rs.getString("ROLE"), rs.getString("FIRSTNAME"), rs.getString("LASTNAME"), rs.getString("ADDRESS"), rs.getInt("TELEPHONE"));
+                user = new User(rs.getInt("ID"), rs.getString("EMAIL"), rs.getString("PASSWORD"), rs.getString("ROLE"), rs.getString("FIRSTNAME"), rs.getString("LASTNAME"), rs.getString("ADRESSE"), rs.getInt("TELEPHONE"));
                 user.setId(rs.getInt("id"));
                 user.setEmail(rs.getString("Email"));
                 user.setPassword(rs.getString("Password"));
@@ -188,4 +180,5 @@ public class ServiceUser implements IServiceUser<User> {
             e.printStackTrace();
         }
     }
+
 }

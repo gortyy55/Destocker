@@ -3,17 +3,15 @@ package tn.CodeCommanders.test;
 import tn.CodeCommanders.Entities.User;
 import tn.CodeCommanders.Service.ServiceUser;
 
-import java.util.List;
-
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Create an instance of ServiceUser
+      /*  // Create an instance of ServiceUser
         ServiceUser serviceUser = new ServiceUser();
 
         // test adding a user
-       User newUser = new User();
+       User newUser = new User(rs.getInt("ID"), rs.getString("EMAIL"), rs.getString("PASSWORD"), rs.getString("ROLE"), rs.getString("FIRSTNAME"), rs.getString("LASTNAME"), rs.getString("ADRESSE"), rs.getInt("TELEPHONE"));
         //newUser.setId(1);
         newUser.setEmail("test@example.com");
         newUser.setPassword("testpassword");
@@ -25,7 +23,7 @@ public class Main {
 
         serviceUser.ajouter(newUser);
         }
-
+*/
 
         // Test getting a user by ID
      /*   int userIdToRetrieve = 2;
@@ -37,7 +35,7 @@ public class Main {
         } else {
             System.out.println("User with ID " + userIdToRetrieve + " not found.");
         }*/
-       /* serviceUser.supprimer(retrievedUser);*/
+        /* serviceUser.supprimer(retrievedUser);*/
 
 
 
@@ -59,8 +57,9 @@ public class Main {
         for (User user : userList) {
             System.out.println(user);
         }*/
-    }
 
+    }
+}
 
 
 

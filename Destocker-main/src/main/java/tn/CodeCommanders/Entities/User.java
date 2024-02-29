@@ -20,7 +20,7 @@ public class User {
     String lastname;
     String address;
     int telephone;
-   public User(){
+   public User(int id, String email, String password, String role, String firstname, String lastname, String address, int telephone){
     }
 
     public User( String email, String password, String role, String firstname, String lastname, String address, int telephone) {
@@ -32,6 +32,8 @@ public class User {
         this.address = address;
         this.telephone = telephone;
     }
+
+
 
     public int getId() {
         return id;
