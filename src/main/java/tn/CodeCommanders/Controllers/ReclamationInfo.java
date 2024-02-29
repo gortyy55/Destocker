@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import tn.CodeCommanders.Reclamation.Reclamation;
@@ -20,6 +21,8 @@ import tn.CodeCommanders.Transactions.Transactions;
 
 
 public class ReclamationInfo implements Initializable {
+    public ScrollPane scrollreclamation;
+    public GridPane grid;
     @FXML
     private Stage stage;
     @FXML
@@ -45,7 +48,7 @@ public class ReclamationInfo implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         int column = 0;
-        int row = 0;
+        int row = 1;
 
         reclamations.addAll(getData());
 
@@ -58,16 +61,14 @@ public class ReclamationInfo implements Initializable {
 
                 CardRec cardRec = fxmlLoader.getController();
                 cardRec.setData(reclamations.get(i));
-                cardRec.setReclamation(reclamations.get(i));
-                column ++;
 
-                /*if (column == 2){
+                anchorPane.setMinHeight(236);
+                anchorPane.setMinWidth(255);
+                if (column == 2){
                     column=0;
                     row++;
-                }*/
-
-                hboxCard.getChildren().add(anchorPane);
-                HBox.setMargin(anchorPane, new Insets(2));
+                }
+                grid.add(anchorPane,column++,row);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

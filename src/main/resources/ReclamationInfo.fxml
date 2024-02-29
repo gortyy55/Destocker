@@ -5,12 +5,15 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -197,10 +200,29 @@
                                 <Insets />
                             </VBox.margin>
                         </VBox>
-                        <HBox fx:id="hboxCard" prefHeight="574.0" prefWidth="1005.0" spacing="20.0">
+                  <Label style="&#10;                                -fx-font-weight: bold;&#10;                            " styleClass="shadow" text="Mes réclamations" textAlignment="CENTER" textFill="#ffffffb5" wrapText="true">
+                     <font>
+                        <Font size="33.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                        <HBox fx:id="hboxCard" prefHeight="408.0" prefWidth="1005.0" spacing="20.0">
                             <VBox.margin>
                                 <Insets top="50.0" />
                             </VBox.margin>
+                     <children>
+                        <ScrollPane fx:id="scrollreclamation" prefHeight="408.0" prefWidth="659.0" stylesheets="@ReclamationStyle.css">
+                           <content>
+                              <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;">
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                              </GridPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
                         </HBox>
                   <Button fx:id="switchToAddReclamation" mnemonicParsing="false" onAction="#switchToAdd" prefHeight="25.0" prefWidth="283.0" style="-fx-background-color: #ffb801;" text="Ajouter réclamation" textFill="WHITE" translateX="650.0">
                      <font>
@@ -218,11 +240,6 @@
                         <Insets />
                      </opaqueInsets>
                   </Button>
-                  <Label style="&#10;                                -fx-font-weight: bold;&#10;                            " styleClass="shadow" text="Mes réclamations" textAlignment="CENTER" textFill="#ffffffb5" wrapText="true">
-                     <font>
-                        <Font size="33.0" />
-                     </font>
-                  </Label>
                  
                     </children>
                     <padding>

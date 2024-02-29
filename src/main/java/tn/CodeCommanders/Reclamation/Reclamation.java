@@ -11,14 +11,14 @@ public class Reclamation {
     public Reclamation() {
     }
 
-   /* public Reclamation(int id_reclamation, String titre, String type, int id_produit, String description, int id_user) {
+    public Reclamation(int id_reclamation, String titre, String type, int id_produit, String description, int id_user) {
         this.id_reclamation = id_reclamation;
         this.titre = titre;
         this.type = type;
         this.id_produit = id_produit;
         Description = description;
         this.id_user = id_user;
-    }*/
+    }
 
     public Reclamation(String titre, String description, String type) {
         this.titre = titre;

@@ -33,6 +33,7 @@ public class Transactions{
             Statement stm = JDBC.getInstance().getCnx().createStatement();
             ResultSet rs = stm.executeQuery(qry);
             while (rs.next()) { Reclamation rec = new Reclamation();
+                rec.setId_reclamation(rs.getInt("id_reclamation"));
                 rec.setTitre(rs.getString("titre"));
                 rec.setType(rs.getString("type"));
                 rec.setId_produit(rs.getInt("id_produit"));

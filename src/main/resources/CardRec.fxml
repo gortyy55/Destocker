@@ -23,6 +23,11 @@
                   <Font name="Comic Sans MS" size="15.0" />
                </font>
             </Label>
+            <Label fx:id="DescRec" prefHeight="0.0" prefWidth="178.0" text="Description" textFill="#433f5b" translateX="10.0" translateY="-35.0">
+               <font>
+                  <Font name="Comic Sans MS" size="11.0" />
+               </font>
+            </Label>
          </children></VBox>
     <Button fx:id="delete" minWidth="37.0" mnemonicParsing="false" onAction="#effacerReclamation" prefHeight="28.0" style="-fx-background-radius: 50;" translateX="200.0" translateY="190.0">
          <graphic>

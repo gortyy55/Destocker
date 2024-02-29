@@ -27,6 +27,8 @@ public class CardRec {
     private Label TypeRec;
     @FXML
     private Label titreRec;
+    @FXML
+    private Label DescRec;
     private Reclamation reclamation;
     private Connection cnx;
 
@@ -40,29 +42,40 @@ public class CardRec {
         this.reclamation = reclamation;
         TypeRec.setText(reclamation.getType());
         titreRec.setText(reclamation.getTitre());
+        DescRec.setText(reclamation.getDescription());
 
+
+    }
+    public Reclamation getReclamation() {
+        return this.reclamation;
     }
 void setReclamation(Reclamation reclamation){
         this.reclamation=reclamation;
     }
     @FXML
     void effacerReclamation(ActionEvent actionEvent) {
-        //int id= this.reclamation.getId_reclamation();
-        Transactions T = new Transactions();
-        if ( T.delete(51)) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Votre réclamation a été supprimée avec succès");
-            alert.show();
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Erreur lors de la suppression de la réclamation");
-            alert.show();
-        }
-    }
+            int id = reclamation.getId_reclamation();
+        System.out.println(id);
+        Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+        alert1.setContentText("Votre id réclamation "+id);
+        alert1.show();
+            Transactions T = new Transactions();
+            if (T.delete(id)) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Votre réclamation a été supprimée avec succès");
+                alert.show();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Erreur lors de la suppression de la réclamation");
+                alert.show();
+            }
+}
     @FXML
     void updateRec (ActionEvent actionEvent) {
         Reclamation rec=this.reclamation;
         Transactions T = new Transactions();
         T.update(rec);
     }
-    }
+
+
+}
