@@ -14,9 +14,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane style="-fx-background-radius: 50;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.CodeCommanders.Controllers.ReclamationInfo">
+<AnchorPane fx:id="anchorPane" style="-fx-background-radius: 50;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.CodeCommanders.Controllers.ReclamationInfo">
     <children>
-        <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" style="-fx-background-color: #8D8C8; -fx-background-radius: 50;" styleClass="gradient-background" stylesheets="@ReclamationStyle.css">
+        <BorderPane fx:id="border" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" style="-fx-background-color: #8D8C8; -fx-background-radius: 50;" styleClass="gradient-background" stylesheets="@ReclamationStyle.css">
             <top>
                 <HBox alignment="CENTER_LEFT" prefHeight="61.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
                     <children>
@@ -177,7 +177,7 @@
                 </VBox>
             </left>
             <center>
-                <VBox prefHeight="805.0" prefWidth="1005.0" BorderPane.alignment="CENTER">
+                <VBox prefHeight="700.0" prefWidth="0.0" BorderPane.alignment="CENTER">
                     <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
                     </VBox.margin>
@@ -197,20 +197,10 @@
                                 <Insets />
                             </VBox.margin>
                         </VBox>
-                        <HBox prefHeight="472.0" spacing="20.0">
+                        <HBox fx:id="hboxCard" prefHeight="574.0" prefWidth="1005.0" spacing="20.0">
                             <VBox.margin>
                                 <Insets top="50.0" />
                             </VBox.margin>
-                     <children>
-                        <Label styleClass="shadow" text="Mes réclamations" textAlignment="CENTER" textFill="#ffffffb5" translateX="50.0" wrapText="true">
-                           <font>
-                              <Font size="33.0" />
-                           </font>
-                            <style>
-                                -fx-font-weight: bold;
-                            </style>
-                        </Label>
-                     </children>
                         </HBox>
                   <Button fx:id="switchToAddReclamation" mnemonicParsing="false" onAction="#switchToAdd" prefHeight="25.0" prefWidth="283.0" style="-fx-background-color: #ffb801;" text="Ajouter réclamation" textFill="WHITE" translateX="650.0">
                      <font>
@@ -228,6 +218,11 @@
                         <Insets />
                      </opaqueInsets>
                   </Button>
+                  <Label style="&#10;                                -fx-font-weight: bold;&#10;                            " styleClass="shadow" text="Mes réclamations" textAlignment="CENTER" textFill="#ffffffb5" wrapText="true">
+                     <font>
+                        <Font size="33.0" />
+                     </font>
+                  </Label>
                  
                     </children>
                     <padding>

@@ -1,8 +1,7 @@
 package tn.CodeCommanders.Transactions;
-import tn.CodeCommanders.Reclamation.Reclamation;
+import tn.CodeCommanders.Reclamation.*;
 import tn.CodeCommanders.JDBC.JDBC;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
@@ -68,20 +67,19 @@ public class Transactions{
             System.out.println(e.getMessage());
         }
     }
-
-    public boolean delete(Reclamation reclamation) {
+public Reclamation reclamation;
+    public boolean delete(int id_Reclamation) {
         String qry = "DELETE FROM Reclamation WHERE id_reclamation=?";
         try (PreparedStatement stm = JDBC.getInstance().getCnx().prepareStatement(qry)) {
-            stm.setInt(1, reclamation.getId_reclamation());
-
+            stm.setInt(1, id_Reclamation);
             int affectedRows = stm.executeUpdate();
             return affectedRows > 0;
         } catch (SQLException e) {
             System.out.println("Erreur lors de la suppression de la réclamation : " + e.getMessage());
+            e.printStackTrace();
             return false;
         }
     }
-
 }
 
 

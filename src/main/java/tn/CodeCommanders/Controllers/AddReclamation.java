@@ -46,7 +46,6 @@ public class AddReclamation {
         String type = typeChoice.getValue();
         String description=DescTextField.getText();
 
-
         Reclamation rec = new Reclamation(titre,description,type);
         Transactions T = new Transactions();
         T.add(rec);

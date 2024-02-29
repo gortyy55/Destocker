@@ -85,5 +85,8 @@ public class Reclamation {
                 ", id_user=" + id_user +
                 '}';
     }
-}
+
+
+    }
+
 

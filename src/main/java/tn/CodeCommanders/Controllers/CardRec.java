@@ -1,52 +1,68 @@
 package tn.CodeCommanders.Controllers;
-
+import javafx.event.ActionEvent;
 import java.net.URL;
 import java.sql.Connection;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableRow;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import tn.CodeCommanders.JDBC.JDBC;
-import tn.CodeCommanders.Reclamation.Reclamation;
-import tn.CodeCommanders.Transactions.Transactions;
+import tn.CodeCommanders.Reclamation.*;
+import tn.CodeCommanders.JDBC.*;
+import tn.CodeCommanders.Transactions.*;
 
 public class CardRec {
-
     @FXML
     private ResourceBundle resources;
-
     @FXML
     private URL location;
-
     @FXML
-    private ImageView delete;
-
+    private Button delete;
     @FXML
-    private ImageView edit;
-
-    @FXML
-    private HBox hboxCard;
-
+    private Button edit;
     @FXML
     private VBox vbox;
     @FXML
-    private Label typeTextField;
-
+    private Label TypeRec;
+    @FXML
+    private Label titreRec;
     private Reclamation reclamation;
     private Connection cnx;
-    public void ServiceReclamation(){cnx = JDBC.getInstance().getCnx();
-    }
+
+    public void ServiceReclamation() {cnx = JDBC.getInstance().getCnx();}
+
+    @FXML
+    void initialize() {}
 
     public void setData(Reclamation reclamation){
-        Transactions t = new Transactions();
-        ArrayList<Reclamation> reclamations = t.getAll();
-
+        //Transactions t = new Transactions();
         this.reclamation = reclamation;
-        typeTextField.setText(reclamation.getTitre());
-    }
-}
+        TypeRec.setText(reclamation.getType());
+        titreRec.setText(reclamation.getTitre());
 
+    }
+void setReclamation(Reclamation reclamation){
+        this.reclamation=reclamation;
+    }
+    @FXML
+    void effacerReclamation(ActionEvent actionEvent) {
+        //int id= this.reclamation.getId_reclamation();
+        Transactions T = new Transactions();
+        if ( T.delete(51)) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Votre réclamation a été supprimée avec succès");
+            alert.show();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Erreur lors de la suppression de la réclamation");
+            alert.show();
+        }
+    }
+    @FXML
+    void updateRec (ActionEvent actionEvent) {
+        Reclamation rec=this.reclamation;
+        Transactions T = new Transactions();
+        T.update(rec);
+    }
+    }

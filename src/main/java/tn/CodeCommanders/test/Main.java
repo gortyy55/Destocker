@@ -13,8 +13,8 @@ public class Main {
         cnx = JDBC.getInstance().getCnx();
 
 //Ajout
-        Transactions transactions = new Transactions();
-        /*Reclamation rec1 = new Reclamation();
+        /*Transactions transactions = new Transactions();
+        Reclamation rec1 = new Reclamation();
         rec1.setTitre("un verre");
         rec1.setType("retour");
         rec1.setId_produit(01);
@@ -30,9 +30,9 @@ public class Main {
 
         transactions.add(rec1);
         transactions.add(rec2);
-//Affichage
         ArrayList<Reclamation> toutesLesReclamations = transactions.getAll();
-        System.out.println("Toutes les réclamations :");
+//Affichage
+       System.out.println("Toutes les réclamations :");
         for (Reclamation rec : toutesLesReclamations) {
             System.out.println(rec);
         }
@@ -41,14 +41,21 @@ public class Main {
         rec.setTitre("oussema");
         rec.setDescription("oussema trabelsi");
         transactions.update(rec);
-            System.out.println(rec);*/
+            System.out.println(rec);
 //delete
-        /*Reclamation rec = toutesLesReclamations.get(0);
-        rec.setId_reclamation(3);
+        Reclamation rec = toutesLesReclamations.get(0);
+        //rec.setId_reclamation(1);
         boolean suppressionReussie = transactions.delete(rec);
         if (suppressionReussie) {
             System.out.println("Réclamation supprimée avec succès.");
         } else {
             System.out.println("Erreur lors de la suppression de la réclamation.");
+        }
+
+        //Affichage
+        System.out.println("Toutes les réclamations :");
+        for (Reclamation rec : toutesLesReclamations) {
+            System.out.println(rec);
         }*/
-    }}
+    }
+}
