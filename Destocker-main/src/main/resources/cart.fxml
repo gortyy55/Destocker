@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="179.0" prefWidth="311.0" style="-fx-background-radius: 50;" styleClass="produit-cart" stylesheets="@User.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.CodeCommanders.Controllers.Usercart">
+   <children>
+      <ImageView fitHeight="83.0" fitWidth="90.0" layoutX="22.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/img.icons8.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="fname" layoutX="114.0" layoutY="14.0" prefHeight="18.0" prefWidth="107.0" text="firstname" />
+      <Label fx:id="lname" layoutX="114.0" layoutY="32.0" text="last name" />
+      <Label fx:id="role" layoutX="114.0" layoutY="56.0" text="role" />
+      <Label fx:id="email" layoutX="35.0" layoutY="108.0" text="email" />
+      <Label fx:id="mdp" layoutX="36.0" layoutY="126.0" text="mdp" />
+      <Label fx:id="addr" layoutX="114.0" layoutY="81.0" text="addr" />
+      <Label fx:id="num" layoutX="36.0" layoutY="147.0" text="num" />
+      <Button fx:id="deletebtn" layoutX="221.0" layoutY="135.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
+      <Button fx:id="updatebtn" layoutX="155.0" layoutY="135.0" mnemonicParsing="false" onAction="#update" text="Update" />
+   </children>
+</AnchorPane>
