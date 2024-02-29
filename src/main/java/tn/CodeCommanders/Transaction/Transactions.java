@@ -33,7 +33,9 @@ public class Transactions {
     public ArrayList<Panier> getAll() {
         ArrayList<Panier> paniers = new ArrayList<>();
 
-        String query = "SELECT id_enchere, prixTotal FROM `Panier`";
+        String query = "SELECT Panier.*, Enchere.produit " +
+                "FROM `Panier` " +
+                "JOIN `Enchere` ON Panier.id_enchere = Enchere.id";
 
         try (Statement stm = cnx.createStatement();
              ResultSet rs = stm.executeQuery(query)) {
@@ -41,6 +43,10 @@ public class Transactions {
                 Panier p = new Panier();
                 p.setId_enchere(rs.getInt("id_enchere"));
                 p.setPrixTotal(rs.getDouble("prixTotal"));
+                p.setId_panier(rs.getInt("id_panier"));
+                String produit = rs.getString("produit");
+                // Assuming you have a setProduct method in the Panier class
+                p.setProduit(produit);
 
                 paniers.add(p);
             }
@@ -52,9 +58,9 @@ public class Transactions {
         return paniers;
     }
 
-    public static void Delete(int idP) {
-        String query = "DELETE FROM `Panier` WHERE id_panier = ?";
-
+    public void Delete(int idP) throws SQLException {
+        String query = "DELETE FROM Panier WHERE id_panier = ? ";
+System.out.println("here panier" + idP);
         try (PreparedStatement stm = cnx.prepareStatement(query)) {
             stm.setInt(1, idP);
             stm.executeUpdate();
@@ -64,26 +70,54 @@ public class Transactions {
         }
     }
 
+    public void deletePanierById(int panierId) {
+        // SQL query to delete a record from the Panier table based on the ID
+        String deleteQuery = "DELETE FROM Panier WHERE id_panier = ?";
+
+        try (PreparedStatement preparedStatement = cnx.prepareStatement(deleteQuery)) {
+            // Set the ID parameter in the prepared statement
+            preparedStatement.setInt(1, panierId);
+
+            // Execute the delete query
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            // Check if any rows were affected
+            if (rowsAffected > 0) {
+                System.out.println("Record with ID " + panierId + " deleted successfully.");
+            } else {
+                System.out.println("No record found with ID " + panierId + ".");
+            }
+
+        } catch (SQLException e) {
+            // Handle any SQL exceptions
+            e.printStackTrace();
+        }
+    }
 
 
-    /*
-    public void update(Panier panier) {
-        String query = "UPDATE Panier SET id_lots = ?, id_enchere = ?, prixTotal = ? WHERE id_panier = ?";
+
+
+    public void update(int idPanier, int idEnchere, int idActeur, double prixTotal, Date dateEnchere) {
+        String query = "UPDATE `Panier` SET `id_enchere`= ?, `id_acteur`= ?, `prixTotal`= ?, `Date_Enchere`= ? WHERE id_panier = ?";
         try {
             PreparedStatement stm = cnx.prepareStatement(query);
 
-            stm.setInt(1, panier.getId_lots());
-            stm.setInt(2, panier.getId_enchere());
-            stm.setDouble(3, panier.getPrixTotal());
-            stm.setInt(4, panier.getId_panier()); // Assuming getId_panier() method exists in your Panier class
+            stm.setInt(1, idEnchere);
+            stm.setInt(2, idActeur);
+            stm.setDouble(3, prixTotal);
+            stm.setDate(4, new java.sql.Date(dateEnchere.getTime()));
+
+            // Set id_panier in the WHERE clause
+            stm.setInt(5, idPanier);
 
             stm.executeUpdate();
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+
     public Panier getPanierById(int id_Panier) {
+        System.out.println("did i receive id: " + id_Panier);
         try  {
             String query = "SELECT * FROM Panier WHERE id_panier = ?";
             PreparedStatement preparedStatement = cnx.prepareStatement(query);
@@ -92,11 +126,13 @@ public class Transactions {
             System.out.println("ResultSet in affiche method: " + query);
 
             if (resultSet.next()) {
-                int idLots = resultSet.getInt("id_lots");
-                int idEnchere = resultSet.getInt("id_enchere");
-                double prixTotal = resultSet.getDouble("prixTotal");
 
-                return new Panier(id_Panier, idLots, idEnchere, prixTotal);
+                int idEnchere = resultSet.getInt("id_enchere");
+                int idacteur = resultSet.getInt("id_acteur");
+                double prixTotal = resultSet.getDouble("prixTotal");
+                Date Date_enchere = resultSet.getDate(" Date_Enchere");
+
+                return new Panier(id_Panier, idacteur, idEnchere, prixTotal,Date_enchere);
             }
 
         } catch (SQLException e) {
@@ -104,7 +140,7 @@ public class Transactions {
         }
 
         return null; // Return null if Panier not found
-    }
+    }/*
     public ArrayList<Panier> getAll() {
         ArrayList<Panier> paniers = new ArrayList<>();
         String query = "SELECT * FROM `Panier`";

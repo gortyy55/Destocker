@@ -41,18 +41,31 @@
                   <Image url="@IMG/pc.png" />
                </image>
             </ImageView>
-            <Button fx:id="deletebtn" mnemonicParsing="false"  prefHeight="28.0" prefWidth="71.0">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@IMG/supp.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <VBox.margin>
-                  <Insets left="100.0" top="20.0" />
-               </VBox.margin>
-            </Button>
+            <HBox alignment="CENTER" prefHeight="57.0" prefWidth="262.0">
+               <children>
+                  <Button fx:id="deletebtn" mnemonicParsing="false" onAction="#Delete" prefHeight="28.0" prefWidth="71.0">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@IMG/supp.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="updatebtn" mnemonicParsing="false" onAction="#update" prefWidth="71.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@IMG/up.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
          </children>
       </VBox>
    </children>

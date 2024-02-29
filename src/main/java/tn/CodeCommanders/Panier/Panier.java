@@ -3,35 +3,33 @@ package tn.CodeCommanders.Panier;
 import java.util.Date;
 
 public class Panier {
-    private static int lastAssignedId = 0;
     private int id_panier;
-
     private int id_enchere;
     private int id_acteur;
     private double prixTotal;
     private Date Date_Enchere;
+    private String produit;
 
     public Panier() {
-        lastAssignedId++;
-        this.id_panier = lastAssignedId;
+        // No need to assign id_panier here, let the database handle it
     }
 
-    public Panier(int id_enchere, int id_acteur, double prixTotal,Date Date_Enchere) {
-        lastAssignedId++;
-        this.id_panier = lastAssignedId;
-        this.id_enchere=id_enchere;
+    public Panier(int id_enchere, int id_acteur, double prixTotal, Date Date_Enchere) {
+        this.id_enchere = id_enchere;
         this.id_acteur = id_acteur;
         this.prixTotal = prixTotal;
         this.Date_Enchere = Date_Enchere;
+        this.produit = produit;
     }
 
-    // New constructor that accepts idPanier, idLots, idEnchere, and prixTotal
+    // Constructor with id_panier (for retrieval from the database)
     public Panier(int id_panier, int id_enchere, int id_acteur, double prixTotal, Date Date_Enchere) {
         this.id_panier = id_panier;
         this.id_enchere = id_enchere;
         this.id_acteur = id_acteur;
         this.prixTotal = prixTotal;
-        this.Date_Enchere= Date_Enchere;
+        this.Date_Enchere = Date_Enchere;
+        this.produit = produit;
     }
 
     public int getId_panier() {
@@ -42,9 +40,15 @@ public class Panier {
         this.id_panier = id_panier;
     }
 
-
     public int getId_acteur() {
         return id_acteur;
+    }
+    public String getProduit() {
+        return produit;
+    }
+
+    public void setProduit(String produit) {
+        this.produit = produit;
     }
 
     public void setId_acteur(int id_acteur) {
@@ -56,7 +60,7 @@ public class Panier {
     }
 
     public void setDate_Enchere(Date date_Enchere) {
-        Date_Enchere = date_Enchere;
+        this.Date_Enchere = date_Enchere;
     }
 
     public int getId_enchere() {
@@ -74,7 +78,6 @@ public class Panier {
     public void setPrixTotal(double prixTotal) {
         this.prixTotal = prixTotal;
     }
-
 
     @Override
     public String toString() {

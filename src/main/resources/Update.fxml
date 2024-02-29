@@ -4,6 +4,7 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -199,12 +200,12 @@
                                 <Insets />
                             </VBox.margin>
                         </VBox>
-                        <HBox prefHeight="472.0" spacing="20.0">
+                        <HBox prefHeight="652.0" prefWidth="1010.0" spacing="20.0">
                             <VBox.margin>
                                 <Insets top="50.0" />
                             </VBox.margin>
                             <children>
-                                <VBox prefHeight="472.0" prefWidth="468.0" styleClass="container" stylesheets="@PanierStyle.css">
+                                <VBox prefHeight="676.0" prefWidth="468.0" styleClass="container" stylesheets="@PanierStyle.css">
                                     <children>
                                         <Label prefHeight="16.0" prefWidth="199.0" styleClass="shadow" text="Modifier Panier" textFill="#ffffffb5">
                                             <font>
@@ -214,113 +215,98 @@
                                                 <Insets left="10.0" right="10.0" top="10.0" />
                                             </VBox.margin>
                                         </Label>
-                                        <Text fill="#ffb801" strokeType="OUTSIDE" strokeWidth="0.0" text="ID_Panier" wrappingWidth="126.193359375">
-                                            <VBox.margin>
-                                                <Insets bottom="20.0" left="20.0" right="10.0" top="40.0" />
-                                            </VBox.margin>
-                                            <font>
-                                                <Font name="System Bold" size="13.0" />
-                                            </font>
-                                        </Text>
-                                        <VBox prefHeight="262.0" prefWidth="468.0">
-                                            <children>
-                                                <HBox prefHeight="48.0" prefWidth="408.0">
-                                                    <children>
-                                                        <HBox prefHeight="48.0" prefWidth="213.0">
-                                                            <children>
-                                                                <TextField fx:id="idPanier">
-                                                                    <HBox.margin>
-                                                                        <Insets left="10.0" />
-                                                                    </HBox.margin>
-                                                                </TextField>
-                                                            </children>
-                                                        </HBox>
-                                                    </children>
-                                                </HBox>
-                                                <Text fill="#ffb801" strokeType="OUTSIDE" strokeWidth="0.0" text="ID_enchere" wrappingWidth="126.193359375">
-                                                    <VBox.margin>
-                                                        <Insets bottom="20.0" left="20.0" right="10.0" top="40.0" />
-                                                    </VBox.margin>
-                                                    <font>
-                                                        <Font name="System Bold" size="13.0" />
-                                                    </font>
-                                                </Text>
-                                                <HBox prefHeight="48.0" prefWidth="408.0">
-                                                    <children>
-                                                        <HBox prefHeight="48.0" prefWidth="213.0">
-                                                            <children>
-                                                                <TextField fx:id="numenchere">
-                                                                    <HBox.margin>
-                                                                        <Insets left="10.0" />
-                                                                    </HBox.margin>
-                                                                </TextField>
-                                                            </children>
-                                                        </HBox>
-                                                    </children>
-                                                </HBox>
-                                                <Text fill="#ffb801" strokeType="OUTSIDE" strokeWidth="0.0" text="ID_lots" wrappingWidth="126.193359375">
-                                                    <font>
-                                                        <Font name="System Bold" size="13.0" />
-                                                    </font>
-                                                    <VBox.margin>
-                                                        <Insets bottom="20.0" left="20.0" right="10.0" top="10.0" />
-                                                    </VBox.margin>
-                                                </Text>
-                                                <HBox prefHeight="52.0" prefWidth="468.0">
-                                                    <children>
-                                                        <HBox prefHeight="52.0" prefWidth="207.0">
-                                                            <children>
-                                                                <TextField fx:id="numlots">
-                                                                    <HBox.margin>
-                                                                        <Insets left="10.0" />
-                                                                    </HBox.margin>
-                                                                </TextField>
-                                                            </children>
-                                                        </HBox>
-                                                    </children>
-                                                </HBox>
-                                                <Text fill="#ffb801" strokeType="OUTSIDE" strokeWidth="0.0" text="Prix Total" wrappingWidth="126.193359375">
-                                                    <font>
-                                                        <Font name="System Bold" size="13.0" />
-                                                    </font>
-                                                    <VBox.margin>
-                                                        <Insets bottom="20.0" left="20.0" right="10.0" top="10.0" />
-                                                    </VBox.margin>
-                                                </Text>
-                                                <HBox prefHeight="64.0" prefWidth="468.0">
-                                                    <children>
-                                                        <HBox prefHeight="55.0" prefWidth="200.0">
-                                                            <children>
-                                                                <TextField fx:id="price">
-                                                                    <HBox.margin>
-                                                                        <Insets left="10.0" />
-                                                                    </HBox.margin>
-                                                                </TextField>
-                                                            </children>
-                                                        </HBox>
-                                                    </children>
-                                                </HBox>
-                                            </children>
-                                        </VBox>
-                                        <Button fx:id="btnadd" mnemonicParsing="false" onAction="#updatePanier" prefHeight="25.0" prefWidth="283.0" style="-fx-background-color: #ffb801;" text="Update" textFill="WHITE">
-                                            <VBox.margin>
-                                                <Insets bottom="20.0" left="100.0" right="20.0" top="20.0" />
-                                            </VBox.margin>
-                                            <font>
-                                                <Font name="System Bold" size="18.0" />
-                                            </font>
-                                            <stylesheets>
-                                                <URL value="@PanierStyle.css" />
-                                                <URL value="@PanierStyle.css" />
-                                            </stylesheets>
-                                            <styleClass>
-                                                <String fx:value="form_container Button" />
-                                                <String fx:value="form_container Button:hover" />
-                                            </styleClass>
-                                            <opaqueInsets>
-                                                <Insets />
-                                            </opaqueInsets>
-                                        </Button>
+                              <Text fill="#ffb801" strokeType="OUTSIDE" strokeWidth="0.0" text="ID_panier" wrappingWidth="126.193359375">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <VBox prefHeight="596.0" prefWidth="468.0">
+                                 <children>
+                                    <HBox prefHeight="44.0" prefWidth="468.0">
+                                       <children>
+                                          <TextField fx:id="idpanier">
+                                             <HBox.margin>
+                                                <Insets top="10.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <Label prefHeight="18.0" prefWidth="141.0" text="ID_enchere" textFill="#ffb801">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox prefHeight="48.0" prefWidth="468.0">
+                                       <children>
+                                          <TextField fx:id="idenchereU" />
+                                       </children>
+                                    </HBox>
+                                    <Label prefHeight="18.0" prefWidth="141.0" text="ID_acteur" textFill="#ffb801">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox prefHeight="50.0" prefWidth="468.0">
+                                       <children>
+                                          <TextField fx:id="idacteurU" />
+                                       </children>
+                                    </HBox>
+                                    <Label prefHeight="18.0" prefWidth="141.0" text="Prix Total" textFill="#ffb801">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox prefHeight="58.0" prefWidth="468.0">
+                                       <children>
+                                          <TextField fx:id="prixU" />
+                                       </children>
+                                    </HBox>
+                                    <Label prefHeight="18.0" prefWidth="141.0" text="Date" textFill="#ffb801">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <DatePicker fx:id="dateU" />
+                                       </children>
+                                    </HBox>
+                                    <Button fx:id="btnupd" mnemonicParsing="false" onAction="#updatePanier" prefHeight="25.0" prefWidth="283.0" style="-fx-background-color: #ffb801;" text="Update" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                       <stylesheets>
+                                          <URL value="@PanierStyle.css" />
+                                          <URL value="@PanierStyle.css" />
+                                       </stylesheets>
+                                       <styleClass>
+                                          <String fx:value="form_container Button" />
+                                          <String fx:value="form_container Button:hover" />
+                                       </styleClass>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <VBox.margin>
+                                          <Insets left="50.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                              </VBox>
                                     </children>
                                     <HBox.margin>
                                         <Insets left="40.0" />

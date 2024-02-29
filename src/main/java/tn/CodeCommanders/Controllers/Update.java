@@ -1,64 +1,67 @@
 package tn.CodeCommanders.Controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import tn.CodeCommanders.Panier.Panier;
 import tn.CodeCommanders.Transaction.Transactions;
 
+import java.sql.Date;
 import java.sql.SQLException;
 
 public class Update {
-/*
-    @FXML
-    private TextField numenchere;
 
     @FXML
-    private TextField numlots;
+    private TextField idpanier;
 
     @FXML
-    private TextField idPanier;
+    private TextField idenchereU;
 
     @FXML
-    private TextField price;
+    private TextField idacteurU;
+    @FXML
+    private DatePicker dateU;
+    @FXML
+    private TextField prixU;
     private  Panier panier;
+
+
+    public int idPanierToUpdate;
+    public void setIdPanierToUpdate(int idPanier) {
+        this.idPanierToUpdate = idPanier;
+        System.out.println("hihaaa." + idPanier );
+    }
     @FXML
     void updatePanier() throws SQLException {
-        int id_Panier = Integer.parseInt(idPanier.getText());
-        int id_lots = Integer.parseInt(numlots.getText());
-        int id_enchere = Integer.parseInt(numenchere.getText());
-        double prixTotal = Double.parseDouble(price.getText());
-
-        // Retrieve the existing Panier by its ID
-        Transactions t = new Transactions();
-        Panier existingPanier = t.getPanierById(id_Panier);
-
-        if (existingPanier != null) {
-            System.out.println("Found existing Panier: " + existingPanier); // Debugging statement
-
-            // Update the Panier properties
-            existingPanier.setId_lots(id_lots);
-            existingPanier.setId_enchere(id_enchere);
-            existingPanier.setPrixTotal(prixTotal);
+        try {
+            int id_Panier = Integer.parseInt(idpanier.getText());
+            int id_acteur = Integer.parseInt(idacteurU.getText());
+            int id_enchere = Integer.parseInt(idenchereU.getText());
+            double prixTotal = Double.parseDouble(prixU.getText());
+            Date Date_Enchere = java.sql.Date.valueOf(dateU.getValue());
 
             // Perform the update in the database
-            t.update(existingPanier);
-            System.out.println("Panier updated successfully."); // Debugging statement
-        } else {
-            System.out.println("Panier with ID " + id_Panier + " not found."); // Debugging statement
-        }
+            Transactions t = new Transactions();
+            t.update(id_Panier, id_enchere, id_acteur, prixTotal, Date_Enchere);
 
-        numlots.setText("");
-        numenchere.setText("");
-        idPanier.setText(""); // Clear the ID field
-        price.setText("");
+            System.out.println("Panier updated successfully."); // Debugging statement
+
+            // Clear UI fields
+            idacteurU.setText("");
+            idenchereU.setText("");
+            idpanier.setText("");
+            prixU.setText("");
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input format for numeric fields."); // Handle invalid input format
+        }
     }
     public void setPanier(Panier panier) {
         this.panier = panier;
-        idPanier.setText(String.valueOf(panier.getId_panier()));
-        numlots.setText(String.valueOf(panier.getId_enchere()));
-        numenchere.setText(String.valueOf(panier.getId_lots()));
-        price.setText(String.valueOf(panier.getPrixTotal()));
+        idpanier.setText(String.valueOf(panier.getId_panier()));
+        idenchereU.setText(String.valueOf(panier.getId_enchere()));
+        idacteurU.setText(String.valueOf(panier.getId_acteur()));
+        prixU.setText(String.valueOf(panier.getPrixTotal()));
     }
 
- */
+
 }

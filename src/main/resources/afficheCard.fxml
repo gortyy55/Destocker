@@ -176,7 +176,7 @@
 
          <content>
 
-            <GridPane fx:id="grid">
+            <GridPane  fx:id="grid">
 
             </GridPane>
 

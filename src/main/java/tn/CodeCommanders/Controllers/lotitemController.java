@@ -33,7 +33,7 @@ public class lotitemController implements Initializable {
 
 
     @FXML
-    private GridPane grid;
+    private  GridPane grid;
 
     @FXML
     private ScrollPane scroll;
@@ -56,9 +56,12 @@ private  ArrayList<Panier> getlist(){
 
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public  void initialize(URL location, ResourceBundle resources) {
+
         int column = 0;
         int row = 0;
+        paniers.clear();
+        grid.getChildren().clear();
         paniers.addAll(getData());
 
         try {
@@ -71,6 +74,7 @@ private  ArrayList<Panier> getlist(){
 
                 CardController CardController = fxmlLoader.getController();
                 CardController.setData(paniers.get(i));
+                CardController.setLotitemController(this);
 
                 if (column == 3) {
                     column = 0;
@@ -80,11 +84,18 @@ private  ArrayList<Panier> getlist(){
 
                 grid.add(anchorPane, column++, row);
                 GridPane.setMargin(anchorPane, new Insets(10));
+
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+
+    public  void refreshGrid() {
+        grid.getChildren().clear();
+        initialize(null, null);
+    }
+
 
 
 }
