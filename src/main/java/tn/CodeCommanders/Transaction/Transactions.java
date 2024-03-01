@@ -1,6 +1,7 @@
 package tn.CodeCommanders.Transaction;
 
 import tn.CodeCommanders.JDBC.JDBC;
+import tn.CodeCommanders.Panier.Facture;
 import tn.CodeCommanders.Panier.Panier;
 
 
@@ -42,9 +43,11 @@ public class Transactions {
             while (rs.next()) {
                 Panier p = new Panier();
                 p.setId_enchere(rs.getInt("id_enchere"));
+                p.setId_acteur(rs.getInt("id_acteur"));
                 p.setPrixTotal(rs.getDouble("prixTotal"));
                 p.setId_panier(rs.getInt("id_panier"));
                 String produit = rs.getString("produit");
+                p.setDate_Enchere(rs.getDate("Date_Enchere"));
                 // Assuming you have a setProduct method in the Panier class
                 p.setProduit(produit);
 
@@ -140,41 +143,149 @@ System.out.println("here panier" + idP);
         }
 
         return null; // Return null if Panier not found
-    }/*
-    public ArrayList<Panier> getAll() {
-        ArrayList<Panier> paniers = new ArrayList<>();
-        String query = "SELECT * FROM `Panier`";
+    }
+
+
+    public void addfacture(Facture facture) {
+        String query = "INSERT INTO `Facture`(`id_acteur`, `id_panier`, `name_card`, `ccn`, `exp_date`, `security_code`, `adrress`, `city`, `state`, `zip_code`, `country`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        try {
+            PreparedStatement stm = cnx.prepareStatement(query);
+
+
+            stm.setInt(1, facture.getId_acteur());
+            stm.setInt(2, facture.getId_panier());
+            stm.setString(3, facture.getName_card());
+            stm.setInt(4, facture.getCcn());
+            stm.setDate(5, new java.sql.Date(facture.getExp_date().getTime()));
+            stm.setInt(6, facture.getSecurity_code());
+            stm.setString(7, facture.getAddress());
+            stm.setString(8, facture.getCity());
+            stm.setString(9, facture.getState());
+            stm.setInt(10, facture.getZip_code());
+            stm.setString(11, facture.getCountry());
+
+            stm.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
+
+
+
+    public ArrayList<Facture> getAllF() {
+        ArrayList<Facture> factures = new ArrayList<>();
+        String query = "SELECT * FROM `Facture`";
 
         try (Statement stm = cnx.createStatement();
              ResultSet rs = stm.executeQuery(query)) {
 
             while (rs.next()) {
-                Panier panier = new Panier();
-                panier.setId_panier(rs.getInt(1));
-                panier.setId_lots(rs.getInt(2));
-                panier.setId_enchere(rs.getInt(3));
-                panier.setPrixTotal(rs.getDouble(4));
+                Facture facture = new Facture();
+                facture.setId_panier(rs.getInt("id_panier"));
+                facture.setId_facture(rs.getInt("id_facture"));
+                facture.setId_acteur(rs.getInt("id_acteur"));
+                facture.setCcn(rs.getInt("ccn"));
+                facture.setAddress(rs.getString("adrress"));
+                facture.setCountry(rs.getString("country"));
+                facture.setExp_date(rs.getDate("exp_date"));
+                facture.setName_card(rs.getString("name_card"));
+                facture.setSecurity_code(rs.getInt("security_code"));
+                facture.setState(rs.getString("state"));
+                facture.setZip_code(rs.getInt("zip_code"));
+                facture.setCity(rs.getString("city"));
 
-                paniers.add(panier);
+
+
+
+                factures.add(facture);
             }
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-        return paniers;
+        return factures;
     }
-    public static void Delete(int idP) {
-        String query = "DELETE FROM `Panier` WHERE id_panier = ?";
+
+
+    public void DeleteF(int idP) {
+        String query = "DELETE FROM `Facture` WHERE id_facture = ?";
+
+        System.out.println("Deleting facture with ID: " + idP);
 
         try (PreparedStatement stm = cnx.prepareStatement(query)) {
             stm.setInt(1, idP);
-            stm.executeUpdate();
+            int rowsAffected = stm.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("Facture with ID " + idP + " deleted successfully.");
+            } else {
+                System.out.println("No record found with ID " + idP + ". Nothing deleted.");
+            }
         } catch (SQLException e) {
             // Log or handle the exception appropriately
-            System.err.println("Error deleting record with id_panier " + idP + ": " + e.getMessage());
+            System.err.println("Error deleting record with id_facture " + idP + ": " + e.getMessage());
+            e.printStackTrace();  // Print the full stack trace for debugging
         }
     }
+
+    public void updateFacture(int id_facture, Facture facture) {
+        String query = "UPDATE `Facture` SET `id_panier`= ?, `id_acteur`= ?, `name_card`= ?, " +
+                "`ccn`= ?, `security_code`= ?, `adrress`= ?, `city`= ?, `state`= ?, " +
+                "`zip_code`= ?, `country`= ? WHERE id_facture = ?";
+
+        try (PreparedStatement stm = cnx.prepareStatement(query)) {
+            stm.setInt(1, facture.getId_panier());
+            stm.setInt(2, facture.getId_acteur());
+            stm.setString(3, facture.getName_card());
+            stm.setInt(4, facture.getCcn());
+
+            stm.setInt(5, facture.getSecurity_code());
+            stm.setString(6, facture.getAddress());
+            stm.setString(7, facture.getCity());
+            stm.setString(8, facture.getState());
+            stm.setInt(9, facture.getZip_code());
+            stm.setString(10, facture.getCountry());
+            stm.setInt(11, id_facture);
+
+            stm.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public void addfactureAdmin(Facture facture) {
+        String query = "INSERT INTO `Facture`( `id_acteur`, `id_panier`, `name_card`, `ccn`, `exp_date`, `security_code`, `adrress`, `city`, `state`, `zip_code`, `country`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        try {
+            PreparedStatement stm = cnx.prepareStatement(query);
+
+
+            stm.setInt(1, facture.getId_acteur());
+            stm.setInt(2, facture.getId_panier());
+            stm.setString(3, facture.getName_card());
+            stm.setInt(4, facture.getCcn());
+            stm.setDate(5, new java.sql.Date(facture.getExp_date().getTime()));
+            stm.setInt(6, facture.getSecurity_code());
+            stm.setString(7, facture.getAddress());
+            stm.setString(8, facture.getCity());
+            stm.setString(9, facture.getState());
+            stm.setInt(10, facture.getZip_code());
+            stm.setString(11, facture.getCountry());
+
+            stm.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    /*
     public ResultSet affiche() {
         String query = "SELECT * FROM `Panier`";
         ResultSet rs = null;

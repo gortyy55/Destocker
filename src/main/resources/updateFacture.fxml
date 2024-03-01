@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-radius: 50;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.CodeCommanders.Controllers.AdminupdatefactureController">
+    <children>
+        <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" style="-fx-background-color: #8D8C8; -fx-background-radius: 50;" styleClass="gradient-background" stylesheets="@PanierStyle.css">
+            <top>
+                <HBox alignment="CENTER_LEFT" prefHeight="61.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label alignment="CENTER" prefHeight="60.0" prefWidth="179.0" styleClass="shadow" stylesheets="@PanierStyle.css" text="GESTION PANIER" textFill="WHITE">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Pane maxHeight="-Infinity" prefHeight="1.0" prefWidth="200.0" styleClass="line-color" stylesheets="@PanierStyle.css" HBox.hgrow="ALWAYS" />
+                        <ImageView fitHeight="40.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                            <image>
+                                <Image url="@IMG/420537115_893893865613781_5800290521851255686_n%20(1).png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                    <padding>
+                        <Insets left="20.0" right="20.0" />
+                    </padding>
+                </HBox>
+            </top>
+            <left>
+                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="290.0" styleClass="container" stylesheets="@PanierStyle.css" BorderPane.alignment="CENTER">
+                    <BorderPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </BorderPane.margin>
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="290.0">
+                            <children>
+                                <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                                    <image>
+
+                                    </image>
+                                </ImageView>
+                                <VBox alignment="CENTER" prefHeight="100.0" prefWidth="210.0">
+                                    <children>
+                                        <Label prefHeight="16.0" prefWidth="199.0" styleClass="shadow" text="Ghofrane B'F" textFill="#ffffffb5">
+                                            <font>
+                                                <Font size="22.0" />
+                                            </font>
+                                        </Label>
+                                        <Label prefHeight="15.0" prefWidth="199.0" styleClass="shadow" stylesheets="@PanierStyle.css" text="\@ghofranebf" textFill="WHITE">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1.0" prefWidth="250.0" styleClass="line-color" stylesheets="@PanierStyle.css" />
+                        <VBox prefHeight="586.0" prefWidth="290.0" spacing="20.0">
+                            <children>
+                                <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="20.0" styleClass="button-container-mouse-moved" stylesheets="@PanierStyle.css">
+                                    <children>
+                                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                                            <image>
+                                                <Image url="@IMG/icons8-accueil-24.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Label prefHeight="35.0" prefWidth="218.0" styleClass="shadow" text="Home" textFill="#ffffffb5">
+                                            <font>
+                                                <Font size="24.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox accessibleRole="BUTTON" alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="20.0" styleClass="button-container-mouse-moved" stylesheets="@PanierStyle.css">
+                                    <children>
+                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                                            <image>
+                                                <Image url="@IMG/icons8-achat-50.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Label accessibleRole="MENU_ITEM" prefHeight="35.0" prefWidth="216.0" styleClass="shadow" text="Stock" textFill="#ffffffb5">
+                                            <font>
+                                                <Font size="24.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="20.0" styleClass="button-container-mouse-moved" stylesheets="@PanierStyle.css">
+                                    <children>
+                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                                            <image>
+                                                <Image url="@IMG/icons8-confiance-50.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Label prefHeight="35.0" prefWidth="216.0" styleClass="shadow" text="Associations" textFill="#ffffffb5">
+                                            <font>
+                                                <Font size="24.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="20.0" styleClass="button-container-mouse-moved" stylesheets="@PanierStyle.css">
+                                    <children>
+                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                                            <image>
+                                                <Image url="@IMG/icons8-vente-aux-enchères-50.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Label prefHeight="35.0" prefWidth="221.0" styleClass="shadow" text="Bids" textFill="#ffffffb5">
+                                            <font>
+                                                <Font size="24.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" prefHeight="60.0" prefWidth="264.0" spacing="20.0" stylesheets="@PanierStyle.css">
+                                    <children>
+                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                                            <image>
+                                                <Image url="@IMG/icons8-panier-30.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Label prefHeight="35.0" prefWidth="222.0" styleClass="shadow" text="Panier" textFill="#ffffffb5">
+                                            <font>
+                                                <Font size="24.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                    <styleClass>
+                                        <String fx:value="button-container-mouse-moved" />
+                                        <String fx:value="selected-button-container" />
+                                    </styleClass>
+                                </HBox>
+                                <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="20.0" styleClass="button-container-mouse-moved" stylesheets="@PanierStyle.css">
+                                    <children>
+                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                                            <image>
+                                                <Image url="@IMG/icons8-dollar-50.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Label prefHeight="35.0" prefWidth="221.0" styleClass="shadow" text="Payement" textFill="#ffffffb5">
+                                            <font>
+                                                <Font size="24.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="20.0" styleClass="button-container-mouse-moved" stylesheets="@PanierStyle.css">
+                                    <children>
+                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                                            <image>
+                                                <Image url="@IMG/icons8-tirelire-50.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Label prefHeight="35.0" prefWidth="219.0" styleClass="shadow" text="Piggy Bank" textFill="#ffffffb5">
+                                            <font>
+                                                <Font size="24.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+            </left>
+            <center>
+                <VBox prefHeight="841.0" prefWidth="1004.0" BorderPane.alignment="CENTER">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+                    </VBox.margin>
+                    <children>
+                        <VBox prefHeight="65.0" prefWidth="1005.0" styleClass="container" stylesheets="@PanierStyle.css">
+                            <children>
+                                <Label prefHeight="61.0" prefWidth="199.0" styleClass="shadow" text="DeStocker" textFill="#ffb801b5">
+                                    <font>
+                                        <Font name="Bodoni MT" size="36.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets left="11.0" right="10.0" top="10.0" />
+                                    </VBox.margin>
+                                </Label>
+                            </children>
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                        </VBox>
+                        <HBox prefHeight="714.0" prefWidth="1018.0" spacing="20.0">
+                            <VBox.margin>
+                                <Insets top="50.0" />
+                            </VBox.margin>
+                            <children>
+                                <VBox prefHeight="642.0" prefWidth="698.0" styleClass="container" stylesheets="@PanierStyle.css">
+                                    <HBox.margin>
+                                        <Insets bottom="100.0" left="40.0" />
+                                    </HBox.margin>
+                           <children>
+                              <HBox prefHeight="14.0" prefWidth="698.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="449.0" text="ID_Facture" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label prefHeight="18.0" prefWidth="136.0" text="ID_User" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="46.0" prefWidth="698.0">
+                                 <children>
+                                    <TextField fx:id="upIDfac" prefWidth="229.0" />
+                                    <TextField fx:id="upUserFact" alignment="CENTER" prefWidth="229.0">
+                                       <HBox.margin>
+                                          <Insets left="200.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="38.0" prefWidth="698.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="449.0" text="ID_Panier" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label prefHeight="18.0" prefWidth="136.0" text="Name Card" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="82.0" prefWidth="698.0">
+                                 <children>
+                                    <TextField fx:id="UPPanier" prefWidth="229.0" />
+                                    <TextField fx:id="UPnameC" alignment="CENTER" prefWidth="229.0">
+                                       <HBox.margin>
+                                          <Insets left="200.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="38.0" prefWidth="698.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="449.0" text="Credit card number" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label prefHeight="18.0" prefWidth="136.0" text="Expiration date " textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="65.0" prefWidth="698.0">
+                                 <children>
+                                    <TextField fx:id="upCCN" prefWidth="234.0">
+                                       <HBox.margin>
+                                          <Insets left="20.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <DatePicker fx:id="UPDate" prefHeight="26.0" prefWidth="230.0">
+                                       <HBox.margin>
+                                          <Insets left="200.0" />
+                                       </HBox.margin>
+                                    </DatePicker>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="38.0" prefWidth="698.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="449.0" text="Security code" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label prefHeight="18.0" prefWidth="136.0" text="Street address" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="66.0" prefWidth="698.0">
+                                 <children>
+                                    <TextField fx:id="UPsecCode" prefWidth="229.0" />
+                                    <TextField fx:id="UPaddress" alignment="CENTER" prefWidth="229.0">
+                                       <HBox.margin>
+                                          <Insets left="200.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="38.0" prefWidth="698.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="449.0" text="City" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label prefHeight="18.0" prefWidth="136.0" text="State" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="62.0" prefWidth="698.0">
+                                 <children>
+                                    <TextField fx:id="UPcity" prefWidth="229.0" />
+                                    <TextField fx:id="UPState" alignment="CENTER" prefWidth="229.0">
+                                       <HBox.margin>
+                                          <Insets left="200.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="38.0" prefWidth="698.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="449.0" text="Zip code" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label prefHeight="18.0" prefWidth="136.0" text="Country" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="47.0" prefWidth="698.0">
+                                 <children>
+                                    <TextField fx:id="UPzip" prefWidth="229.0" />
+                                    <TextField fx:id="UPCountry" alignment="CENTER" prefWidth="229.0">
+                                       <HBox.margin>
+                                          <Insets left="200.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="130.0" prefWidth="698.0">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <children>
+                                    <Button fx:id="btnupdatefacture" mnemonicParsing="false" onAction="#updatefacture" prefHeight="38.0" prefWidth="490.0" style="-fx-background-color: #ffb801;" text="Update" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                       <stylesheets>
+                                          <URL value="@PanierStyle.css" />
+                                          <URL value="@PanierStyle.css" />
+                                       </stylesheets>
+                                       <styleClass>
+                                          <String fx:value="form_container Button" />
+                                          <String fx:value="form_container Button:hover" />
+                                       </styleClass>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                                </VBox>
+                                <VBox prefHeight="709.0" prefWidth="242.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <ImageView fitHeight="296.0" fitWidth="247.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@IMG/Bill_or_receipt_and_credit_card_3D_illustration-removebg-preview.png" />
+                                            </image>
+                                 <VBox.margin>
+                                    <Insets top="100.0" />
+                                 </VBox.margin>
+                                        </ImageView>
+                                    </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </children>
+                    <padding>
+                        <Insets top="10.0" />
+                    </padding>
+                    <BorderPane.margin>
+                        <Insets />
+                    </BorderPane.margin>
+                </VBox>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

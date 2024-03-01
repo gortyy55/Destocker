@@ -3,6 +3,7 @@ package tn.CodeCommanders.Controllers;
 import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -37,6 +38,7 @@ public class lotitemController implements Initializable {
 
     @FXML
     private ScrollPane scroll;
+    private Stage stage;
 Transactions t = new Transactions();
 private  ArrayList<Panier> getlist(){
     return t.getAll();
@@ -97,7 +99,40 @@ private  ArrayList<Panier> getlist(){
     }
 
 
+    @FXML
+    public void gopay() {
+        List<Panier> paniers = getData(); // Assuming you have a method to retrieve the list of Paniers
 
+        if (!paniers.isEmpty()) {
+            Panier firstPanier = paniers.get(0); // Select the first Panier in the list (you can change this logic)
+
+            try {
+                // Load the Facture.fxml file
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/facture.fxml"));
+                Parent root = loader.load();
+
+                // Get the FactureController
+                FactureController factureController = loader.getController();
+
+                // Pass the id_panier and id_acteur from the firstPanier
+                factureController.setIdPanierToUpdate(firstPanier.getId_panier());
+                factureController.setIdact(firstPanier.getId_acteur());
+
+                // Create a new scene and set the stage
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+
+                // Show the stage
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            // Handle the case where there are no Paniers in the list
+            System.out.println("No Paniers available");
+        }
+    }
 }
 
 

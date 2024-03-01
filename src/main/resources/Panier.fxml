@@ -187,7 +187,7 @@
                <children>
                   <VBox prefHeight="65.0" prefWidth="1005.0" styleClass="container" stylesheets="@PanierStyle.css">
                      <children>
-                        <Label prefHeight="61.0" prefWidth="199.0" styleClass="shadow" text="DeStocker" textFill="#ffb801b5">
+                        <Label prefHeight="43.0" prefWidth="199.0" styleClass="shadow" text="DeStocker" textFill="#ffb801b5">
                            <font>
                               <Font name="Bodoni MT" size="36.0" />
                            </font>
@@ -280,7 +280,7 @@
                                           </HBox>
                                        </children>
                                     </HBox>
-                                    <Text fill="#ffb801" strokeType="OUTSIDE" strokeWidth="0.0" text="Prix Total" wrappingWidth="126.193359375">
+                                    <Text fill="#ffb801" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="126.193359375">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>

@@ -1,5 +1,6 @@
 package tn.CodeCommanders.Controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -42,5 +43,8 @@ public class PanierController {
         numenchere.setText("");
         price.setText("");
         datepick.setValue(null);
+    }
+
+    public void paybilling() {
     }
 }
