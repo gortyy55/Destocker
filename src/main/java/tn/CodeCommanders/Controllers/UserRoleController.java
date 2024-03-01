@@ -2,8 +2,10 @@ package tn.CodeCommanders.Controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.awt.event.ActionEvent;
@@ -11,9 +13,12 @@ import java.io.IOException;
 
 public class UserRoleController {
 
+   // @FXML
+   // private Button Admin;
     @FXML
     void AdminRole() {
         try {
+           // Stage currentStage = (Stage) Admin.getScene().getWindow();
             // Load the Update Facture FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Adminchoice.fxml"));
             Parent root = loader.load();
@@ -31,6 +36,7 @@ public class UserRoleController {
             Stage stage = new Stage(); // Create a new stage for the new scene
             stage.setScene(scene);
             stage.show();
+            //currentStage.close();
         } catch (IOException e) {
             e.printStackTrace();
             // Handle the exception appropriately
