@@ -25,6 +25,9 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static java.lang.Thread.sleep;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 
 
 public class Controllers implements Initializable  {
@@ -56,6 +59,15 @@ public class Controllers implements Initializable  {
     Stock s = new Stock(produit,qq,Mail);
     Transactions t = new Transactions();
 t.add(s);
+    final String ACCOUNT_SID = "AC98bdf891b664839b0e404cc157821a3a";
+    final String AUTH_TOKEN = "6a790e56f1033265def2244d74b9d708";
+    Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+
+//        Envoyer le SMS
+    String toPhoneNumber = "+21622097795";
+    String fromPhoneNumber = "+14159911333";
+    String messageBody = "vous avez un nouveau produit a ajouter ";
+    Message message = Message.creator(new PhoneNumber(toPhoneNumber), new PhoneNumber(fromPhoneNumber), messageBody).create();
 idproduit.setText("");
 idqq.setText("");
 mail.setText("");
