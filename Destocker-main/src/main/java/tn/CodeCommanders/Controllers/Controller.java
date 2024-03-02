@@ -69,10 +69,16 @@ public class Controller {
 
         User user = new User(email,password,role,firstname,lastname, address,telephone);
         ServiceUser Ser = new ServiceUser();
-        Ser.ajouter(user);
+        if(Ser.isEmailUnique(email)){
+            Ser.ajouter(user);
+            resetRegisterForm();
+        }else{
+            emailLabel.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+            errorMessage.setFill(javafx.scene.paint.Color.RED);
+            errorMessage.setText("Email Address already exist !");
+        }
 
 
-        resetRegisterForm();
     }
 
     private void resetRegisterForm() {
@@ -164,8 +170,6 @@ public class Controller {
         } catch (IOException e) {
             System.out.println("Error loading Login.fxml: " + e.getMessage());
         }
-
-
 
     }
 

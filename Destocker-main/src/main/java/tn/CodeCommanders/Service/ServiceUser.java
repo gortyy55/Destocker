@@ -29,7 +29,7 @@ import java.util.List;
 public class ServiceUser implements IServiceUser<User> {
 
     Connection cnx = JDBC.getInstance().getCnx();
-
+    private static User currentUser ;
 
     @Override
     public void ajouter(User user) {
@@ -155,28 +155,29 @@ public class ServiceUser implements IServiceUser<User> {
         return user;
     }
 
-    public User afficheravecpseudo(String email) throws SQLException {
-        User User = null;
-        String req = "SELECT * FROM `User` WHERE email=?";
-        PreparedStatement ps= cnx.prepareStatement(req);
-        ps.setString(1, email);
-        ResultSet rs = ps.executeQuery(); // Remove req from executeQuery
-        while (rs.next()){
-            User = new User(rs.getInt("ID"), rs.getString("EMAIL"), rs.getString("PASSWORD"), rs.getString("ROLE"), rs.getString("FIRSTNAME"), rs.getString("LASTNAME"), rs.getString("ADDRESS"), rs.getInt("TELEPHONE"));
-        }
-        return User;
-    }
-
-
-    public boolean UserLogIn(String email, String password) throws SQLException {
+    public boolean userLogIn(String email, String password) throws SQLException {
         String req = "SELECT * FROM `User` WHERE email=? AND password=?";
         PreparedStatement ps = cnx.prepareStatement(req);
         ps.setString(1, email);
         ps.setString(2, password);
         ResultSet rs = ps.executeQuery();
-        return rs.next();
+        if(rs.next()){
+            currentUser = new User(
+                    rs.getInt("id"),
+                    rs.getString("email"),
+                    rs.getString("password"),
+                    rs.getString("role"),
+                    rs.getString("firstname"),
+                    rs.getString("lastname"),
+                    rs.getString("address"),
+                    rs.getInt("telephone"));
+            return true;
+        }
+        return false;
     }
-    public void ChangeScreen(ActionEvent event, String fxmlFile, String title){
+
+
+    public void changeScreen(ActionEvent event, String fxmlFile, String title){
         try {
             FXMLLoader loader = new FXMLLoader(Login.class.getResource(fxmlFile));
             Parent root = loader.load();
@@ -187,5 +188,23 @@ public class ServiceUser implements IServiceUser<User> {
         }catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    public boolean isEmailUnique(String email) {
+
+        String qry = "SELECT * FROM `User` WHERE `email`=?";
+        try {
+            PreparedStatement stm = cnx.prepareStatement(qry);
+            stm.setString(1, email);
+            ResultSet rs = stm.executeQuery();
+            return !rs.next();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
     }
 }

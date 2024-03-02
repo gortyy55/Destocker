@@ -23,10 +23,12 @@ public class UpdateUserWindow implements Initializable {
     public TextField addr;
     public TextField telephone;
     public Button updatebtn;
+
     private List<User> users = new ArrayList<>();
     ServiceUser su = new ServiceUser();
 
     User user;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -50,6 +52,7 @@ public class UpdateUserWindow implements Initializable {
 
     public void update(ActionEvent event) throws IOException {
 
+
         String fname = firstname.getText();
         String lname = lastname.getText();
         String md = mdp.getText();
@@ -71,4 +74,7 @@ public class UpdateUserWindow implements Initializable {
         Dashboard.getInstance().FetchAll();
 
     }
+
+
+
 }

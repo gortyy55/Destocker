@@ -1,4 +1,4 @@
-package tn.CodeCommanders.Controllers;
+/*package tn.CodeCommanders.Controllers;
 
 import javafx.fxml.Initializable;
 
@@ -10,4 +10,4 @@ public class Afficheuser implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
-}
+}*/

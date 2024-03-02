@@ -135,9 +135,9 @@
             </HBox>
          </children>
       </VBox>
-      <HBox alignment="CENTER" layoutX="166.0" layoutY="44.0" prefHeight="502.0" prefWidth="762.0">
+      <HBox alignment="CENTER" layoutX="166.0" layoutY="44.0" prefHeight="502.0" prefWidth="762.0" style="-fx-background: transparent;">
               <children>
-      <ScrollPane fx:id="scrol" layoutX="208.0" layoutY="63.0" prefHeight="461.0" prefWidth="679.0">
+      <ScrollPane fx:id="scrol" layoutX="208.0" layoutY="63.0" prefHeight="461.0" prefWidth="679.0" styleClass="transparent" stylesheets="@User.css">
          <content>
             <GridPane fx:id="grid" alignment="CENTER" prefHeight="0.0" prefWidth="0.0">
                <rowConstraints>

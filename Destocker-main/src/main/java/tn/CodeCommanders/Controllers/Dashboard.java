@@ -61,6 +61,10 @@ ServiceUser t = new ServiceUser();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        scrol.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrol.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+
         int column = 0;
         int row = 1;
         users.addAll(getData());
@@ -93,7 +97,8 @@ ServiceUser t = new ServiceUser();
 
     }
 
-    public void logout(MouseEvent event) {try{
+    public void logout(MouseEvent event) {
+        try{
 
         Parent root= FXMLLoader.load(getClass().getResource("/Login.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
