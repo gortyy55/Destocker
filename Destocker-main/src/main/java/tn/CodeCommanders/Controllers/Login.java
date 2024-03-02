@@ -22,7 +22,7 @@ import java.sql.SQLException;
 
 public class Login {
 
-    ServiceUser ServiceUser = new ServiceUser();
+    ServiceUser serviceUser = new ServiceUser();
 
 
     @FXML
@@ -55,19 +55,16 @@ public class Login {
     private Scene scene;
 
     private void handleLogin(ActionEvent event) throws SQLException {
-
-            if (!ServiceUser.UserLogIn(emailLabel.getText(), passLabel.getText())) {
+            if (!serviceUser.userLogIn(emailLabel.getText(), passLabel.getText())) {
                 echecLoginLabel.setTextFill(Color.RED);
                 echecLoginLabel.setText("Pseudo or Password is incorrect");
             } else {
+                if(serviceUser.getCurrentUser().getRole().equals("Admin")){
+                    serviceUser.changeScreen(event,"/Dashboard.fxml","Dashboard");
 
-                User User = ServiceUser.afficheravecpseudo(emailLabel.getText());
-                echecLoginLabel.setTextFill(Color.GREEN);
-                echecLoginLabel.setText("WELCOME, " + User.getRole());
-
-
-               ServiceUser.ChangeScreen(event,"/Dashboard.fxml","Dashboard");
-
+                }else{
+                    serviceUser.changeScreen(event,"/Window.fxml","Dashboard");
+                }
             }
 
 
