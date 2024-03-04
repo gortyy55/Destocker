@@ -74,18 +74,17 @@ public class CardRec {
             TextInputDialog dialog = new TextInputDialog();
             dialog.setTitle("Modifier la réclamation");
             dialog.setHeaderText(null);
-            dialog.setContentText("Nouveau titre:");
-
+            dialog.setContentText("Modifier la description:");
             // n'ffichi l boite o nestana
             Optional<String> result = dialog.showAndWait();
 
             // Vérifier
-            result.ifPresent(nouveauTitre -> {
+            result.ifPresent(nouveauDescription -> {
                 // Mettez à jour reclamation mte3y
-                reclamation.setTitre(nouveauTitre);
+                reclamation.setDescription(nouveauDescription);
 
                 // Mettez à jour fl interface utilisateur
-                titreRec.setText(nouveauTitre);
+                DescRec.setText(nouveauDescription);
             });
         }
     }

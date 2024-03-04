@@ -213,7 +213,7 @@
                                 <Insets top="50.0" />
                             </VBox.margin>
                      <children>
-                        <ScrollPane fx:id="scrollreclamation" prefHeight="408.0" prefWidth="659.0" stylesheets="@ReclamationStyle.css">
+                        <ScrollPane fx:id="scrollreclamation" prefHeight="408.0" prefWidth="659.0" styleClass="transparent" stylesheets="@CardRec.css">
                            <content>
                               <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;">
                                 <rowConstraints>
