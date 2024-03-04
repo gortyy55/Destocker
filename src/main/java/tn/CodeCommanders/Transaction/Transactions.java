@@ -1,6 +1,7 @@
 package tn.CodeCommanders.Transaction;
 
 import tn.CodeCommanders.JDBC.JDBC;
+import tn.CodeCommanders.Panier.Enchere;
 import tn.CodeCommanders.Panier.Facture;
 import tn.CodeCommanders.Panier.Panier;
 
@@ -61,9 +62,50 @@ public class Transactions {
         return paniers;
     }
 
+    public ArrayList<Panier> getAllP(int idact) {
+        ArrayList<Panier> paniers = new ArrayList<>();
+
+        // Use a prepared statement to safely include the id_acteur parameter in the query
+        String query = "SELECT Panier.*, Enchere.produit " +
+                "FROM `Panier` " +
+                "JOIN `Enchere` ON Panier.id_enchere = Enchere.id " +
+                "WHERE Panier.id_acteur = ?";
+
+        System.out.println("Executing query with idact: " + idact);
+
+        try (PreparedStatement stm = cnx.prepareStatement(query)) {
+            // Set the id_acteur parameter in the prepared statement
+            stm.setInt(1, idact);
+
+            try (ResultSet rs = stm.executeQuery()) {
+                while (rs.next()) {
+                    Panier p = new Panier();
+                    p.setId_enchere(rs.getInt("id_enchere"));
+                    p.setId_acteur(rs.getInt("id_acteur"));
+                    p.setPrixTotal(rs.getDouble("prixTotal"));
+                    p.setId_panier(rs.getInt("id_panier"));
+                    String produit = rs.getString("produit");
+                    p.setDate_Enchere(rs.getDate("Date_Enchere"));
+                    // Assuming you have a setProduct method in the Panier class
+                    p.setProduit(produit);
+
+                    paniers.add(p);
+                }
+            }
+        } catch (SQLException e) {
+            // Handle the exception or log it
+            throw new RuntimeException("Error while retrieving Paniers: " + e.getMessage(), e);
+        }
+
+        System.out.println("Number of Paniers retrieved: " + paniers.size());
+        return paniers;
+    }
+
+
+
     public void Delete(int idP) throws SQLException {
         String query = "DELETE FROM Panier WHERE id_panier = ? ";
-System.out.println("here panier" + idP);
+        System.out.println("here panier" + idP);
         try (PreparedStatement stm = cnx.prepareStatement(query)) {
             stm.setInt(1, idP);
             stm.executeUpdate();
@@ -98,8 +140,6 @@ System.out.println("here panier" + idP);
     }
 
 
-
-
     public void update(int idPanier, int idEnchere, int idActeur, double prixTotal, Date dateEnchere) {
         String query = "UPDATE `Panier` SET `id_enchere`= ?, `id_acteur`= ?, `prixTotal`= ?, `Date_Enchere`= ? WHERE id_panier = ?";
         try {
@@ -121,7 +161,7 @@ System.out.println("here panier" + idP);
 
     public Panier getPanierById(int id_Panier) {
         System.out.println("did i receive id: " + id_Panier);
-        try  {
+        try {
             String query = "SELECT * FROM Panier WHERE id_panier = ?";
             PreparedStatement preparedStatement = cnx.prepareStatement(query);
             preparedStatement.setInt(1, id_Panier);
@@ -135,7 +175,7 @@ System.out.println("here panier" + idP);
                 double prixTotal = resultSet.getDouble("prixTotal");
                 Date Date_enchere = resultSet.getDate(" Date_Enchere");
 
-                return new Panier(id_Panier, idacteur, idEnchere, prixTotal,Date_enchere);
+                return new Panier(id_Panier, idacteur, idEnchere, prixTotal, Date_enchere);
             }
 
         } catch (SQLException e) {
@@ -172,10 +212,6 @@ System.out.println("here panier" + idP);
     }
 
 
-
-
-
-
     public ArrayList<Facture> getAllF() {
         ArrayList<Facture> factures = new ArrayList<>();
         String query = "SELECT * FROM `Facture`";
@@ -197,8 +233,6 @@ System.out.println("here panier" + idP);
                 facture.setState(rs.getString("state"));
                 facture.setZip_code(rs.getInt("zip_code"));
                 facture.setCity(rs.getString("city"));
-
-
 
 
                 factures.add(facture);
@@ -285,6 +319,33 @@ System.out.println("here panier" + idP);
     }
 
 
+    public ArrayList<Enchere> getAllE() {
+        ArrayList<Enchere> encheres = new ArrayList<>();
+        String query = "SELECT * FROM `Enchere`";
+
+        try (Statement stm = cnx.createStatement();
+             ResultSet rs = stm.executeQuery(query)) {
+            System.out.println("No record found with ID " + rs + ". Nothing deleted.");
+            while (rs.next()) {
+                Enchere enchere = new Enchere();
+                enchere.setId(rs.getInt(1));
+                enchere.setStock(rs.getInt(2));
+                enchere.setProduit(rs.getString(3));
+                enchere.setPrixint(rs.getInt(4));
+                encheres.add(enchere);
+
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return encheres;
+    }
+}
+
+
+
     /*
     public ResultSet affiche() {
         String query = "SELECT * FROM `Panier`";
@@ -315,4 +376,3 @@ System.out.println("here panier" + idP);
 */
 
 
-}

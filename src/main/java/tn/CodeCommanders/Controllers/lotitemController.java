@@ -39,20 +39,41 @@ public class lotitemController implements Initializable {
     @FXML
     private ScrollPane scroll;
     private Stage stage;
+
+    public int idact;
+
+
+
+    public void setIdact(int idActeur) {
+        this.idact = idActeur;
+        System.out.println("hihooo." + idact);
+
+        // Now, call getlist() after setting idact
+        ArrayList<Panier> paniers = getlist();
+        // You can use paniers as needed, for example, updating UI or other processing
+
+        // Alternatively, you can call getData() directly if needed
+        List<Panier> panierList = getData();
+        // Use panierList as needed
+
+        refreshGrid();
+    }
+
+
 Transactions t = new Transactions();
-private  ArrayList<Panier> getlist(){
-    return t.getAll();
-}
+
+    private ArrayList<Panier> getlist() {
+        System.out.println("getlist." + idact);
+        return t.getAllP(idact);
+    }
+
+
     private List<Panier> paniers = new ArrayList<>();
 
     private List<Panier> getData() {
+        System.out.println("getData." + idact);
         List<Panier> paniers = getlist();
-
-
-
         return paniers;
-
-
     }
 
 

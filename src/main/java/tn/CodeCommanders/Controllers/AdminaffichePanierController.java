@@ -144,6 +144,34 @@ public class AdminaffichePanierController implements Initializable {
         Table.setItems(updatedList);
     }
 
+    @FXML
+    void AdminajoutPanier() {
+        try {
+            // Load the Update Facture FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Panier.fxml"));
+            Parent root = loader.load();
+
+            // Get the controller of the Update Facture FXML file
+
+
+            // Pass the selected Facture to the Update Facture controller
+
+
+            // Create a new scene with the loaded FXML file
+            Scene scene = new Scene(root);
+
+            // Get the current stage from the existing button
+            Stage stage = new Stage(); // Create a new stage for the new scene
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle the exception appropriately
+        }
+
+    }
+
+
 
 
 

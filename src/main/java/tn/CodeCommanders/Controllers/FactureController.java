@@ -9,8 +9,6 @@ import tn.CodeCommanders.Panier.Facture;
 import tn.CodeCommanders.Transaction.Transactions;
 
 import java.sql.Date;
-import java.sql.SQLException;
-import java.time.format.DateTimeFormatter;
 
 public class FactureController {
 
@@ -70,6 +68,13 @@ public class FactureController {
             int zip_code = Integer.parseInt(zipcodeB.getText());
             String country = countryB.getText();
 
+/*
+            // Check if any required fields are empty
+            if (isAnyFieldEmpty(nameCard, creditnum, expdate, seccode, addressB, cityB, stateB, zipcodeB, countryB)) {
+                showErrorPopup("Missing Information", "Please fill in all required fields.");
+                return;
+            }*/
+
             Facture f = new Facture(idact, idPanierToUpdate, name_card, ccn, exp_date, security_code, address, city, state, zip_code, country);
             Transactions t = new Transactions();
             t.addfacture(f);
@@ -111,4 +116,20 @@ public class FactureController {
         zipcodeB.clear();
         countryB.clear();
     }
+
+    // Helper method to check if any required field is empty
+ /* private boolean isAnyFieldEmpty(TextField nameCard, TextField creditnum, DatePicker expdate, TextField seccode, TextField addressB, TextField cityB, TextField stateB, TextField zipcodeB, TextField countryB, String... fields) {
+        for (String field : fields) {
+            if (field.isEmpty()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+/*
+    private boolean isCreditCardNumberValid(String creditNumStr) {
+        return creditNumStr.length() == 8;
+    }*/
 }
