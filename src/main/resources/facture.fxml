@@ -254,11 +254,19 @@
                               <HBox prefHeight="56.0" prefWidth="718.0">
                                  <children>
                                     <TextField fx:id="creditnum" prefWidth="374.0">
+
                                        <HBox.margin>
                                           <Insets left="10.0" top="10.0" />
                                        </HBox.margin>
                                     </TextField>
+                                    <Label fx:id="creditNumLabel" prefHeight="17.0" prefWidth="210.0">
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="15.0" />
+                                       </HBox.margin>
+                                    </Label>
                                  </children>
+                                  <!-- Add the label for displaying the error message -->
+                                 
                               </HBox>
                               <HBox prefHeight="42.0" prefWidth="718.0">
                                  <children>
