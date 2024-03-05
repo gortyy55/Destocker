@@ -1,4 +1,5 @@
 package tn.CodeCommanders.Controllers;
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -13,6 +14,7 @@ import java.util.ResourceBundle;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.util.Duration;
 import tn.CodeCommanders.Reclamation.Reclamation;
 import tn.CodeCommanders.Transactions.Transactions;
 
@@ -21,8 +23,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.scene.control.Button;
+import javafx.stage.FileChooser;
+
+import java.io.File;
 
 public class AddReclamation {
+    public Button pj;
     @FXML
     private Stage stage;
 
@@ -38,7 +45,10 @@ public class AddReclamation {
 
     @FXML
     private ChoiceBox<String> typeChoice;
+
+    private String cheminFichierJoint;
     private String[] type = {"Produit défectueux","Problème de livraison","Service client insatisfaisant","Article manquant","Autres"};
+
 
     @FXML
     void AjouterReclamation(ActionEvent event) {
@@ -46,18 +56,41 @@ public class AddReclamation {
         String type = typeChoice.getValue();
         String description=DescTextField.getText();
 
-        Reclamation rec = new Reclamation(titre,description,type);
+        Reclamation rec = new Reclamation(titre,description,type,cheminFichierJoint);
+
+        if (cheminFichierJoint != null && !cheminFichierJoint.isEmpty()) {
+            rec.setCheminFichierJoint(cheminFichierJoint);
+        }
+
         Transactions T = new Transactions();
         T.add(rec);
+        cheminFichierJoint = null;
         Alert alert =new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText("Réclamation établie");
         alert.show();
 
+        PauseTransition delay = new PauseTransition(Duration.seconds(2));
+        delay.setOnFinished(even -> alert.close());
+        delay.play();
+
+    }
+
+    @FXML
+    private void handleJoindreFichier(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Joindre un fichier");
+
+        File fichierSelectionne = fileChooser.showOpenDialog(stage);
+
+        if (fichierSelectionne != null) {
+            cheminFichierJoint = fichierSelectionne.getAbsolutePath();
+        }
     }
 
     @FXML
     void initialize() {
         typeChoice.getItems().addAll(type);
+        pj.setOnAction(this::handleJoindreFichier);
     }
     public void setStage(Stage stage) {
         this.stage = stage;

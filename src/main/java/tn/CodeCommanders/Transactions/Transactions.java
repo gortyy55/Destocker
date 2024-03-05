@@ -10,7 +10,7 @@ import java.sql.Statement;
 public class Transactions{
 
     public void add(Reclamation reclamation) {
-        String qry = "INSERT INTO `Reclamation`(`titre`, `type`, `id_produit` , `Description` , `id_user` ) VALUES (?,?,?,?,?)";
+        String qry = "INSERT INTO `Reclamation`(`titre`, `type`, `id_produit` , `Description` , `id_user` , `cheminFichierJoint`) VALUES (?,?,?,?,?,?)";
         try {
             PreparedStatement stm = JDBC.getInstance().getCnx().prepareStatement(qry);
             stm.setString(1, reclamation.getTitre());
@@ -18,6 +18,7 @@ public class Transactions{
             stm.setInt(3, reclamation.getId_produit());
             stm.setString(4, reclamation.getDescription());
             stm.setInt(5, reclamation.getId_user());
+            stm.setString(6, reclamation.getCheminFichierJoint());
 
            stm.executeUpdate();
 

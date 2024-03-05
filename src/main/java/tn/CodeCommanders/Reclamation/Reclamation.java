@@ -7,6 +7,7 @@ public class Reclamation {
     private int id_produit;
     private String Description;
     private int id_user;
+    private String cheminFichierJoint;
 
     public Reclamation() {
     }
@@ -20,10 +21,19 @@ public class Reclamation {
         this.id_user = id_user;
     }
 
-    public Reclamation(String titre, String description, String type) {
+    public Reclamation(String titre, String description, String type , String cheminFichierJoint) {
         this.titre = titre;
         this.type = type;
-        Description = description;
+        this.Description = description;
+        this.cheminFichierJoint = cheminFichierJoint;
+
+    }
+    public String getCheminFichierJoint() {
+        return cheminFichierJoint;
+    }
+
+    public void setCheminFichierJoint(String cheminFichierJoint) {
+        this.cheminFichierJoint = cheminFichierJoint;
     }
 
     public int getId_reclamation() {

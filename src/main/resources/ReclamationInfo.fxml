@@ -224,7 +224,7 @@
                         </ScrollPane>
                      </children>
                         </HBox>
-                  <Button fx:id="switchToAddReclamation" mnemonicParsing="false" onAction="#switchToAdd" prefHeight="25.0" prefWidth="283.0" style="-fx-background-color: #ffb801;" text="Ajouter réclamation" textFill="WHITE" translateX="650.0">
+                  <Button fx:id="switchToAddReclamation" mnemonicParsing="false" onAction="#switchToAdd" prefHeight="25.0" prefWidth="283.0" style="-fx-background-color: #ffb801;" text="Ajouter réclamation" textFill="WHITE" translateY="50.0">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -239,6 +239,15 @@
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
+                  </Button>
+                  <Button fx:id="chatGPT" mnemonicParsing="false" onAction="#onChatgpt" prefHeight="67.0" prefWidth="53.0" translateX="870.0" translateY="70.0">
+                     <graphic>
+                        <ImageView fitHeight="71.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@chatgpt.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
                  
                     </children>

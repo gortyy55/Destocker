@@ -200,12 +200,12 @@
                      <Insets />
                   </VBox.margin>
                </VBox>
-               <HBox prefHeight="472.0" spacing="20.0">
+               <HBox prefHeight="566.0" prefWidth="1005.0" spacing="20.0">
                   <VBox.margin>
                      <Insets top="50.0" />
                   </VBox.margin>
                   <children>
-                     <VBox prefHeight="472.0" prefWidth="468.0" styleClass="container" stylesheets="@ReclamationStyle.css">
+                     <VBox prefHeight="522.0" prefWidth="468.0" styleClass="container" stylesheets="@ReclamationStyle.css">
                         <children>
                            <Label prefHeight="16.0" prefWidth="199.0" styleClass="shadow" text="Ajouter réclamation" textFill="#ffffffb5">
                               <font>
@@ -279,7 +279,7 @@
                                  </HBox>
                               </children>
                            </VBox>
-                           <Button fx:id="add" mnemonicParsing="false" onAction="#AjouterReclamation" prefHeight="25.0" prefWidth="283.0" style="-fx-background-color: #ffb801;" text="Ajouter" textFill="WHITE">
+                           <Button fx:id="add" mnemonicParsing="false" onAction="#AjouterReclamation" prefHeight="39.0" prefWidth="125.0" style="-fx-background-color: #ffb801;" text="Ajouter" textFill="WHITE" translateX="200.0" translateY="90.0">
                               <VBox.margin>
                                  <Insets bottom="20.0" left="100.0" right="20.0" top="20.0" />
                               </VBox.margin>
@@ -298,6 +298,22 @@
                                  <Insets />
                               </opaqueInsets>
                            </Button>
+                              <Button fx:id="pj" layoutX="120.0" layoutY="412.0" mnemonicParsing="false" onAction="#handleJoindreFichier" prefHeight="39.0" prefWidth="191.0" style="-fx-background-color: #A9A9A9;" text="Joindre un fichier" textFill="WHITE" translateX="10.0" translateY="-50.0">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                                 <stylesheets>
+                                    <URL value="@ReclamationStyle.css" />
+                                    <URL value="@ReclamationStyle.css" />
+                                 </stylesheets>
+                                 <styleClass>
+                                    <String fx:value="form_container Button" />
+                                    <String fx:value="form_container Button:hover" />
+                                 </styleClass>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Button>
                         </children>
                         <HBox.margin>
                            <Insets left="40.0" />
@@ -305,7 +321,7 @@
                      </VBox>
                   </children>
                </HBox>
-                  <Button fx:id="toAffich" mnemonicParsing="false" onAction="#retourButtonClicked" prefHeight="39.0" prefWidth="92.0" style="-fx-background-color: #ffb801;" text="Retour" textFill="WHITE" translateX="820.0">
+                  <Button fx:id="toAffich" mnemonicParsing="false" onAction="#retourButtonClicked" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ffb801;" text="Retour" textFill="WHITE" translateX="840.0" translateY="50.0">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
