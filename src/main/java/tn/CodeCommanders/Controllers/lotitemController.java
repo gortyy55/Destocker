@@ -82,7 +82,7 @@ Transactions t = new Transactions();
 
     private double calculateTotalPrice(List<Panier> paniers) {
 
-
+        totalPrice = 0.0;
         // Iterate through the list and sum up the prices
         for (Panier panier : paniers) {
             totalPrice += panier.getPrixTotal();

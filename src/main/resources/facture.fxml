@@ -204,7 +204,7 @@
                                 <Insets top="50.0" />
                             </VBox.margin>
                             <children>
-                                <VBox prefHeight="619.0" prefWidth="608.0" styleClass="container" stylesheets="@PanierStyle.css">
+                                <VBox prefHeight="662.0" prefWidth="608.0" styleClass="container" stylesheets="@PanierStyle.css">
                                     <HBox.margin>
                                         <Insets bottom="100.0" left="40.0" />
                                     </HBox.margin>
@@ -396,25 +396,48 @@
                                     </TextField>
                                  </children>
                               </HBox>
-                              <Button fx:id="btnpay" mnemonicParsing="false" onAction="#paybilling" prefHeight="40.0" prefWidth="490.0" style="-fx-background-color: #ffb801;" text="Pay" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="18.0" />
-                                 </font>
-                                 <stylesheets>
-                                    <URL value="@PanierStyle.css" />
-                                    <URL value="@PanierStyle.css" />
-                                 </stylesheets>
-                                 <styleClass>
-                                    <String fx:value="form_container Button" />
-                                    <String fx:value="form_container Button:hover" />
-                                 </styleClass>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
+                              <HBox alignment="CENTER" prefHeight="56.0" prefWidth="608.0">
+                                 <children>
+                                    <Button fx:id="btnpay1" mnemonicParsing="false" onAction="#paybilling" prefHeight="40.0" prefWidth="186.0" style="-fx-background-color: #ffb801;" text="Pay" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                       <stylesheets>
+                                          <URL value="@PanierStyle.css" />
+                                          <URL value="@PanierStyle.css" />
+                                       </stylesheets>
+                                       <styleClass>
+                                          <String fx:value="form_container Button" />
+                                          <String fx:value="form_container Button:hover" />
+                                       </styleClass>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#pickup" prefHeight="40.0" prefWidth="186.0" style="-fx-background-color: #ffb801;" text="PICK'UP" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                       <stylesheets>
+                                          <URL value="@PanierStyle.css" />
+                                          <URL value="@PanierStyle.css" />
+                                       </stylesheets>
+                                       <styleClass>
+                                          <String fx:value="form_container Button" />
+                                          <String fx:value="form_container Button:hover" />
+                                       </styleClass>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <HBox.margin>
+                                          <Insets left="100.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
                                  <VBox.margin>
-                                    <Insets bottom="20.0" left="60.0" />
+                                    <Insets />
                                  </VBox.margin>
-                              </Button>
+                              </HBox>
                            </children>
                                 </VBox>
                         <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">

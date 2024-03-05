@@ -35,9 +35,10 @@ public class Transactions {
     public ArrayList<Panier> getAll() {
         ArrayList<Panier> paniers = new ArrayList<>();
 
-        String query = "SELECT Panier.*, Enchere.produit " +
+        String query = "SELECT Panier.*, Enchere.produit, User.firstname " +
                 "FROM `Panier` " +
-                "JOIN `Enchere` ON Panier.id_enchere = Enchere.id";
+                "JOIN `Enchere` ON Panier.id_enchere = Enchere.id " +
+                "JOIN `User` ON Panier.id_acteur = User.id";
 
         try (Statement stm = cnx.createStatement();
              ResultSet rs = stm.executeQuery(query)) {
@@ -48,9 +49,12 @@ public class Transactions {
                 p.setPrixTotal(rs.getDouble("prixTotal"));
                 p.setId_panier(rs.getInt("id_panier"));
                 String produit = rs.getString("produit");
+                String acteurFirstName = rs.getString("firstname");
                 p.setDate_Enchere(rs.getDate("Date_Enchere"));
                 // Assuming you have a setProduct method in the Panier class
+                p.setActeurFirstName(acteurFirstName);
                 p.setProduit(produit);
+
 
                 paniers.add(p);
             }

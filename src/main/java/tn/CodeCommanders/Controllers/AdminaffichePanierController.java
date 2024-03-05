@@ -7,14 +7,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import tn.CodeCommanders.Panier.Facture;
 import tn.CodeCommanders.Panier.Panier;
 import tn.CodeCommanders.Transaction.Transactions;
 
@@ -48,15 +44,18 @@ public class AdminaffichePanierController implements Initializable {
     @FXML
     private TableColumn<Panier, Integer> idenchere;
 
+    @FXML
+    private TextField searchPanier;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Transactions t = new Transactions();
         ArrayList<Panier> str = t.getAll();
-        ObservableList< Panier> list = FXCollections.observableArrayList(str);
+        ObservableList<Panier> list = FXCollections.observableArrayList(str);
 
         idPanier.setCellValueFactory(new PropertyValueFactory<>("id_panier"));
-        idenchere.setCellValueFactory(new PropertyValueFactory<>("id_enchere"));
-        idUser.setCellValueFactory(new PropertyValueFactory<>("id_acteur"));
+        idenchere.setCellValueFactory(new PropertyValueFactory<>("produit"));
+        idUser.setCellValueFactory(new PropertyValueFactory<>("acteurFirstName"));
         Price.setCellValueFactory(new PropertyValueFactory<>("prixTotal"));
         dateEnchere.setCellValueFactory(new PropertyValueFactory<>("Date_Enchere"));
 
@@ -81,24 +80,43 @@ public class AdminaffichePanierController implements Initializable {
                     // Call your update method here
                     updatePanier(panier);
                 });
-        }
-
-
-        @Override
-        protected void updateItem(Void item, boolean empty) {
-            super.updateItem(item, empty);
-            if (empty) {
-                setGraphic(null);
-            } else {
-                HBox buttons = new HBox(deleteButton, updateButton);
-                buttons.setSpacing(5);
-                setGraphic(buttons);
             }
-        }
-    });
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    HBox buttons = new HBox(deleteButton, updateButton);
+                    buttons.setSpacing(5);
+                    setGraphic(buttons);
+                }
+            }
+        });
+
+        // Add a listener to the searchPanier TextField
+        searchPanier.textProperty().addListener((observable, oldValue, newValue) -> {
+            filterPanierList(newValue);
+        });
 
         Table.setItems(list);
-}
+    }
+
+    private void filterPanierList(String keyword) {
+        Transactions t = new Transactions();
+        ArrayList<Panier> allPaniers = t.getAll();
+        ObservableList<Panier> filteredList = FXCollections.observableArrayList();
+
+        for (Panier panier : allPaniers) {
+            if (String.valueOf(panier.getActeurFirstName()).contains(keyword) ||  String.valueOf(panier.getProduit()).contains(keyword)) {
+                filteredList.add(panier);
+            }
+        }
+
+        Table.setItems(filteredList);
+    }
+
     private void deletePanier(Panier panier) throws SQLException {
         Transactions t = new Transactions();
         int id_panier = panier.getId_panier();
@@ -134,6 +152,7 @@ public class AdminaffichePanierController implements Initializable {
             // Handle the exception appropriately
         }
     }
+
     private void refreshTable() {
         Transactions t = new Transactions();
         ArrayList<Panier> updatedData = t.getAll();
@@ -168,12 +187,5 @@ public class AdminaffichePanierController implements Initializable {
             e.printStackTrace();
             // Handle the exception appropriately
         }
-
     }
-
-
-
-
-
 }
-

@@ -202,7 +202,7 @@
          <children>
             <HBox prefHeight="55.0" prefWidth="206.0">
                <children>
-                  <ImageView fitHeight="48.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#handleImageViewClick">
+                  <ImageView fitHeight="48.0" fitWidth="35.0" onMouseClicked="#handleImageViewClick" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@IMG/icons8-achat-50.png" />
                      </image>

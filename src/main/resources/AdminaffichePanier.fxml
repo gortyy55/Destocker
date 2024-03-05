@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -199,19 +200,7 @@
             <TableColumn fx:id="Action" prefWidth="272.0" text="Action" />
             </columns>
         </TableView>
-        <VBox layoutX="293.0" layoutY="90.0" prefHeight="66.0" prefWidth="506.0" styleClass="container" stylesheets="@PanierStyle.css">
-            <children>
-                <Label prefHeight="56.0" prefWidth="264.0" styleClass="shadow" text="Panier details" textFill="#ffb801b5">
-                    <font>
-                        <Font name="Bodoni MT" size="36.0" />
-                    </font>
-                    <VBox.margin>
-                        <Insets left="11.0" right="10.0" top="10.0" />
-                    </VBox.margin>
-                </Label>
-            </children>
-        </VBox>
-      <HBox layoutX="926.0" layoutY="81.0" prefHeight="100.0" prefWidth="250.0">
+      <HBox layoutX="926.0" layoutY="81.0" prefHeight="100.0" prefWidth="317.0">
          <children>
             <Button fx:id="btnadd" mnemonicParsing="false" onAction="#AdminajoutPanier" prefHeight="40.0" prefWidth="163.0" style="-fx-background-color: #ffb801;" text="Add" textFill="WHITE">
                <font>
@@ -228,8 +217,32 @@
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
+               <HBox.margin>
+                  <Insets left="150.0" top="30.0" />
+               </HBox.margin>
             </Button>
          </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="325.0" layoutY="81.0" prefHeight="66.0" prefWidth="412.0" stylesheets="@CardStyle.css">
+         <children>
+            <TextField fx:id="searchPanier" maxWidth="280.0" prefHeight="245.0" prefWidth="280.0" promptText="Type here to search ">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </TextField>
+            <Button mnemonicParsing="false" style="-fx-background-color: #ffb801;" styleClass="search-button" stylesheets="@CardStyle.css" text="Search">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <styleClass>
+            <String fx:value="search-box" />
+            <String fx:value="container" />
+         </styleClass>
       </HBox>
 
 

@@ -1,5 +1,9 @@
 package tn.CodeCommanders.Controllers;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.PaymentIntent;
@@ -15,11 +19,24 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.HBox;
 import javafx.scene.control.Label;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.pdmodel.graphics.image.LosslessFactory;
+import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import tn.CodeCommanders.Panier.Facture;
 import tn.CodeCommanders.Transaction.Transactions;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.sql.Date;
+import java.time.format.DateTimeFormatter;
 
 public class FactureController  {
 
@@ -128,6 +145,22 @@ public class FactureController  {
                 nameCard.setStyle("-fx-border-color: red;");
             }
         });
+
+        expdate.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                // Check if the selected date is after the current date
+                if (newValue.isBefore(java.time.LocalDate.now())) {
+                    // Apply red border style to expdate
+                    expdate.setStyle("-fx-border-color: red;");
+
+                    // Show popup indicating that the card is expired
+                    showExpirationPopup();
+                } else {
+                    // Reset to default style
+                    expdate.setStyle("");
+                }
+            }
+        });
     }
 
 
@@ -145,6 +178,79 @@ public class FactureController  {
         this.price = totalPrice;
         System.out.println("Prixxx." + price);
     }
+
+    private void showExpirationPopup() {
+        Alert alert = new Alert(AlertType.WARNING);
+        alert.setTitle("Card Expiration Warning");
+        alert.setHeaderText(null);
+        alert.setContentText("The card has expired. Please use a valid card.");
+        alert.showAndWait();
+    }
+
+
+
+// ...
+
+    @FXML
+    void pickup() {
+        try {
+            PDDocument document = new PDDocument();
+            PDPage page = new PDPage();
+            document.addPage(page);
+
+            PDPageContentStream contentStream = new PDPageContentStream(document, page);
+
+            // Set font and size (adjust as needed)
+            contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
+
+            // Add content to the PDF
+            contentStream.beginText();
+            contentStream.newLineAtOffset(50, 750);
+            contentStream.showText("Name on Card: " + nameCard.getText());
+            contentStream.newLineAtOffset(0, -20);
+            contentStream.showText("Address: " + addressB.getText());
+            contentStream.newLineAtOffset(0, -20);
+            contentStream.showText("City: " + cityB.getText());
+            contentStream.newLineAtOffset(0, -20);
+            contentStream.showText("State: " + stateB.getText());
+            contentStream.newLineAtOffset(0, -20);
+            contentStream.showText("Date of Expiry: " + expdate.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+            contentStream.newLineAtOffset(0, -20);
+            contentStream.showText("Zip Code: " + zipcodeB.getText());
+            contentStream.newLineAtOffset(0, -20);
+            contentStream.showText("Country: " + countryB.getText());
+            contentStream.newLineAtOffset(0, -20);
+            contentStream.showText("Total Price: " + price);  // Assuming 'price' is the total price variable
+            contentStream.endText();
+
+            // Generate QR Code for Google Maps location
+            String googleMapsUrl = "https://www.google.com/maps/place/ESB+:+Esprit+School+of+Business/@36.8992352,10.1868701,17z/data=!3m1!4b1!4m6!3m5!1s0x12e2cb745e5c6f1b:0xf69a51ee3c65c12e!8m2!3d36.8992352!4d10.189445!16s%2Fg%2F11cs3ytq00?entry=ttu";
+            BitMatrix bitMatrix = new MultiFormatWriter().encode(googleMapsUrl, BarcodeFormat.QR_CODE, 200, 200);
+
+            // Draw QR Code on the PDF
+            BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix);
+            PDImageXObject pdImage = LosslessFactory.createFromImage(document, bufferedImage);
+            contentStream.drawImage(pdImage, 50, 50);  // Adjust the position as needed
+
+            contentStream.close();
+
+            // Save the PDF in the Downloads directory
+            document.save(System.getProperty("user.home") + "/Downloads/pickup_receipt.pdf");
+
+            // Show success message or any other actions
+
+            document.close();
+        } catch (IOException e) {
+            // Handle exception
+            e.printStackTrace();
+            showErrorPopup("Error", "Failed to generate PDF.");
+        } catch (Exception e) {
+            // Handle ZXing exception
+            e.printStackTrace();
+            showErrorPopup("Error", "Failed to generate QR code.");
+        }
+    }
+
     @FXML
     void paybilling() {
         if (validatePaymentDetails()) {

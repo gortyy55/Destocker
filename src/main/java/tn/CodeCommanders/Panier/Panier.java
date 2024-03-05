@@ -10,6 +10,8 @@ public class Panier {
     private Date Date_Enchere;
     private String produit;
 
+    private String acteurFirstName;
+
     public Panier() {
         // No need to assign id_panier here, let the database handle it
     }
@@ -20,6 +22,8 @@ public class Panier {
         this.prixTotal = prixTotal;
         this.Date_Enchere = Date_Enchere;
         this.produit = produit;
+        this.acteurFirstName = acteurFirstName;
+
     }
 
     // Constructor with id_panier (for retrieval from the database)
@@ -30,6 +34,8 @@ public class Panier {
         this.prixTotal = prixTotal;
         this.Date_Enchere = Date_Enchere;
         this.produit = produit;
+        this.acteurFirstName=acteurFirstName;
+
     }
 
     public int getId_panier() {
@@ -51,6 +57,13 @@ public class Panier {
         this.produit = produit;
     }
 
+    public String getActeurFirstName() {
+        return acteurFirstName;
+    }
+
+    public void setActeurFirstName(String acteurFirstName) {
+        this.acteurFirstName = acteurFirstName;
+    }
     public void setId_acteur(int id_acteur) {
         this.id_acteur = id_acteur;
     }
