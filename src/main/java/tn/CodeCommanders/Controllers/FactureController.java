@@ -1,5 +1,9 @@
 package tn.CodeCommanders.Controllers;
 
+import com.stripe.Stripe;
+import com.stripe.exception.StripeException;
+import com.stripe.model.PaymentIntent;
+import com.stripe.param.PaymentIntentCreateParams;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
@@ -51,6 +55,8 @@ public class FactureController  {
 
     public int idPanierToUpdate;
     public int idact;
+
+    public double price;
 
     @FXML
     private Label creditNumLabel;
@@ -135,6 +141,10 @@ public class FactureController  {
         System.out.println("hooooo." + idActeur);
     }
 
+    public void setTotalPrice(double totalPrice) {
+        this.price = totalPrice;
+        System.out.println("Prixxx." + price);
+    }
     @FXML
     void paybilling() {
         if (validatePaymentDetails()) {
@@ -154,6 +164,7 @@ public class FactureController  {
                 Facture f = new Facture(idact, idPanierToUpdate, name_card, ccn, exp_date, security_code, address, city, state, zip_code, country);
                 Transactions t = new Transactions();
                 t.addfacture(f);
+                processPayment(price);
 
                 // Show payment success popup
                 showSuccessPopup("Payment Successful");
@@ -167,6 +178,26 @@ public class FactureController  {
     }
 
 
+    private void processPayment(double amount) {
+        try {
+            // Set your secret key here
+            Stripe.apiKey = "sk_test_51OquviDCmW43ltvEjgzNfYf8MRicGmOGc3evVEBzelH6rya65WxmIkrPWZVt1F9NloT5t0qg5GdaNOL6GGiTY9ts00Yb70kl3o";
+
+            // Create a PaymentIntent with other payment details
+            PaymentIntentCreateParams params = PaymentIntentCreateParams.builder()
+                    .setAmount((long) (amount * 100)) // Amount in cents (e.g., $10.00)
+                    .setCurrency("usd")
+                    .build();
+
+            PaymentIntent intent = PaymentIntent.create(params);
+
+            // If the payment was successful, display a success message
+            System.out.println("Payment successful. PaymentIntent ID: " + intent.getId());
+        } catch (StripeException e) {
+            // If there was an error processing the payment, display the error message
+            System.out.println("Payment failed. Error: " + e.getMessage());
+        }
+    }
 
 
 

@@ -42,7 +42,7 @@ public class lotitemController implements Initializable {
 
     public int idact;
 
-
+    double totalPrice = 0.0;
 
     public void setIdact(int idActeur) {
         this.idact = idActeur;
@@ -73,10 +73,23 @@ Transactions t = new Transactions();
     private List<Panier> getData() {
         System.out.println("getData." + idact);
         List<Panier> paniers = getlist();
+
+        double totalPrice = calculateTotalPrice(paniers);
+        System.out.println("Total Price: " + totalPrice);
         return paniers;
     }
 
 
+    private double calculateTotalPrice(List<Panier> paniers) {
+
+
+        // Iterate through the list and sum up the prices
+        for (Panier panier : paniers) {
+            totalPrice += panier.getPrixTotal();
+        }
+
+        return totalPrice;
+    }
 
     @Override
     public  void initialize(URL location, ResourceBundle resources) {
@@ -138,6 +151,7 @@ Transactions t = new Transactions();
                 // Pass the id_panier and id_acteur from the firstPanier
                 factureController.setIdPanierToUpdate(firstPanier.getId_panier());
                 factureController.setIdact(firstPanier.getId_acteur());
+                factureController.setTotalPrice(totalPrice);
 
                 // Create a new scene and set the stage
                 Scene scene = new Scene(root);

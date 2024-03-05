@@ -45,6 +45,5 @@ public class PanierController {
         datepick.setValue(null);
     }
 
-    public void paybilling() {
-    }
+
 }
