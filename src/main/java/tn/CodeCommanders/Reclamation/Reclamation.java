@@ -8,17 +8,19 @@ public class Reclamation {
     private String Description;
     private int id_user;
     private String cheminFichierJoint;
+    private String statut;
 
     public Reclamation() {
     }
 
-    public Reclamation(int id_reclamation, String titre, String type, int id_produit, String description, int id_user) {
+    public Reclamation(int id_reclamation, String titre, String type, int id_produit, String description, int id_user, String statut ) {
         this.id_reclamation = id_reclamation;
         this.titre = titre;
         this.type = type;
         this.id_produit = id_produit;
         Description = description;
         this.id_user = id_user;
+        this.statut = statut;
     }
 
     public Reclamation(String titre, String description, String type , String cheminFichierJoint) {
@@ -84,6 +86,14 @@ public class Reclamation {
         this.id_user = id_user;
     }
 
+    public String getStatut() {
+        return statut;
+    }
+
+    public void setStatut(String statut) {
+        this.statut = statut;
+    }
+
     @Override
     public String toString() {
         return "Reclamation{" +
@@ -93,10 +103,10 @@ public class Reclamation {
                 ", id_produit=" + id_produit +
                 ", Description='" + Description + '\'' +
                 ", id_user=" + id_user +
+                ", cheminFichierJoint='" + cheminFichierJoint + '\'' +
+                ", statut='" + statut + '\'' +
                 '}';
     }
-
-
-    }
+}
 
 

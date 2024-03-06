@@ -40,6 +40,8 @@ public class ReclamationInfo implements Initializable {
     @FXML
     private Button chatGPT;
 
+    @FXML
+    private Button evaluer;
     Transactions t = new Transactions();
 
     private ArrayList<Reclamation> getlist() {
@@ -101,48 +103,39 @@ public class ReclamationInfo implements Initializable {
             System.out.println(e.getMessage());
         }
     }
+    @FXML
+    void switchToAvis(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/avisClient.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     @FXML
     void onChatgpt(ActionEvent event) {
-        String messageUtilisateur = "Obtenez le message de l'utilisateur depuis votre interface utilisateur";
-        String apiKey = "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";
-
-        String reponseChatbot = APIChatbot(messageUtilisateur, apiKey);
-
-        System.out.println("Réponse du chatbot : " + reponseChatbot);
-    }
-
-    private String APIChatbot(String message, String apiKey) {
-        /*try {
-            URL url = new URL("URL_de_votre_API_ChatGPT");
-
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-Type", "application/json");
-            connection.setRequestProperty("Authorization", "Bearer " + apiKey);
-            connection.setDoOutput(true);
-
-            // Créer le corps de la requête JSON avec le message de l'utilisateur
-            String requestBody = "{\"message\": \"" + message + "\"}";
-            // Envoyer le corps de la requête
-            try (OutputStream os = connection.getOutputStream()) {
-                byte[] input = requestBody.getBytes("utf-8");
-                os.write(input, 0, input.length);
+            // Charger la fenêtre du chat
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/chatWin.fxml"));
+            Parent chatParent;
+            try {
+                chatParent = loader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+                return;
             }
-            // Lire la réponse de l'API
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8"))) {
-                StringBuilder response = new StringBuilder();
-                String responseLine;
-                while ((responseLine = br.readLine()) != null) {
-                    response.append(responseLine.trim());
-                }
-                return response.toString();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "Erreur lors de l'appel de l'API";
-        */
-        return message;
+            chatWin chatWin = loader.getController();
+
+            Scene chatScene = new Scene(chatParent);
+
+            Stage chatStage = new Stage();
+            chatStage.setTitle("Chat avec le support client");
+            chatStage.setScene(chatScene);
+            chatStage.show();
+        }
     }
-}

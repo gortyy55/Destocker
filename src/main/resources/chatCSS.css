@@ -1,0 +1,32 @@
+/* Styles.css */
+
+/* Style de la boîte principale */
+VBox {
+    -fx-spacing: 10;
+    -fx-padding: 10;
+    -fx-background-color: #f0f0f0; /* Couleur de fond */
+}
+
+/* Style de la zone de chat */
+#zoneDeChat {
+    -fx-pref-height: 300;
+    -fx-font-family: "Arial";
+    -fx-font-size: 14;
+    -fx-background-color: #ffffff; /* Couleur de fond de la zone de chat */
+}
+
+/* Style du champ de saisie du message */
+#messageTextField {
+    -fx-pref-height: 40;
+    -fx-font-family: "Arial";
+    -fx-font-size: 14;
+}
+
+/* Style du bouton d'envoi */
+#envoyerButton {
+    -fx-pref-height: 40;
+    -fx-font-family: "Arial";
+    -fx-font-size: 14;
+    -fx-background-color: #4CAF50; /* Couleur de fond du bouton */
+    -fx-text-fill: #ffffff; /* Couleur du texte du bouton */
+}

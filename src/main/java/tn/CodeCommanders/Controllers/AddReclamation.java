@@ -9,6 +9,8 @@ import javafx.stage.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.scene.control.Alert;
@@ -84,6 +86,20 @@ public class AddReclamation {
 
         if (fichierSelectionne != null) {
             cheminFichierJoint = fichierSelectionne.getAbsolutePath();
+            handleFileUpload(fichierSelectionne);
+        }
+    }
+    private void handleFileUpload(File file) {
+
+        String destinationPath = "C:\\Users\\Syrine Kamoun\\Downloads\\reclamation\\src\\main\\java\\tn\\CodeCommanders\\Pieces jointes";
+        File destinationFile = new File(destinationPath, file.getName());
+
+        try {
+            Files.copy(file.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            String filePathInDatabase = destinationFile.getPath();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

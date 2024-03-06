@@ -4,16 +4,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import tn.CodeCommanders.Controllers.AddReclamation;
 
 public class MainFX extends Application {
 
@@ -23,19 +16,21 @@ public class MainFX extends Application {
     }
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage)  {
        FXMLLoader loader = new FXMLLoader(getClass().getResource("/ReclamationInfo.fxml"));
-
+        //FXMLLoader loader = new FXMLLoader(getClass().getResource("/admin.fxml"));
         try{
             Parent root = loader.load();
             Scene scene = new Scene(root);
-
             stage.setTitle("Reclamation Infos");
+            //stage.setTitle("Admin");
             stage.setScene(scene);
             stage.show();
         }catch (IOException e){
             System.out.println(e.getMessage());
         }
+
+
     }
 
 }

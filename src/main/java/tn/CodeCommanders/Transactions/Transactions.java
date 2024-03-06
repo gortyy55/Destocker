@@ -27,22 +27,23 @@ public class Transactions{
 
         }
     }
-    public ArrayList<Reclamation> getAll() {
+    public static ArrayList<Reclamation> getAll() {
         ArrayList<Reclamation> reclamations = new ArrayList<>();
-        String qry="SELECT * FROM Reclamation";
+        String qry = "SELECT * FROM Reclamation";
         try {
             Statement stm = JDBC.getInstance().getCnx().createStatement();
             ResultSet rs = stm.executeQuery(qry);
-            while (rs.next()) { Reclamation rec = new Reclamation();
+            while (rs.next()) {
+                Reclamation rec = new Reclamation();
                 rec.setId_reclamation(rs.getInt("id_reclamation"));
                 rec.setTitre(rs.getString("titre"));
                 rec.setType(rs.getString("type"));
                 rec.setId_produit(rs.getInt("id_produit"));
                 rec.setDescription(rs.getString("Description"));
                 rec.setId_user(rs.getInt("id_user"));
+                rec.setStatut(rs.getString("statut"));  // Add this line to set the statut
                 reclamations.add(rec);
             }
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -82,7 +83,39 @@ public Reclamation reclamation;
             return false;
         }
     }
+    public int getIdReclamationByTitre(String titreReclamation) {
+        String sql = "SELECT id_reclamation FROM Reclamation WHERE titre = ?";
+        try (PreparedStatement statement = JDBC.getInstance().getCnx().prepareStatement(sql)) {
+            statement.setString(1, titreReclamation);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                return resultSet.getInt("id_reclamation");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        return -1;
+    }
+
+    public void enregistrerAvis(int idReclamation, boolean satisfaction ,String comment ) {
+        String sql = "INSERT INTO Avis_Client (id_reclamation, satisfaction, comment) VALUES (?, ?, ?)";
+
+        try (PreparedStatement stm = JDBC.getInstance().getCnx().prepareStatement(sql)) {
+            stm.setInt(1, idReclamation);
+            stm.setBoolean(2, satisfaction);
+            stm.setString(3, comment);
+            stm.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de l'ajout de l'avis : " + e.getMessage());
+        }
+    }
+
+
 }
+
+
 
 
 

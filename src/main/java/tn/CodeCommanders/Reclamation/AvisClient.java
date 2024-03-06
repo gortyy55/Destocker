@@ -2,7 +2,7 @@ package tn.CodeCommanders.Reclamation;
 
 public class AvisClient {
     private int idAvis;
-    private int idReclamation;
+    private int id_reclamation;
     private boolean satisfaction;
     private String comment;
 
@@ -10,9 +10,15 @@ public class AvisClient {
         this.idAvis = idAvis;
     }
 
-    public AvisClient(int idAvis, int idReclamation, boolean satisfaction, String comment) {
+   public AvisClient(int idAvis, int idReclamation, boolean satisfaction, String comment) {
         this.idAvis = idAvis;
-        this.idReclamation = idReclamation;
+        this.id_reclamation = idReclamation;
+        this.satisfaction = satisfaction;
+        this.comment = comment;
+    }
+
+    public AvisClient(int idReclamation, boolean satisfaction, String comment) {
+        this.id_reclamation = idReclamation;
         this.satisfaction = satisfaction;
         this.comment = comment;
     }
@@ -26,11 +32,11 @@ public class AvisClient {
     }
 
     public int getIdReclamation() {
-        return idReclamation;
+        return id_reclamation;
     }
 
     public void setIdReclamation(int idReclamation) {
-        this.idReclamation = idReclamation;
+        this.id_reclamation = idReclamation;
     }
 
     public boolean isSatisfaction() {
@@ -53,7 +59,7 @@ public class AvisClient {
     public String toString() {
         return "AvisClient{" +
                 "idAvis=" + idAvis +
-                ", idReclamation=" + idReclamation +
+                ", idReclamation=" + id_reclamation +
                 ", satisfaction=" + satisfaction +
                 ", comment='" + comment + '\'' +
                 '}';

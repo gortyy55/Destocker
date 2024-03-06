@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
-<?import java.net.URL?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" style="-fx-background-radius: 50;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.CodeCommanders.Controllers.ReclamationInfo">
+<AnchorPane style="-fx-background-radius: 50;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.CodeCommanders.Controllers.admin">
     <children>
-        <BorderPane fx:id="border" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" style="-fx-background-color: #8D8C8; -fx-background-radius: 50;" styleClass="gradient-background" stylesheets="@ReclamationStyle.css">
+        <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" style="-fx-background-color: #8D8C8; -fx-background-radius: 50;" styleClass="gradient-background" stylesheets="@ReclamationStyle.css">
             <top>
                 <HBox alignment="CENTER_LEFT" prefHeight="61.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
                     <children>
@@ -55,12 +55,12 @@
                                 </ImageView>
                                 <VBox alignment="CENTER" prefHeight="100.0" prefWidth="210.0">
                                     <children>
-                                        <Label prefHeight="16.0" prefWidth="199.0" styleClass="shadow" text="Syrine Kamoun" textFill="#ffffffb5">
+                                        <Label prefHeight="16.0" prefWidth="199.0" styleClass="shadow" text="Administrateur" textFill="#ffffffb5">
                                             <font>
                                                 <Font size="22.0" />
                                             </font>
                                         </Label>
-                                        <Label prefHeight="15.0" prefWidth="199.0" styleClass="shadow" stylesheets="@ReclamationStyle.css" text="\@Syrinekm" textFill="WHITE">
+                                        <Label prefHeight="15.0" prefWidth="199.0" styleClass="shadow" stylesheets="@ReclamationStyle.css" text="\@Admin" textFill="WHITE">
                                             <font>
                                                 <Font size="18.0" />
                                             </font>
@@ -180,7 +180,7 @@
                 </VBox>
             </left>
             <center>
-                <VBox prefHeight="700.0" prefWidth="0.0" BorderPane.alignment="CENTER">
+                <VBox prefHeight="805.0" prefWidth="1005.0" BorderPane.alignment="CENTER">
                     <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
                     </VBox.margin>
@@ -200,72 +200,85 @@
                                 <Insets />
                             </VBox.margin>
                         </VBox>
-                  <Label style="&#10;                                -fx-font-weight: bold;&#10;                            " styleClass="shadow" text="Mes réclamations" textAlignment="CENTER" textFill="#ffffffb5" wrapText="true">
-                     <font>
-                        <Font size="33.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                  </Label>
-                        <HBox fx:id="hboxCard" prefHeight="408.0" prefWidth="1005.0" spacing="20.0">
+                        <HBox prefHeight="566.0" prefWidth="1005.0" spacing="20.0">
                             <VBox.margin>
                                 <Insets top="50.0" />
                             </VBox.margin>
-                     <children>
-                        <ScrollPane fx:id="scrollreclamation" prefHeight="408.0" prefWidth="659.0" styleClass="transparent" stylesheets="@CardRec.css">
-                           <content>
-                              <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;">
-                                <rowConstraints>
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
-                              </GridPane>
-                           </content>
-                        </ScrollPane>
-                     </children>
+                            <children>
+                                <VBox prefHeight="566.0" prefWidth="925.0" styleClass="container" stylesheets="@ReclamationStyle.css">
+                                    <children>
+                                        <Label prefHeight="62.0" prefWidth="199.0" styleClass="shadow" text="Les réclamations" textFill="#ffffffb5">
+                                            <font>
+                                                <Font size="26.0" />
+                                            </font>
+                                            <VBox.margin>
+                                                <Insets left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                        <VBox prefHeight="506.0" prefWidth="680.0">
+                            <TableView fx:id="reclamationTable" VBox.vgrow="ALWAYS">
+                                <columns>
+                                    <TableColumn prefWidth="150" text="Title">
+                                        <cellValueFactory>
+                                            <PropertyValueFactory property="titre" />
+                                        </cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn prefWidth="100" text="Type">
+                                        <cellValueFactory>
+                                            <PropertyValueFactory property="type" />
+                                        </cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn prefWidth="80" text="Product ID">
+                                        <cellValueFactory>
+                                            <PropertyValueFactory property="id_produit" />
+                                        </cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn prefWidth="200" text="Description">
+                                        <cellValueFactory>
+                                            <PropertyValueFactory property="description" />
+                                        </cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn prefWidth="80" text="User ID">
+                                        <cellValueFactory>
+                                            <PropertyValueFactory property="id_user" />
+                                        </cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn prefWidth="150" text="File Path">
+                                        <cellValueFactory>
+                                            <PropertyValueFactory property="cheminFichierJoint" />
+                                        </cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn prefWidth="80" text="Status">
+                                        <cellValueFactory>
+                                            <PropertyValueFactory property="statut" />
+                                        </cellValueFactory>
+                                    </TableColumn>
+                                </columns>
+
+                                <HBox>
+                                    <ComboBox fx:id="statutComboBox" editable="true" prefWidth="150.0" promptText="en cours" visibleRowCount="3">
+                                        <items>
+                                            <!-- Ajoutez ici les différents statuts que l'utilisateur peut choisir -->
+                                            <FXCollections fx:factory="observableArrayList">
+                                                <String fx:value="En attente" />
+                                                <String fx:value="En cours" />
+                                                <String fx:value="Résolu" />
+                                                <!-- Ajoutez d'autres statuts au besoin -->
+                                            </FXCollections>
+                                        </items>
+                                    </ComboBox>
+                                </HBox>
+                            </TableView>
+                                        </VBox>
+
+                                    </children>
+                                    <HBox.margin>
+                                        <Insets left="40.0" />
+
+                                    </HBox.margin>
+                                </VBox>
+                            </children>
                         </HBox>
-                  <Button fx:id="switchToAddReclamation" mnemonicParsing="false" onAction="#switchToAdd" prefHeight="25.0" prefWidth="283.0" style="-fx-background-color: #ffb801;" text="Ajouter réclamation" textFill="WHITE" translateY="50.0">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <stylesheets>
-                        <URL value="@ReclamationStyle.css" />
-                        <URL value="@ReclamationStyle.css" />
-                     </stylesheets>
-                     <styleClass>
-                        <String fx:value="form_container Button" />
-                        <String fx:value="form_container Button:hover" />
-                     </styleClass>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </Button>
-                  <Button fx:id="chatGPT" mnemonicParsing="false" onAction="#onChatgpt" prefHeight="29.0" prefWidth="55.0" translateX="900.0" translateY="-550.0">
-                     <graphic>
-                        <ImageView fitHeight="71.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@chatgpt.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="evaluer" layoutX="10.0" layoutY="612.0" mnemonicParsing="false" onAction="#switchToAvis" prefHeight="27.0" prefWidth="113.0" style="-fx-background-color: #ffb801;" text="Evaluer" textFill="WHITE" translateX="320.0" translateY="-65.0">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <stylesheets>
-                        <URL value="@ReclamationStyle.css" />
-                        <URL value="@ReclamationStyle.css" />
-                     </stylesheets>
-                     <styleClass>
-                        <String fx:value="form_container Button" />
-                        <String fx:value="form_container Button:hover" />
-                     </styleClass>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </Button>
-                 
                     </children>
                     <padding>
                         <Insets top="10.0" />

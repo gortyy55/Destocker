@@ -4,22 +4,23 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchorPane" style="-fx-background-radius: 50;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.CodeCommanders.Controllers.ReclamationInfo">
+<AnchorPane style="-fx-background-radius: 50;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.CodeCommanders.Controllers.avisClient">
     <children>
-        <BorderPane fx:id="border" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" style="-fx-background-color: #8D8C8; -fx-background-radius: 50;" styleClass="gradient-background" stylesheets="@ReclamationStyle.css">
+        <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" style="-fx-background-color: #8D8C8; -fx-background-radius: 50;" styleClass="gradient-background" stylesheets="@ReclamationStyle.css">
             <top>
                 <HBox alignment="CENTER_LEFT" prefHeight="61.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
                     <children>
@@ -180,7 +181,7 @@
                 </VBox>
             </left>
             <center>
-                <VBox prefHeight="700.0" prefWidth="0.0" BorderPane.alignment="CENTER">
+                <VBox prefHeight="805.0" prefWidth="1005.0" BorderPane.alignment="CENTER">
                     <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
                     </VBox.margin>
@@ -200,72 +201,116 @@
                                 <Insets />
                             </VBox.margin>
                         </VBox>
-                  <Label style="&#10;                                -fx-font-weight: bold;&#10;                            " styleClass="shadow" text="Mes réclamations" textAlignment="CENTER" textFill="#ffffffb5" wrapText="true">
-                     <font>
-                        <Font size="33.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                  </Label>
-                        <HBox fx:id="hboxCard" prefHeight="408.0" prefWidth="1005.0" spacing="20.0">
+                        <HBox prefHeight="493.0" prefWidth="1005.0" spacing="20.0">
                             <VBox.margin>
                                 <Insets top="50.0" />
                             </VBox.margin>
-                     <children>
-                        <ScrollPane fx:id="scrollreclamation" prefHeight="408.0" prefWidth="659.0" styleClass="transparent" stylesheets="@CardRec.css">
-                           <content>
-                              <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;">
-                                <rowConstraints>
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
-                              </GridPane>
-                           </content>
-                        </ScrollPane>
-                     </children>
+                            <children>
+                                <VBox prefHeight="458.0" prefWidth="468.0" styleClass="container" stylesheets="@ReclamationStyle.css">
+                                    <children>
+                                        <Label prefHeight="32.0" prefWidth="116.0" styleClass="shadow" text="Avis client" textFill="#ffffffb5">
+                                            <font>
+                                                <Font size="22.0" />
+                                            </font>
+                                            <VBox.margin>
+                                                <Insets left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                        <Text fill="#ffb801" strokeType="OUTSIDE" strokeWidth="0.0" text="Titre de réclamation" wrappingWidth="126.193359375">
+                                            <VBox.margin>
+                                                <Insets bottom="20.0" left="20.0" right="10.0" top="40.0" />
+                                            </VBox.margin>
+                                            <font>
+                                                <Font name="System Bold" size="13.0" />
+                                            </font>
+                                        </Text>
+                                        <VBox prefHeight="262.0" prefWidth="468.0">
+                                            <children>
+                                                <HBox prefHeight="48.0" prefWidth="408.0">
+                                                    <children>
+                                                        <HBox prefHeight="48.0" prefWidth="213.0">
+                                                            <children>
+                                                <ChoiceBox fx:id="choice" prefWidth="150.0" translateX="10.0" />
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </HBox>
+                                                <HBox prefHeight="64.0" prefWidth="468.0">
+                                                    <children>
+                                                        <HBox prefHeight="64.0" prefWidth="258.0">
+                                             <children>
+                                                <Text fill="#ffb801" strokeType="OUTSIDE" strokeWidth="0.0" text="Satisfaction" translateX="15.0" translateY="10.0" wrappingWidth="126.193359375">
+                                                   <font>
+                                                      <Font name="System Bold" size="13.0" />
+                                                   </font>
+                                                </Text>
+                                                <RadioButton fx:id="non" mnemonicParsing="false" prefHeight="22.0" prefWidth="62.0" text="Non" translateX="-20.0" translateY="38.0" />
+                                                <RadioButton fx:id="oui" mnemonicParsing="false" prefHeight="17.0" prefWidth="54.0" text="Oui" translateX="-150.0" translateY="40.0" />
+                                             </children>
+                                                        </HBox>
+                                                    </children>
+                                                </HBox>
+                                                <Text fill="#ffb801" strokeType="OUTSIDE" strokeWidth="0.0" text="Commentaire" wrappingWidth="126.193359375">
+                                                    <font>
+                                                        <Font name="System Bold" size="13.0" />
+                                                    </font>
+                                                    <VBox.margin>
+                                                        <Insets bottom="20.0" left="20.0" right="10.0" top="10.0" />
+                                                    </VBox.margin>
+                                                </Text>
+                                                <HBox prefHeight="52.0" prefWidth="468.0">
+                                                    <children>
+                                                        <HBox prefHeight="52.0" prefWidth="207.0">
+                                                            <children>
+                                                <TextArea fx:id="coment" prefHeight="113.0" prefWidth="277.0" translateX="10.0" />
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                        <Button fx:id="envoyer" mnemonicParsing="false" onAction="#envoyer" prefHeight="39.0" prefWidth="125.0" style="-fx-background-color: #ffb801;" text="Envoyer" textFill="WHITE" translateX="200.0">
+                                            <VBox.margin>
+                                                <Insets bottom="20.0" left="100.0" right="20.0" top="20.0" />
+                                            </VBox.margin>
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                            <stylesheets>
+                                                <URL value="@ReclamationStyle.css" />
+                                                <URL value="@ReclamationStyle.css" />
+                                            </stylesheets>
+                                            <styleClass>
+                                                <String fx:value="form_container Button" />
+                                                <String fx:value="form_container Button:hover" />
+                                            </styleClass>
+                                            <opaqueInsets>
+                                                <Insets />
+                                            </opaqueInsets>
+                                        </Button>
+                                    </children>
+                                    <HBox.margin>
+                                        <Insets left="40.0" />
+                                    </HBox.margin>
+                                </VBox>
+                            </children>
                         </HBox>
-                  <Button fx:id="switchToAddReclamation" mnemonicParsing="false" onAction="#switchToAdd" prefHeight="25.0" prefWidth="283.0" style="-fx-background-color: #ffb801;" text="Ajouter réclamation" textFill="WHITE" translateY="50.0">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <stylesheets>
-                        <URL value="@ReclamationStyle.css" />
-                        <URL value="@ReclamationStyle.css" />
-                     </stylesheets>
-                     <styleClass>
-                        <String fx:value="form_container Button" />
-                        <String fx:value="form_container Button:hover" />
-                     </styleClass>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </Button>
-                  <Button fx:id="chatGPT" mnemonicParsing="false" onAction="#onChatgpt" prefHeight="29.0" prefWidth="55.0" translateX="900.0" translateY="-550.0">
-                     <graphic>
-                        <ImageView fitHeight="71.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@chatgpt.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="evaluer" layoutX="10.0" layoutY="612.0" mnemonicParsing="false" onAction="#switchToAvis" prefHeight="27.0" prefWidth="113.0" style="-fx-background-color: #ffb801;" text="Evaluer" textFill="WHITE" translateX="320.0" translateY="-65.0">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <stylesheets>
-                        <URL value="@ReclamationStyle.css" />
-                        <URL value="@ReclamationStyle.css" />
-                     </stylesheets>
-                     <styleClass>
-                        <String fx:value="form_container Button" />
-                        <String fx:value="form_container Button:hover" />
-                     </styleClass>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </Button>
-                 
+                        <Button fx:id="toAffich" mnemonicParsing="false" onAction="#retourButtonClicked" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ffb801;" text="Retour" textFill="WHITE" translateX="840.0" translateY="50.0">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                            <stylesheets>
+                                <URL value="@ReclamationStyle.css" />
+                                <URL value="@ReclamationStyle.css" />
+                            </stylesheets>
+                            <styleClass>
+                                <String fx:value="form_container Button" />
+                                <String fx:value="form_container Button:hover" />
+                            </styleClass>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                        </Button>
                     </children>
                     <padding>
                         <Insets top="10.0" />
