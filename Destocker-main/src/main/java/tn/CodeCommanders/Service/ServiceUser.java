@@ -4,6 +4,8 @@
  */
 package tn.CodeCommanders.Service;
 
+import com.mysql.cj.Session;
+import com.mysql.cj.protocol.Message;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -19,8 +21,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.*;
 import java.util.ArrayList;
-import java.util.List;
+
 
 /**
  *
@@ -97,6 +100,30 @@ public class ServiceUser implements IServiceUser<User> {
 
 
     }
+
+    public Map<String, Integer> countUsersByRole() {
+        Map<String, Integer> roleCountMap = new HashMap<>();
+        ArrayList<User> userList = getAll();
+
+        for (User user : userList) {
+            String role = user.getRole();
+
+            // Vérifier si le rôle existe déjà dans la map
+            if (roleCountMap.containsKey(role)) {
+                // Si oui, incrémenter le compteur
+                roleCountMap.put(role, roleCountMap.get(role) + 1);
+            } else {
+                // Sinon, ajouter le rôle à la map avec un compteur initial de 1
+                roleCountMap.put(role, 1);
+            }
+        }
+
+        return roleCountMap;
+    }
+
+    // ... (le reste de votre code)
+
+
 
     @Override
     public ArrayList<User> getAll() {
@@ -207,4 +234,8 @@ public class ServiceUser implements IServiceUser<User> {
     public User getCurrentUser() {
         return currentUser;
     }
+
+
+
+
 }

@@ -24,6 +24,11 @@ public class UpdateUserWindow implements Initializable {
     public TextField telephone;
     public Button updatebtn;
 
+    String phoneNumberRegex = "\\d{8}";
+    String textRequiredRegex = ".{3,}";
+    String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$";
+    String emailRegex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}$";
+
     private List<User> users = new ArrayList<>();
     ServiceUser su = new ServiceUser();
 
@@ -76,5 +81,70 @@ public class UpdateUserWindow implements Initializable {
     }
 
 
+
+    public boolean verifyPhoneNumber(){
+        if(telephone.getText().matches(phoneNumberRegex)){
+            telephone.setStyle("-fx-border-color: green; -fx-border-width: 2px;");
+            return true;}
+        else{
+            telephone.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+            return false;}
+    }
+    public boolean verifyFirstnameRequired(){
+        if(firstname.getText().matches(textRequiredRegex)){
+            firstname.setStyle("-fx-border-color: green; -fx-border-width: 2px;");
+            return true;}
+        else{
+            firstname.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+            return false;}
+    }
+
+    public boolean verifyLastnameRequired(){
+        if(lastname.getText().matches(textRequiredRegex)){
+            lastname.setStyle("-fx-border-color: green; -fx-border-width: 2px;");
+            return true;}
+        else{
+            lastname.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+            return false;}
+    }
+
+    public boolean verifyAddressRequired(){
+        if(addr.getText().matches(textRequiredRegex)){
+            addr.setStyle("-fx-border-color: green; -fx-border-width: 2px;");
+            return true;}
+        else{
+            addr.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+            return false;}
+    }
+
+  /*  public boolean verifyPassword(){
+        if(mdp.getText().matches(passwordRegex)){
+            mdp.setStyle("-fx-border-color: green; -fx-border-width: 2px;");
+            errorMessage.setText("");
+            return true;}
+        else{
+            mdp.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+            errorMessage.setFill(javafx.scene.paint.Color.RED);
+            errorMessage.setText("Ensure that a password has at least: \n* One uppercase letter \n* One lowercase letter\n* One digit \n* Minimum length of 8 characters");
+            return false;}
+    }
+
+ /*   public boolean verifyConfirmPassword(){
+        if(confirmPassLabel.getText().equals(passLabel.getText())){
+            confirmPassLabel.setStyle("-fx-border-color: green; -fx-border-width: 2px;");
+            return true;}
+        else
+        { confirmPassLabel.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+            return false;}
+    }
+*/
+    public boolean verifyEmail(){
+        if(email.getText().matches(emailRegex)){
+            email.setStyle("-fx-border-color: green; -fx-border-width: 2px;");
+            return true;}
+        else
+        {email.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+            return false ;}
+    }
 
 }

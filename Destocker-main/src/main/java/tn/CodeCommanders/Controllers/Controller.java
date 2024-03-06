@@ -3,9 +3,11 @@ package tn.CodeCommanders.Controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import tn.CodeCommanders.Entities.User;
 import tn.CodeCommanders.Service.ServiceUser;
@@ -16,8 +18,26 @@ import javafx.scene.control.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Objects;
+import java.util.Random;
+import java.util.ResourceBundle;
 
-public class Controller {
+import javafx.scene.control.Label;
+
+
+public class Controller implements Initializable {
+
+    @FXML
+    public Label Captchaa;
+    @FXML
+    public TextField CaptchaField;
+    @FXML
+    public Label errorCaptcha;
+    ServiceUser serviceUser = new ServiceUser();
+
+
+    @FXML
+    private Button newCaptcha;
     @FXML
     private TextField nameLabel;
     @FXML private TextField lastnameLabel;
@@ -45,7 +65,10 @@ public class Controller {
     String emailRegex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}$";
 
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
+        Captchaa.setText(createCaptcha());}
     @FXML
     void addUser(ActionEvent event) throws SQLException {
         if (!verifyEmail()||!verifyPhoneNumber()||!verifyConfirmPassword()||!verifyPassword()||!verifyAddressRequired()||!verifyFirstnameRequired()||!verifyLastnameRequired()) {
@@ -158,6 +181,20 @@ public class Controller {
         {emailLabel.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
         return false ;}
     }
+    public boolean getErrors() {
+        errorCaptcha.setText("");
+
+        if (CaptchaField.getText().isBlank()) {
+            errorCaptcha.setTextFill(Color.RED);
+            errorCaptcha.setText("Verify u r not a robot");
+            return true;
+        }
+        if (!Objects.equals(Captchaa.getText(), CaptchaField.getText())) {
+            errorCaptcha.setText("CAPTCHA INCORRECT");
+            return true;
+        }
+        return false;
+    }
 
     @FXML
     public void goToLoginPage(ActionEvent event) {
@@ -172,6 +209,34 @@ public class Controller {
         }
 
     }
+
+
+    public static String createCaptcha()
+    {
+        Random random =new Random();
+        int length =7+(Math.abs(random.nextInt())%3);
+        StringBuffer captchaBuffer = new StringBuffer();
+        for(int i = 0; i <length ; i++) {
+            int baseChar = Math.abs(random.nextInt()) % 62;
+            int charNumber = 0;
+            if (baseChar < 26) {
+                charNumber = 65 + baseChar;
+            } else if (baseChar < 52) {
+                charNumber = 97 + (baseChar - 26);
+            } else {
+                charNumber = 48 + (baseChar - 52);
+            }
+            captchaBuffer.append((char) charNumber);
+        }
+        return captchaBuffer.toString() ;
+    }
+
+
+  public void newCaptchaOnClick()
+    {
+        Captchaa.setText(createCaptcha());
+    }
+
 
 
 
