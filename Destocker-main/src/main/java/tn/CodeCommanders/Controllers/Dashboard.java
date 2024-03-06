@@ -2,6 +2,7 @@ package tn.CodeCommanders.Controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import tn.CodeCommanders.Entities.User;
+import javafx.scene.control.Button;
 
 import tn.CodeCommanders.Service.ServiceUser;
 
@@ -34,6 +36,9 @@ public class Dashboard implements Initializable {
     public GridPane grid;
     private Stage stage;
     private Scene scene;
+
+    @FXML
+    private Button charts;
     private List<User> users = new ArrayList<>();
     public static Dashboard instance;
 
@@ -142,4 +147,26 @@ ServiceUser t = new ServiceUser();
 
     }
 
-}
+    @FXML
+    void charts(ActionEvent event) {
+
+        try{
+
+            Parent root= FXMLLoader.load(getClass().getResource("/charts.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        }catch (IOException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+
+    }
+
+
+
+
