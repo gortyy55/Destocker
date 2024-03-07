@@ -19,6 +19,7 @@ public class MainFX extends Application {
     public void start(Stage stage)  {
        FXMLLoader loader = new FXMLLoader(getClass().getResource("/ReclamationInfo.fxml"));
         //FXMLLoader loader = new FXMLLoader(getClass().getResource("/admin.fxml"));
+       // FXMLLoader loader = new FXMLLoader(getClass().getResource("/stat.fxml"));
         try{
             Parent root = loader.load();
             Scene scene = new Scene(root);
@@ -32,5 +33,4 @@ public class MainFX extends Application {
 
 
     }
-
 }

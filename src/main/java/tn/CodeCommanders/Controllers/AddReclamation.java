@@ -25,7 +25,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import javafx.scene.control.Button;
 import javafx.stage.FileChooser;
 
 import java.io.File;
