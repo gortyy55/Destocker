@@ -1,40 +1,25 @@
 package tn.CodeCommanders.Controllers;
 
-import com.sendgrid.Method;
-import com.sendgrid.Request;
-import com.sendgrid.Response;
-import com.sendgrid.SendGrid;
-import com.sendgrid.helpers.mail.Mail;
-import com.sendgrid.helpers.mail.objects.Content;
-import com.sendgrid.helpers.mail.objects.Email;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.paint.Color;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import tn.CodeCommanders.Entities.User;
 import tn.CodeCommanders.Service.ServiceUser;
-import javafx.stage.Stage;
 
-import javafx.scene.control.*;
-
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.net.URL;
 import java.sql.SQLException;
-import java.util.Objects;
 import java.util.Properties;
-import java.util.Random;
-import java.util.ResourceBundle;
 
-import javafx.scene.control.Label;
-
-
-public class Controller /*implements Initializable */ {
+public class Controller {
 
     @FXML
     public Label Captchaa;
@@ -43,7 +28,6 @@ public class Controller /*implements Initializable */ {
     @FXML
     public Label errorCaptcha;
     ServiceUser serviceUser = new ServiceUser();
-
 
     @FXML
     private Button newCaptcha;
@@ -74,99 +58,57 @@ public class Controller /*implements Initializable */ {
     String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$";
     String emailRegex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}$";
 
-
-    /*   @Override
-       public void initialize(URL location, ResourceBundle resources) {
-
-           //Captchaa.setText(createCaptcha());}*/
-  /*  private void MailB() throws Exception {
-        try {
-            String to = "gharbi.karim@esprit.tn";
-            String from = "karim@gmail.com";
-            String subject = "Registration Account CLINIMATE";
-            String body = "BONJOUR MR/MME "
-                    + firstnameP.getText()
-                    + "this your mail for connecter to our application CLINIAMTE\n email :"
-                    + emailP.getText()
-                    + "\n password :"
-                    + PasswordP.getText();
-            Properties props = new Properties();
-            props.put("mail.smtp.auth", "true");
-            props.put("mail.smtp.starttls.enable", "true");
-            props.put("mail.smtp.host", "smtp.gmail.com");
-            props.put("mail.smtp.port", "587");
-            Session session = Session.getInstance(props, new javax.mail.Authenticator() {
-                @Override
-                protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication("mohamed.jmai@esprit.tn", "wrshgovdrqjkqejb");
-                }
-            });
-
-            try {
-                Message message = new MimeMessage(session);
-                message.setFrom(new InternetAddress(to));
-                message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(emailP.getText()));
-                message.setSubject(subject);
-                message.setText(body);
-                System.out.println(body);
-                Transport.send(message);
-
-                System.out.println("registration sucedffly done ");
-            } catch (MessagingException e) {
-                System.err.println("Failed to send email: " + e.getMessage());
-            }
-        } catch (RuntimeException e) {
-            if (e.getCause() instanceof InvocationTargetException) {
-                Throwable targetException = e.getCause().getCause();
-                targetException.printStackTrace();
-            } else {
-                e.printStackTrace();
-            }
-        }
-    }*/
-
-
     private void sendConfirmationEmail(String recipientEmail) {
-        // Create SendGrid object with your API key
-        SendGrid sendgrid = new SendGrid("thot key lena");
+        // Replace these values with your own email configuration
+        String host = "smtp-relay.brevo.com";
+        String port = "587";
+        String username = "karimgharbi66@gmail.com";
+        String password = "pLPQ9CWmtzFyB0qr";
 
-        // Create Email object for the recipient
-        Email recipient = new Email(recipientEmail);
+        // Create properties for the email session
+        Properties properties = new Properties();
+        properties.put("mail.smtp.host", host);
+        properties.put("mail.smtp.port", port);
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.starttls.enable", "true");
 
-        // Create Email object for the sender
-        Email sender = new Email("thot l'email eli amalt bih sendgrid lena"); // Update with your email
+        // Create a Session object
+        Session session = Session.getInstance(properties, new Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
 
-        // Set subject and content of the email
-        String subject = "Confirmation de commande";
-        String messageContent = "Votre commande a été passée avec succès ! Vous allez recevoir votre commande Apres 48h";
-
-        // Create Content object
-        Content content = new Content("text/plain", messageContent);
-
-        // Create Mail object
-        Mail mail = new Mail(sender, subject, recipient, content);
-
-        // Send the email using SendGrid API
-        Request request = new Request();
         try {
-            request.setMethod(Method.POST);
-            request.setEndpoint("mail/send");
-            request.setBody(mail.build());
-            Response response = sendgrid.api(request);
-            System.out.println(response.getStatusCode());
-            System.out.println(response.getBody());
-            System.out.println(response.getHeaders());
-        } catch (IOException ex) {
-            ex.printStackTrace();
+            // Create a MimeMessage object
+            MimeMessage message = new MimeMessage(session);
+
+            // Set the sender and recipient addresses
+            message.setFrom(new InternetAddress(username));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail));
+
+            // Set the email subject and content
+            message.setSubject("Registration confirmation");
+            message.setText("Thank you for registering!");
+
+            // Send the email
+            Transport.send(message);
+
+            System.out.println("Registration confirmation email sent successfully!");
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            System.err.println("Failed to send registration confirmation email: " + e.getMessage());
         }
     }
 
     @FXML
     void addUser(ActionEvent event) throws SQLException {
         if (!verifyEmail() || !verifyPhoneNumber() || !verifyConfirmPassword() || !verifyPassword() || !verifyAddressRequired() || !verifyFirstnameRequired() || !verifyLastnameRequired()) {
-            System.out.println("correct this");
+            System.out.println("Correct these errors");
             return;
         }
+
         String firstname = nameLabel.getText();
         String lastname = lastnameLabel.getText();
         String email = emailLabel.getText();
@@ -174,6 +116,7 @@ public class Controller /*implements Initializable */ {
         String address = addLabel.getText();
         int telephone = Integer.parseInt(phoneLabel.getText());
         String role;
+
         if (rdBtnClient.isSelected())
             role = "Client";
         else if (rdBtnAssociation.isSelected())
@@ -181,19 +124,19 @@ public class Controller /*implements Initializable */ {
         else
             role = "Entreprise";
 
-
         User user = new User(email, password, role, firstname, lastname, address, telephone);
         ServiceUser Ser = new ServiceUser();
+
         if (Ser.isEmailUnique(email)) {
             Ser.ajouter(user);
             resetRegisterForm();
         } else {
             emailLabel.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
             errorMessage.setFill(javafx.scene.paint.Color.RED);
-            errorMessage.setText("Email Address already exist !");
+            errorMessage.setText("Email Address already exists!");
         }
 
-
+        sendConfirmationEmail(email);
     }
 
     private void resetRegisterForm() {
@@ -206,8 +149,7 @@ public class Controller /*implements Initializable */ {
         confirmPassLabel.setText("");
     }
 
-
-    // verify text filed
+    // Remaining methods for field verification...
 
     public boolean verifyPhoneNumber() {
         if (phoneLabel.getText().matches(phoneNumberRegex)) {
@@ -301,8 +243,8 @@ public class Controller /*implements Initializable */ {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Login.fxml"));
             Parent root = loader.load();
-                Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                currentStage.setScene(new Scene(root));
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.setScene(new Scene(root));
 
         } catch (IOException e) {
             System.out.println("Error loading Login.fxml: " + e.getMessage());
@@ -338,6 +280,4 @@ public class Controller /*implements Initializable */ {
     }
 
 */
-
-
 }
