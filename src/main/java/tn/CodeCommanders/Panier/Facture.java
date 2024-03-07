@@ -17,6 +17,8 @@ public class Facture {
     private  int zip_code;
     private String country;
 
+    private String acteurFirstName;
+
     public Facture(int id_acteur, int id_panier, String name_card, int ccn, Date exp_date, int security_code, String address, String city, String state, int zip_code, String country) {
         this.id_acteur = id_acteur;
         this.id_panier = id_panier;
@@ -29,6 +31,7 @@ public class Facture {
         this.state = state;
         this.zip_code = zip_code;
         this.country = country;
+        this.acteurFirstName= acteurFirstName;
     }
 
     public Facture(int id_facture, int id_acteur, int id_panier, String name_card, int ccn, Date exp_date, int security_code, String address, String city, String state, int zip_code, String country) {
@@ -44,6 +47,7 @@ public class Facture {
         this.state = state;
         this.zip_code = zip_code;
         this.country = country;
+        this.acteurFirstName= acteurFirstName;
     }
 
 
@@ -148,6 +152,14 @@ public class Facture {
         this.country = country;
     }
 
+    public String getActeurFirstName() {
+        return acteurFirstName;
+    }
+
+    public void setActeurFirstName(String acteurFirstName) {
+        this.acteurFirstName = acteurFirstName;
+    }
+
     @Override
     public String toString() {
         return "Facture{" +
@@ -165,6 +177,7 @@ public class Facture {
                 ", country='" + country + '\'' +
                 '}';
     }
+
 
 
 }

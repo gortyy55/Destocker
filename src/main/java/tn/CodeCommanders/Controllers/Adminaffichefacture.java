@@ -30,8 +30,11 @@ public class Adminaffichefacture implements Initializable {
     @FXML
     private TableColumn<Facture, Integer> idPanier;
 
+
+
     @FXML
-    private TableColumn<Facture, Integer> idUser;
+    private  TableColumn<Facture, String> Fname;
+
 
     @FXML
     private TableColumn<Facture, Void> ActionsColumn;
@@ -61,7 +64,8 @@ public class Adminaffichefacture implements Initializable {
 
         idFature.setCellValueFactory(new PropertyValueFactory<>("id_facture"));
         idPanier.setCellValueFactory(new PropertyValueFactory<>("id_panier"));
-        idUser.setCellValueFactory(new PropertyValueFactory<>("id_acteur"));
+        //idUser.setCellValueFactory(new PropertyValueFactory<>("id_acteur"));
+        Fname.setCellValueFactory(new PropertyValueFactory<>("acteurFirstName"));
 
         // Add custom column for actions
         ActionsColumn.setCellFactory(param -> new TableCell<>() {

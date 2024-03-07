@@ -52,18 +52,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="updatebtn" mnemonicParsing="false" onAction="#update" prefWidth="71.0">
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@IMG/up.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
+
                </children>
             </HBox>
          </children>

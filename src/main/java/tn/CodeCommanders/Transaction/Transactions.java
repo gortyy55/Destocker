@@ -218,7 +218,9 @@ public class Transactions {
 
     public ArrayList<Facture> getAllF() {
         ArrayList<Facture> factures = new ArrayList<>();
-        String query = "SELECT * FROM `Facture`";
+        String query =  "SELECT Facture.*, User.firstname " +
+                "FROM Facture " +
+                "JOIN User ON Facture.id_acteur = User.id";
 
         try (Statement stm = cnx.createStatement();
              ResultSet rs = stm.executeQuery(query)) {
@@ -237,6 +239,10 @@ public class Transactions {
                 facture.setState(rs.getString("state"));
                 facture.setZip_code(rs.getInt("zip_code"));
                 facture.setCity(rs.getString("city"));
+
+                String firstname = rs.getString("firstname");
+
+                facture.setActeurFirstName(firstname);
 
 
                 factures.add(facture);
