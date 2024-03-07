@@ -147,13 +147,6 @@
             </VBox>
             <Text boundsType="LOGICAL_VERTICAL_CENTER" layoutX="160.0" layoutY="59.0" scaleX="3.0" scaleY="3.0" scaleZ="6.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Account" translateX="2.0" wrappingWidth="81.1171875" />
             <Text fx:id="errorMessage" layoutX="22.0" layoutY="604.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-            <Text fontSmoothingType="LCD" layoutX="36.0" layoutY="586.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Captcha:">
-               <font>
-                  <Font name="System Bold Italic" size="12.0" />
-               </font>
-            </Text>
-            <TextField fx:id="CaptchaField" layoutX="36.0" layoutY="595.0" />
-            <Button layoutX="199.0" layoutY="595.0" mnemonicParsing="false" onAction="#newCaptchaOnClick" text="NEW" textFill="#171515" />
          </children>
          <BorderPane.margin>
             <Insets right="-15.0" />

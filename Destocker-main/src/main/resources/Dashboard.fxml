@@ -151,7 +151,7 @@
               </children>
      </HBox>
       <Button fx:id="charts" layoutX="739.0" layoutY="570.0" mnemonicParsing="false" onAction="#charts" text="charts" />
-      <TextField fx:id="recherche" layoutX="285.0" layoutY="14.0" promptText=" Recherche par nom ..." />
+      <TextField fx:id="recherche" layoutX="224.0" layoutY="14.0" promptText="Recherche par nom ..." />
       
    </children>
 </AnchorPane>

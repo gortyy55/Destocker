@@ -8,7 +8,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -30,10 +32,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Dashboard implements Initializable {
+
     @FXML
     public ScrollPane scrol;
     @FXML
     public GridPane grid;
+    public javafx.scene.control.TextField recherche;
     private Stage stage;
     private Scene scene;
 
@@ -100,6 +104,81 @@ ServiceUser t = new ServiceUser();
             throw new RuntimeException(e);
         }
 
+
+        recherche.setOnKeyReleased(event -> {String searchTerm = recherche.getText().trim().toLowerCase();
+            filterAndRefresh(searchTerm);});
+    loadAndDisplayData();
+    }
+
+    private void loadAndDisplayData() {
+        int column = 0;
+        int row = 1;
+        users.addAll(getData());
+
+        try {
+            for (int i = 0; i < users.size(); i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/cart.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+                Usercart usercart = fxmlLoader.getController();
+                usercart.setData(users.get(i));
+
+                if (column == 2) {
+                    column = 0;
+                    row++;
+                }
+
+                grid.add(anchorPane, column++, row);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void filterAndRefresh(String searchTerm) {
+        grid.getChildren().clear();
+
+        if (searchTerm.isEmpty()) {
+            // If the search term is empty, display all users
+            refreshGrid(users);
+        } else {
+            // Filter users based on the entered username
+            List<User> filteredUsers = new ArrayList<>();
+            for (User user : users) {
+                if (user.getFirstname().toLowerCase().contains(searchTerm)) {
+                    filteredUsers.add(user);
+                }
+            }
+            refreshGrid(filteredUsers);
+        }
+    }
+
+    private void refreshGrid(List<User> usersToDisplay) {
+        int column = 0;
+        int row = 1;
+
+        for (int i = 0; i < usersToDisplay.size(); i++) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/cart.fxml"));
+            AnchorPane anchorpane;
+            try {
+                anchorpane = loader.load();
+
+                //anchorpane.setStyle("-fx-border-color:#000");
+
+                Usercart userItem = loader.getController();
+                userItem.setData(usersToDisplay.get(i));
+
+                if (column == 2) {
+                    column = 0;
+                    row++;
+                }
+
+                grid.add(anchorpane, column++, row);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void logout(MouseEvent event) {
@@ -146,6 +225,9 @@ ServiceUser t = new ServiceUser();
             }
 
     }
+
+
+
 
     @FXML
     void charts(ActionEvent event) {

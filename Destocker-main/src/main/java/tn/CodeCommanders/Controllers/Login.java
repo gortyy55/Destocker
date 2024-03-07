@@ -16,11 +16,14 @@ import javafx.stage.Stage;
 import tn.CodeCommanders.Entities.User;
 import tn.CodeCommanders.Service.ServiceUser;
 
+
+
+
 import java.awt.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class Login {
+public class Login extends RememberME {
 
     ServiceUser serviceUser = new ServiceUser();
 
@@ -37,17 +40,12 @@ public class Login {
     @FXML
     private PasswordField passLabel;
 
-    @FXML
-    private RadioButton rdBtnAssociation;
-
-    @FXML
-    private RadioButton rdBtnClient;
-
-    @FXML
-    private RadioButton rdBtnEntreprise;
 
     @FXML
     private ToggleGroup role;
+
+    @FXML
+    private CheckBox rememberME;
 
     @FXML
     private Label echecLoginLabel;
@@ -67,8 +65,55 @@ public class Login {
                 }
             }
 
+    }
 
 
+
+
+   @FXML
+     void GooleRegister(ActionEvent event) {
+    /*     // Your updated JSON data
+        String jsonData = "{\"web\":{\"client_id\":\"34198700278-5o1n0105jn1u2m8odioepf3kavqh04dn.apps.googleusercontent.com\",\"project_id\":\"batahapp-415619\",\"auth_uri\":\"https://accounts.google.com/o/oauth2/auth\",\"token_uri\":\"https://oauth2.googleapis.com/token\",\"auth_provider_x509_cert_url\":\"https://www.googleapis.com/oauth2/v1/certs\",\"client_secret\":\"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\",\"redirect_uris\":[\"http://localhost/google/callback/\"]}}";
+        // Parse JSON
+        JsonObject jsonObject = new Gson().fromJson(jsonData, JsonObject.class);
+        JsonObject web = jsonObject.getAsJsonObject("web");
+        String gClientId = web.get("client_id").getAsString();
+        String gRedir = web.get("redirect_uris").getAsJsonArray().get(0).getAsString(); // Assuming there's only one redirect URI
+        String gScope = "https://www.googleapis.com/auth/userinfo.profile " +
+                "https://www.googleapis.com/auth/userinfo.email " +
+                "https://www.googleapis.com/auth/user.phonenumbers.read";
+        String gSecret = web.get("client_secret").getAsString();
+
+        OAuthAuthenticator auth = new OAuthGoogleAuthenticator(gClientId, gRedir, gSecret, gScope);
+        auth.startLogin(() -> {
+
+            membreSession =membreSession.convertToGoogleMembre(auth.getJsonData().toString()) ;
+            if(membreService.readByIGoogle(membreSession.getIdGoogle()) == null ){
+                membreService.addGoogle(membreSession);
+            }
+            membreSession=membreService.readByIGoogle(membreSession.getIdGoogle()) ;
+            membreSession.clearBinFile();
+            membreSession.saveJsonToBinFile(membreSession);
+            try {
+                if(membreSession.getRoleUtilisateur()=='U') {root = FXMLLoader.load(getClass().getResource("/InterfaceUserAdmin/AccueilUser.fxml"));}
+                else {root = FXMLLoader.load(getClass().getResource("/InterfaceUserAdmin/AccueilAdmin.fxml"));}
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                root.setOnMousePressed((MouseEvent events) -> {
+                    xOffset = events.getSceneX();
+                    yOffset = events.getSceneY();
+                });
+                root.setOnMouseDragged((MouseEvent events) -> {
+                    stage.setX(events.getScreenX() - xOffset);
+                    stage.setY(events.getScreenY() - yOffset);
+                });
+                stage.setScene(scene);
+                stage.show();
+
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+        });*/
     }
 @FXML
     public void addUser(ActionEvent event) throws SQLException {
