@@ -9,92 +9,69 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import tn.CodeCommanders.Model.UpdateCategory;
 import tn.CodeCommanders.Model.UpdateStockController;
 import tn.CodeCommanders.Transaction.Transactions;
+import tn.CodeCommanders.stock.Category;
 import tn.CodeCommanders.stock.Stock;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-
-public class Affichestock implements Initializable {
+public class Affichecat implements Initializable {
     @FXML
-    public ListView<Stock> listview;
-
-
+    public ListView<Category> catlist;
     private Stage stage;
     private Scene scene;
     private Parent parent;
-@FXML
-    public void back(ActionEvent event) {
-        try{
-
-            Parent root= FXMLLoader.load(getClass().getResource("/Stock.fxml"));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-        }
-    }
-
 
 
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Transactions t = new Transactions();
-        ArrayList<Stock> items;
-        items = t.getAll();
-        listview.setCellFactory(new Callback<>() {
+        ArrayList<Category> items;
+        items = t.getAllC();
+        catlist.setCellFactory(new Callback<>() {
             @Override
-            public ListCell<Stock> call(ListView<Stock> param) {
+            public ListCell<Category> call(ListView<Category> param) {
                 return new ListCell<>() {
                     @Override
-                    protected void updateItem(Stock item, boolean empty) {
+                    protected void updateItem(Category item, boolean empty) {
                         super.updateItem(item, empty);
                         if (empty || item == null) {
                             setText(null);
                         } else {
 
-                            setText("Id:" + item.getId() + " | Produit: " + item.getProduitname() + " | Quantité: " + item.getQuantite() + " | Mail: " + item.getMail() + "| category:" + item.getCategoryName() );
+                            setText("Id:" + item.getIdc() + "| category:" + item.getCategoryName() );
                         }
                     }
                 };
             }
         });
 
-        listview.getItems().addAll(items);
+        catlist.getItems().addAll(items);
 
     }
-
-
-
-    public void delete(MouseEvent event) {
-
-        Stock selectedItem = listview.getSelectionModel().getSelectedItem();
+    public void catdel(ActionEvent event) {
+        Category selectedItem = catlist.getSelectionModel().getSelectedItem();
 
         if (selectedItem != null) {
 
-            listview.getItems().remove(selectedItem);
+            catlist.getItems().remove(selectedItem);
 
             Transactions t = new Transactions();
-            t.delete(selectedItem);
+            t.deletecat(selectedItem);
         }
-
     }
 
-    public void update(ActionEvent event) {
+    public void catup(ActionEvent event) {
 
-        Stock selectedItem = listview.getSelectionModel().getSelectedItem();
+        Category selectedItem = catlist.getSelectionModel().getSelectedItem();
 
         if (selectedItem != null) {
 
@@ -102,11 +79,11 @@ public class Affichestock implements Initializable {
         }
     }
 
-    private void openUpdateWindow(Stock selectedItem) {
+    private void openUpdateWindow(Category selectedItem) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/UpdateStock.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/UpdateCat.fxml"));
             Parent root = loader.load();
-            UpdateStockController controller = loader.getController();
+            UpdateCategory controller = loader.getController();
             controller.initData(selectedItem);
 
             Stage stage = new Stage();
@@ -117,17 +94,16 @@ public class Affichestock implements Initializable {
             System.out.println(e.getMessage());
         }
     }
-
     private void refreshListView() {
-        listview.getItems().clear();
+        catlist.getItems().clear();
 
         Transactions t = new Transactions();
-        ArrayList<Stock> items = t.getAll();
+        ArrayList<Category> items = t.getAllC();
 
-        listview.getItems().addAll(items);
+        catlist.getItems().addAll(items);
     }
 
-    public void category(ActionEvent event) {
+    public void back(ActionEvent event) {
         try{
 
             Parent root= FXMLLoader.load(getClass().getResource("/categoryface.fxml"));
@@ -140,19 +116,4 @@ public class Affichestock implements Initializable {
             System.out.println(e.getMessage());
         }
     }
-
-    public void change3(ActionEvent event) {
-        try{
-
-            Parent root= FXMLLoader.load(getClass().getResource("/Stat.fxml"));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-        }
-    }
 }
-

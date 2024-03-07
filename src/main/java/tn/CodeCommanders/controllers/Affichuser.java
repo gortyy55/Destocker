@@ -3,6 +3,7 @@ package tn.CodeCommanders.controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -23,9 +24,7 @@ import tn.CodeCommanders.stock.Stock;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class Affichuser implements Initializable{
     @FXML
@@ -52,6 +51,11 @@ public class Affichuser implements Initializable{
 
     @FXML
     private ScrollPane scrol;
+    @FXML
+    private Pagination pagination;
+
+    private final int itemsPerPage = 3; // Number of items per page
+    private int pageCount;
     private List<Stock> stocks = new ArrayList<>();
     private ObservableList<Stock> filteredStock = FXCollections.observableArrayList();
     private List<Stock> getData(){
@@ -78,10 +82,12 @@ public class Affichuser implements Initializable{
 
             @Override
             public void initialize(URL url, ResourceBundle resourceBundle) {
-                int column = 0;
+
+
+        int column = 0;
                 int row = 1;
                 stocks.addAll(getData());
-
+                Collections.sort(stocks, Comparator.comparingInt(Stock::getQuantite));
 
                 try {
                     for (int i = 0; i < stocks.size(); i++) {
@@ -92,7 +98,7 @@ public class Affichuser implements Initializable{
                         ProduitModel produitModel = fxmlLoader.getController();
                         produitModel.setData(stocks.get(i));
 
-                        if (column == 2) {
+                        if (column == 3) {
                             column = 0;
                             row++;
                         }
@@ -113,11 +119,43 @@ public class Affichuser implements Initializable{
                 byCbox.getItems().addAll( "nom","quantite","mail");
                 byCbox.setValue("nom"); // Default selection
 
-                // Set up event listener for ComboBox selection change
+
                 byCbox.setOnAction(event -> filterBySelectedCriteria());
 
-                // Set up event listener for text field change
+
                 chercherTF.setOnKeyReleased(event -> filterBySelectedCriteria());
+                int totalItems = getData().size();
+                pageCount = (totalItems / itemsPerPage) + ((totalItems % itemsPerPage) > 0 ? 1 : 0);
+                pagination.setPageCount(pageCount);
+                pagination.setPageFactory(this::createPage);
+    }
+    private Node createPage(int pageIndex) {
+        grid.getChildren().clear();
+        int startIndex = pageIndex * itemsPerPage;
+        int endIndex = Math.min(startIndex + itemsPerPage, getData().size());
+
+        List<Stock> currentPageItems = getData().subList(startIndex, endIndex);
+
+        int row = 0;
+        int col = 0;
+        for (Stock s : currentPageItems) {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/produitModele.fxml"));
+                Pane anchorPane = fxmlLoader.load();
+                ProduitModel prodtItemController = fxmlLoader.getController();
+                prodtItemController.setData(s);
+                grid.add(anchorPane, col++, row);
+                GridPane.setMargin(anchorPane, new Insets(10));
+
+                if (col == 3) { // Change to the number of columns in your grid
+                    col = 0;
+                    row++;
+                }
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return grid;
     }
 
     private void filterByProductId(javafx.scene.input.KeyEvent event) {
@@ -142,19 +180,23 @@ public class Affichuser implements Initializable{
         } else {
             filteredStock.addAll(stocks);
         }
-        updateGridPane();
+        updateGridPane(pagination.getCurrentPageIndex(), itemsPerPage);
     }
-    private void updateGridPane() {
+    private void updateGridPane(int pageIndex, int itemsPerPage) {
         grid.getChildren().clear();
-        int row = 1;
+        int row = 0;
         int col = 0;
-        for (Stock s : filteredStock) {
+        int startIndex = pageIndex * itemsPerPage;
+        int endIndex = Math.min(startIndex + itemsPerPage, filteredStock.size());
+
+        for (int i = startIndex; i < endIndex; i++) {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/produitModele.fxml"));
                 Pane anchorPane = fxmlLoader.load();
                 ProduitModel prodtItemController = fxmlLoader.getController();
-                prodtItemController.setData(s);
-                if (col == 2) {
+                prodtItemController.setData(filteredStock.get(i));
+
+                if (col == 3) { // Adjusted column count condition
                     col = 0;
                     row++;
                 }
@@ -203,7 +245,7 @@ public class Affichuser implements Initializable{
         } else {
             filteredStock.addAll(stocks);
         }
-        updateGridPane();
+        updateGridPane(pagination.getCurrentPageIndex(), itemsPerPage);
     }
         }
 

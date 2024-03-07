@@ -7,7 +7,7 @@
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -170,19 +170,16 @@
             </Button>
          </buttons>
       </ButtonBar>
-      <HBox alignment="CENTER" layoutX="158.0" layoutY="87.0" prefHeight="503.0" prefWidth="788.0">
+      <VBox alignment="CENTER" layoutX="158.0" layoutY="87.0" prefHeight="503.0" prefWidth="788.0">
          <children>
-            <ScrollPane fx:id="scrol" prefHeight="503.0" prefWidth="626.0" stylesheets="@stockcss.css">
-               <content>
-                  <GridPane fx:id="grid" alignment="CENTER" prefHeight="0.0" prefWidth="0.0">
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                     </rowConstraints>
-                  </GridPane>
-               </content>
-            </ScrollPane>
+            <GridPane fx:id="grid" alignment="CENTER" prefHeight="0.0" prefWidth="788.0">
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" />
+               </rowConstraints>
+            </GridPane>
+            <Pagination fx:id="pagination" prefHeight="520.0" prefWidth="788.0" />
          </children>
-      </HBox>
+      </VBox>
       <Accordion />
       <ImageView fx:id="exit" fitHeight="28.0" fitWidth="29.0" layoutX="892.0" pickOnBounds="true" preserveRatio="true" styleClass="button-container-mouse-moved">
          <image>

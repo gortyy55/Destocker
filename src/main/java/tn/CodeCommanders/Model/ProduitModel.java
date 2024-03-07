@@ -25,6 +25,8 @@ public class ProduitModel {
     @FXML
     public Button delete;
     @FXML
+    public Label categoryname;
+    @FXML
     private Label mail;
 
     @FXML
@@ -51,6 +53,7 @@ public class ProduitModel {
             quantite.setText(String.valueOf(stock.getQuantite()));
             produitname.setText(String.valueOf(stock.getProduitname()));
             mail.setText(String.valueOf(stock.getMail()));
+            categoryname.setText(stock.getCategoryName());
         }
     }
 
