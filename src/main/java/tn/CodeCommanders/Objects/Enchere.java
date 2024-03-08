@@ -1,5 +1,7 @@
 package tn.CodeCommanders.Objects;
 
+import java.util.Date;
+
 public class Enchere {
 
     private int id,stock;
@@ -12,15 +14,24 @@ public class Enchere {
         return imgSrc;
     }
 
-    public void setImgSrc(String imgSrc) {
-       this.imgSrc = imgSrc;
+
+
+
+    private Date date;
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public Enchere(){
 
     }
 
-    public Enchere(int id, int stock, String produit, double prixint){
+    public Enchere(int stock, String produit, double prixint){
         this.id=id;
         this.stock=stock;
         this.produit=produit;
@@ -62,8 +73,10 @@ public class Enchere {
         this.prixint = prixint;
     }
 
+
+
     @Override
     public String toString(){
-        return "enchere("+" id : "+id+" /stock : "+stock+" /produit : "+produit+" /prix initiale : "+prixint+")\n";
+        return "enchere("+" date : "+date+" /stock : "+stock+" /produit : "+produit+" /prix initiale : "+prixint+")\n";
     }
 }

@@ -1,5 +1,12 @@
 package tn.CodeCommanders.controllers;
 
+import com.sendgrid.Method;
+import com.sendgrid.Request;
+import com.sendgrid.Response;
+import com.sendgrid.SendGrid;
+import com.sendgrid.helpers.mail.Mail;
+import com.sendgrid.helpers.mail.objects.Content;
+import com.sendgrid.helpers.mail.objects.Email;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -11,8 +18,9 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
 import java.text.DecimalFormat;
-import java.util.Timer;
+import java.util.*;
 
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,12 +29,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import java.net.URL;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import tn.CodeCommanders.Transaction.Transactions;
+
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 public class Bidcontroller implements Initializable {
 
@@ -56,7 +65,7 @@ public class Bidcontroller implements Initializable {
 
     private Timeline timeline;
     private Timeline timeline2;
-   private Duration auctionDuration = Duration.ofMinutes(5);
+    private int remainingSeconds = 5 * 60;
 
 public void initlist(){
     Transactions t = new Transactions();
@@ -80,8 +89,11 @@ public void initlist(){
         Timeline timeline = new Timeline(
                 new KeyFrame(javafx.util.Duration.seconds(3), event -> actuprix())
         );
+
+
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
+
 
     }
 
@@ -115,6 +127,51 @@ public void initlist(){
             resultat.setText("Enchère enregistrée à " + PrixEntered.getText());
         } else {
             resultat.setText("Prix inférieur");
+        }
+    }
+
+    private void sendConfirmationEmail(String recipientEmail) {
+        // Replace these values with your own email configuration
+        String host = "smtp-relay.brevo.com";
+        String port = "587";
+        String username = "karimgharbi66@gmail.com";
+        String password = "pLPQ9CWmtzFyB0qr";
+
+        // Create properties for the email session
+        Properties properties = new Properties();
+        properties.put("mail.smtp.host", host);
+        properties.put("mail.smtp.port", port);
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.starttls.enable", "true");
+
+
+        // Create a Session object
+        Session session = Session.getInstance(properties, new Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
+
+        try {
+            // Create a MimeMessage object
+            MimeMessage message = new MimeMessage(session);
+
+            // Set the sender and recipient addresses
+            message.setFrom(new InternetAddress(username));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail));
+
+            // Set the email subject and content
+            message.setSubject("Congratulations chrit el lot");
+            message.setText("Congratulations chrit el lot");
+
+            // Send the email
+            Transport.send(message);
+
+            System.out.println("purchase succesful");
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            System.err.println("Failed purchase: " + e.getMessage());
         }
     }
 }

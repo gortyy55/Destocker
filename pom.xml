@@ -38,10 +38,27 @@
             <version>21.0.2</version>
         </dependency>
         <dependency>
+            <groupId>com.sendgrid</groupId>
+            <artifactId>sendgrid-java</artifactId>
+            <version>4.4.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version> <!-- Use the latest version available -->
+        </dependency>
+        <dependency>
+            <groupId>com.sendgrid</groupId>
+            <artifactId>sendgrid-java</artifactId>
+            <version>4.7.5</version> <!-- Replace with the latest version -->
+        </dependency>
+        <dependency>
             <groupId>javax.mail</groupId>
             <artifactId>javax.mail-api</artifactId>
             <version>1.6.2</version>
         </dependency>
+
     </dependencies>
     <build>
         <plugins>

@@ -11,10 +11,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.scene.control.DatePicker;
 import tn.CodeCommanders.Transaction.Transactions;
 import tn.CodeCommanders.Objects.Enchere;
 
 import java.io.IOException;
+import java.util.Date;
+import java.util.Objects;
 
 public class EnchereController {
 
@@ -42,24 +45,41 @@ public class EnchereController {
 
 
 
+
+
     @FXML
     void addenchere(ActionEvent event) {
 
-        int id = Integer.parseInt(eid.getText());
-        int stock = Integer.parseInt(estock.getText());
-        String produit = eproduit.getText();
-        double prixinit = Double.parseDouble(eprixinit.getText());
 
-        Enchere e = new Enchere(id,stock,produit,prixinit);
-        Transactions t = new Transactions();
-        t.add(e);
 
-        eid.setText("");
-        estock.setText("");
-        eproduit.setText("");
-        eprixinit.setText("");
-        confirm.setTextFill(Color.GREEN);
-        confirm.setText("Added With Success");
+
+        if (Objects.equals(estock.getText(), "")){
+            confirm.setTextFill(Color.RED);
+            confirm.setText("Merci de metre un stock valide");
+
+        } else if (Objects.equals(eprixinit.getText(), "")) {
+            confirm.setTextFill(Color.RED);
+            confirm.setText("Merci de metre un prix valide");
+        } else if (Objects.equals(eproduit.getText(), "")) {
+            confirm.setTextFill(Color.RED);
+            confirm.setText("Merci de metre un lot valide");
+
+        }else {
+
+            int stock = Integer.parseInt(estock.getText());
+            String produit = eproduit.getText();
+            double prixinit = Double.parseDouble(eprixinit.getText());
+
+            Enchere e = new Enchere(stock, produit, prixinit);
+            Transactions t = new Transactions();
+            t.add(e);
+
+            estock.setText("");
+            eproduit.setText("");
+            eprixinit.setText("");
+            confirm.setTextFill(Color.GREEN);
+            confirm.setText("Added With Success");
+        }
 
     }
 
