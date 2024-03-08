@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="592.0" prefWidth="902.0" style="-fx-background-color: Orange; -fx-border-color: #012438; -fx-border-width: 3; -fx-border-radius: 50; -fx-background-radius: 50;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.CodeCommanders.ControllersEnchere.UpdateEnchere">
+   <children>
+      <Button layoutX="374.0" layoutY="487.0" mnemonicParsing="false" onAction="#modenchere" prefHeight="51.0" prefWidth="159.0" style="-fx-background-color: #012438;" text="Update" textFill="#ff8a00">
+         <font>
+            <Font size="24.0" />
+         </font></Button>
+      <Label layoutX="252.0" layoutY="85.0" text="ID de l'enchere">
+         <font>
+            <Font size="23.0" />
+         </font></Label>
+      <Label layoutX="166.0" layoutY="206.0" text="Stock">
+         <font>
+            <Font size="32.0" />
+         </font></Label>
+      <Label layoutX="164.0" layoutY="256.0" text="Produit">
+         <font>
+            <Font size="32.0" />
+         </font></Label>
+      <Label layoutX="163.0" layoutY="307.0" text="Prix demander">
+         <font>
+            <Font size="32.0" />
+         </font></Label>
+      <TextField fx:id="id" layoutX="422.0" layoutY="85.0" prefHeight="34.0" prefWidth="125.0" />
+      <TextField fx:id="stock" layoutX="377.0" layoutY="209.0" prefHeight="40.0" prefWidth="199.0" />
+      <TextField fx:id="produit" layoutX="377.0" layoutY="259.0" prefHeight="40.0" prefWidth="199.0" />
+      <TextField fx:id="prixinit" layoutX="377.0" layoutY="310.0" prefHeight="40.0" prefWidth="199.0" />
+      <Label fx:id="result" layoutX="328.0" layoutY="392.0" prefHeight="61.0" prefWidth="242.0">
+         <font>
+            <Font size="23.0" />
+         </font></Label>
+      <Label layoutX="230.0" layoutY="14.0" style="-fx-border-color: #012438; -fx-border-radius: 50; -fx-border-width: 5;" text=" Mettre a jour une enchere " textFill="#012438">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="37.0" />
+         </font>
+      </Label>
+      <Separator layoutX="3.0" layoutY="122.0" prefHeight="17.0" prefWidth="892.0" style="-fx-background-color: #012438; -fx-border-color: #012438;" />
+      <Button fx:id="retour" layoutX="20.0" layoutY="35.0" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #012438;" text="Retour" textFill="#ff8100" />
+   </children>
+</AnchorPane>

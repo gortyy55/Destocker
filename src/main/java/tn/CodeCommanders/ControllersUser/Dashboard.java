@@ -300,6 +300,19 @@ ServiceUser t = new ServiceUser();
 
     }
 
+    public void EncheresPages(MouseEvent event) {
+        try{
+
+            Parent root= FXMLLoader.load(getClass().getResource("/MainWindow.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        }catch (IOException e){
+            System.out.println(e.getMessage());
+        }
+    }
 }
 
 

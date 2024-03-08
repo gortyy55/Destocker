@@ -152,7 +152,7 @@
                 <version>0.0.8</version>
                 <configuration>
                     <!--put the full path to your MainFX here blow-->
-                    <mainClass>C:\Users\ghofr\Desktop\PI\billing\src\main\java\tn\CodeCommanders\test\MainFx.java</mainClass>
+                    <mainClass>C:\Users\amine\IdeaProjects\fullproject\src\main\java\tn\CodeCommanders\test\MainFX.java</mainClass>
                 </configuration>
             </plugin>
             <plugin>

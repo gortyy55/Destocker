@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="566.0" prefWidth="906.0" style="-fx-background-color: Orange; -fx-border-color: black; -fx-border-width: 3;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.CodeCommanders.ControllersEnchere.MainWindow">
+   <children>
+      <Button alignment="TOP_CENTER" layoutX="575.0" layoutY="195.0" mnemonicParsing="false" onAction="#switchToEnchere" prefHeight="51.0" prefWidth="197.0" style="-fx-background-color: #012438;" text="Ajouter" textFill="#ff8a00">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Label layoutX="364.0" layoutY="8.0" text="Menu :" textFill="#ffaa00b4">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
+      <Button layoutX="575.0" layoutY="253.0" mnemonicParsing="false" onAction="#switchToDelEnchere" prefHeight="51.0" prefWidth="197.0" style="-fx-background-color: #012438;" text="Supprimer" textFill="#ff8a00">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="575.0" layoutY="374.0" mnemonicParsing="false" onAction="#switchToAffEnchere" prefHeight="51.0" prefWidth="197.0" style="-fx-background-color: #012438;" text="Afficher" textFill="#ff8a00">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="575.0" layoutY="313.0" mnemonicParsing="false" onAction="#switchToModEnchere" prefHeight="51.0" prefWidth="197.0" style="-fx-background-color: #012438;" text="Modifier" textFill="#ff8a00">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <ImageView fitHeight="479.0" fitWidth="627.0" layoutX="43.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="263.0" layoutY="31.0" style="-fx-border-color: #012438; -fx-border-radius: 20; -fx-border-width: 4;" text=" Gestion D'encheres " textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="37.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

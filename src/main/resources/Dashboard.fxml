@@ -79,7 +79,7 @@
                   </Label>
                </children>
             </HBox>
-            <HBox prefHeight="35.0" prefWidth="182.0" styleClass="button-container-mouse-moved" stylesheets="@User.css">
+            <HBox fx:id="EncherePages" onMouseClicked="#EncheresPages"  prefHeight="35.0" prefWidth="182.0" styleClass="button-container-mouse-moved" stylesheets="@User.css">
                <children>
                   <ImageView fitHeight="32.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>

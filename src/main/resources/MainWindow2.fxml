@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane style="-fx-background-radius: 50;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.CodeCommanders.ControllersEnchere.MainWindow">
+   <children>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" style="-fx-background-color: #8D8C8; -fx-background-radius: 50;" styleClass="gradient-background" stylesheets="@../../../../fullproject/src/main/resources/PanierStyle.css">
+         <top>
+            <HBox alignment="CENTER_LEFT" prefHeight="61.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" prefHeight="60.0" prefWidth="179.0" styleClass="shadow" stylesheets="@../../../../fullproject/src/main/resources/PanierStyle.css" text="GESTION Enchere" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Pane maxHeight="-Infinity" prefHeight="1.0" prefWidth="200.0" styleClass="line-color" stylesheets="@../../../../fullproject/src/main/resources/PanierStyle.css" HBox.hgrow="ALWAYS" />
+                  <ImageView fitHeight="40.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                     <image>
+                        <Image url="@../../../../fullproject/src/main/resources/IMG/420537115_893893865613781_5800290521851255686_n%20(1).png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+            </HBox>
+         </top>
+         <left>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="290.0" styleClass="container" stylesheets="@../../../../fullproject/src/main/resources/PanierStyle.css" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </BorderPane.margin>
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="290.0">
+                     <children>
+                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                           <image>
+                            
+                           </image>
+                        </ImageView>
+                        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="210.0">
+                           <children>
+                              <Label prefHeight="16.0" prefWidth="199.0" styleClass="shadow" text="Ghofrane B'F" textFill="#ffffffb5">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="15.0" prefWidth="199.0" styleClass="shadow" stylesheets="@../../../../fullproject/src/main/resources/PanierStyle.css" text="\@ghofranebf" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1.0" prefWidth="250.0" styleClass="line-color" stylesheets="@../../../../fullproject/src/main/resources/PanierStyle.css" />
+                  <VBox prefHeight="586.0" prefWidth="290.0" spacing="20.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="20.0" styleClass="button-container-mouse-moved" stylesheets="@../../../../fullproject/src/main/resources/PanierStyle.css">
+                           <children>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                                 <image>
+                                    <Image url="@../../../../fullproject/src/main/resources/IMG/icons8-accueil-24.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="35.0" prefWidth="218.0" styleClass="shadow" text="Home" textFill="#ffffffb5">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox accessibleRole="BUTTON" alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="20.0" styleClass="button-container-mouse-moved" stylesheets="@../../../../fullproject/src/main/resources/PanierStyle.css">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                                 <image>
+                                    <Image url="@../../../../fullproject/src/main/resources/IMG/icons8-achat-50.png" />
+                                 </image>
+                              </ImageView>
+                              <Label accessibleRole="MENU_ITEM" prefHeight="35.0" prefWidth="216.0" styleClass="shadow" text="Stock" textFill="#ffffffb5">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="20.0" styleClass="button-container-mouse-moved" stylesheets="@../../../../fullproject/src/main/resources/PanierStyle.css">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                                 <image>
+                                    <Image url="@../../../../fullproject/src/main/resources/IMG/icons8-confiance-50.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="35.0" prefWidth="216.0" styleClass="shadow" text="Associations" textFill="#ffffffb5">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="20.0" stylesheets="@../../../../fullproject/src/main/resources/PanierStyle.css">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                                 <image>
+                                    <Image url="@../../../../fullproject/src/main/resources/IMG/icons8-vente-aux-enchères-50.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="35.0" prefWidth="221.0" styleClass="shadow" text="Bids" textFill="#ffffffb5">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <styleClass>
+                              <String fx:value="button-container-mouse-moved" />
+                              <String fx:value="selected-button-container" />
+                           </styleClass>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="264.0" spacing="20.0" styleClass="button-container-mouse-moved" stylesheets="@../../../../fullproject/src/main/resources/PanierStyle.css">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                                 <image>
+                                    <Image url="@../../../../fullproject/src/main/resources/IMG/icons8-panier-30.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="35.0" prefWidth="222.0" styleClass="shadow" text="Panier" textFill="#ffffffb5">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="20.0" styleClass="button-container-mouse-moved" stylesheets="@../../../../fullproject/src/main/resources/PanierStyle.css">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                                 <image>
+                                    <Image url="@../../../../fullproject/src/main/resources/IMG/icons8-dollar-50.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="35.0" prefWidth="221.0" styleClass="shadow" text="Payement" textFill="#ffffffb5">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="20.0" styleClass="button-container-mouse-moved" stylesheets="@../../../../fullproject/src/main/resources/PanierStyle.css">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                                 <image>
+                                    <Image url="@../../../../fullproject/src/main/resources/IMG/icons8-tirelire-50.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="35.0" prefWidth="219.0" styleClass="shadow" text="Piggy Bank" textFill="#ffffffb5">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <VBox prefHeight="805.0" prefWidth="1005.0" BorderPane.alignment="CENTER">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <children>
+                  <AnchorPane prefHeight="763.0" prefWidth="1005.0" style="-fx-background-color: Orange; -fx-border-color: black; -fx-border-width: 3;">
+                     <children>
+                        <Button alignment="TOP_CENTER" layoutX="616.0" layoutY="281.0" mnemonicParsing="false" onAction="#switchToEnchere" prefHeight="51.0" prefWidth="197.0" style="-fx-background-color: #012438;" text="Ajouter" textFill="#ff8a00">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Label layoutX="364.0" layoutY="8.0" text="Menu :" textFill="#ffaa00b4">
+                           <font>
+                              <Font size="42.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="616.0" layoutY="339.0" mnemonicParsing="false" onAction="#switchToDelEnchere" prefHeight="51.0" prefWidth="197.0" style="-fx-background-color: #012438;" text="Supprimer" textFill="#ff8a00">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button layoutX="616.0" layoutY="460.0" mnemonicParsing="false" onAction="#switchToAffEnchere" prefHeight="51.0" prefWidth="197.0" style="-fx-background-color: #012438;" text="Afficher" textFill="#ff8a00">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button layoutX="616.0" layoutY="399.0" mnemonicParsing="false" onAction="#switchToModEnchere" prefHeight="51.0" prefWidth="197.0" style="-fx-background-color: #012438;" text="Modifier" textFill="#ff8a00">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <ImageView fitHeight="479.0" fitWidth="627.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@logo.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="302.0" layoutY="28.0" style="-fx-border-color: #012438; -fx-border-radius: 20; -fx-border-width: 4;" text=" Gestion D'encheres " textFill="WHITE">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="37.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
