@@ -1,0 +1,64 @@
+.gradient-background{
+    -fx-background-color: linear-gradient(from 2% 25% to 100% 100%,#060618,#A9C0EE);
+
+}
+.line-color{
+    -fx-background-color: #8D8C8C;
+}
+
+.container{
+    -fx-background-color: rgba(255,255,255,0.2);
+    -fx-background-radius: 10;
+
+
+}
+
+.text2{
+    -fx-text-fill: #8D8C8C;
+}
+
+.shadow{
+    -fx-effect: dropShadow(three-pass-box, rgba(0,0,0.2),10.0, 0.0, 0.0, 10.0);
+}
+
+.selected-button-container{
+    -fx-background-color: rgba(255,255,255,0.15);
+}
+.button-container-mouse-moved:hover{
+    -fx-background-color: rgba(255,255,255,0.1);}
+
+
+.title{
+    -fx-font-size: 2em;
+    -fx-text-fill: #FFB801;
+    -fx-font-weight:bold ;
+}
+
+.form_container{
+    -fx-background-color: #EEEEEE;
+}
+
+.form_container Text{
+    -fx-font-size:1.2em;
+    -fx-fill:#888888;
+}
+TextField{
+    -fx-pref-height: 250;
+    -fx-pref-height: 35;
+    -fx-background-color: #FFFFFF;
+    -fx-font-size: 1.3em;
+    -fx-effect:dropshadow(three-pass-box,#AAAAAA,3,0,0,3) ;
+}
+
+.form_container Button{
+    -fx-background-color:#FFB801;
+    -fx-effect: dropshadow(three-pass-box,#AAAAAA,3,0,0,3) ;
+    -fx-pref-width: 100;
+    -fx-font-size: 1.5em;
+    -fx-font-family: "Calibri Light";
+    -fx-text-fill: #FFFFF;
+}
+
+.form_container Button:hover{
+    -fx-cursor: hand;
+}

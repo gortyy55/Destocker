@@ -1,0 +1,53 @@
+/* liststyle.css */
+/*
+.list-view {
+    -fx-control-inner-background: transparent;
+    -fx-background-color: transparent; /* Set the background color to transparent
+    -fx-background-image: url('420537115_893893865613781_5800290521851255686_n (1).png'); Replace with the actual image file name
+    -fx-background-size: cover;
+    -fx-border-radius: 10; /* Set the border radius to your desired value
+}
+
+.list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+}
+
+.list-cell:even {
+    -fx-background-color: transparent; /* Set the even row color to transparent
+}
+
+.list-cell:selected {
+    -fx-background-color: rgba(0, 128, 255, 0.3);
+}
+
+.button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+    -fx-border-radius: 5; /* Set the button border radius to your desired value
+}
+
+.button:hover {
+    -fx-background-color: #2980b9;
+}
+
+.anchor-pane {
+
+    -fx-background-image: url('420537115_893893865613781_5800290521851255686_n (1).png');
+}*/
+
+.transparent {
+    -fx-background-color: rgba(0,0,0,0);
+}
+.white-background{
+    -fx-background-color:linear-gradient(from 0% 0% to 100% 100%,#060618,#A9C0EE);;
+
+}
+
+.light-gray-background{
+    -fx-background-color:grey ;
+}

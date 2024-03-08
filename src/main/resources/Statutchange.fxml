@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="tn.CodeCommanders.ControllersReclamation.Statutchange"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <ComboBox fx:id="statusComboBox" layoutX="91.0" layoutY="70.0" prefWidth="120.0" />
+        <Button layoutX="116.0" layoutY="122.0" mnemonicParsing="false" onAction="#changeStatus" text="Change Status" />
+    </children>
+</AnchorPane>

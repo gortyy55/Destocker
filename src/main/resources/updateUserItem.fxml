@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="transparent" stylesheets="@stockcss.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.CodeCommanders.ControllersUser.UpdateUserWindow">
+   <children>
+      <TextField fx:id="firstname" layoutX="44.0" layoutY="60.0" />
+      <TextField fx:id="lastname" layoutX="273.0" layoutY="60.0" />
+      <TextField fx:id="role" layoutX="44.0" layoutY="119.0" />
+      <TextField fx:id="email" layoutX="273.0" layoutY="119.0" />
+      <TextField fx:id="mdp" layoutX="44.0" layoutY="174.0" />
+      <TextField fx:id="addr" layoutX="273.0" layoutY="174.0" />
+      <TextField fx:id="telephone" layoutX="180.0" layoutY="231.0" />
+      <Button fx:id="updatebtn" layoutX="240.0" layoutY="312.0" mnemonicParsing="false" onAction="#update" text="Update" />
+   </children>
+</AnchorPane>

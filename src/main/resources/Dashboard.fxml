@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="609.0" prefWidth="939.0" style="-fx-background-radius: 50;" styleClass="transparent" stylesheets="@User.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.CodeCommanders.ControllersUser.Dashboard">
+   <children>
+      <VBox layoutX="1.0" layoutY="53.0" prefHeight="478.0" prefWidth="162.0" styleClass="selected-button-container" stylesheets="@User.css">
+         <children>
+            <HBox prefHeight="62.0" prefWidth="182.0">
+               <children>
+                  <ImageView fitHeight="61.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imgUser/logo.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="62.0" prefWidth="94.0" text="explore" textFill="#a19f9f">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="35.0" prefWidth="162.0" stylesheets="@User.css">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imgUser/home3d.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="31.0" prefWidth="111.0" text="HOME" textFill="#a19f9f">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <styleClass>
+                  <String fx:value="button-container-mouse-moved" />
+                  <String fx:value="selected-button-container" />
+               </styleClass>
+            </HBox>
+            <HBox fx:id="stockadmin" onMouseClicked="#stockadmin" prefHeight="35.0" prefWidth="182.0" styleClass="button-container-mouse-moved" stylesheets="@User.css">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imgUser/stock.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="31.0" prefWidth="111.0" text="STOCK" textFill="#a19f9f">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="35.0" prefWidth="182.0" styleClass="button-container-mouse-moved" stylesheets="@User.css">
+               <children>
+                  <ImageView fitHeight="31.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imgUser/donation.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="31.0" prefWidth="111.0" text="DONATION" textFill="#a19f9f">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="35.0" prefWidth="182.0" styleClass="button-container-mouse-moved" stylesheets="@User.css">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imgUser/bid.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="31.0" prefWidth="111.0" text="BID" textFill="#a19f9f">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox fx:id="paymentadmin" onMouseClicked="#paymentadmin" prefHeight="35.0" prefWidth="182.0" styleClass="button-container-mouse-moved" stylesheets="@User.css">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imgUser/pay.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="31.0" prefWidth="111.0" text="PAYMENT" textFill="#a19f9f">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox fx:id="reclamationadmin" onMouseClicked="#reclamationadmin" prefHeight="35.0" prefWidth="182.0" styleClass="button-container-mouse-moved" stylesheets="@User.css">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imgUser/rec.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="31.0" prefWidth="128.0" text="RECLAMATION" textFill="#a19f9f">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="38.0" prefWidth="162.0" />
+            <HBox fx:id="panier" onMouseClicked="#panier" prefHeight="35.0" prefWidth="182.0" styleClass="button-container-mouse-moved" stylesheets="@User.css">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@IMG/icons8-achat-50.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="31.0" prefWidth="111.0" text="Panier" textFill="#a19f9f">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox fx:id="logout" onMouseClicked="#logout" prefHeight="35.0" prefWidth="200.0" styleClass="button-container-mouse-moved" stylesheets="@User.css">
+               <children>
+                  <Label prefHeight="31.0" prefWidth="111.0" text="LOGOUT" textFill="#a19f9f">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="41.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imgUser/logout.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" layoutX="166.0" layoutY="44.0" prefHeight="502.0" prefWidth="762.0" style="-fx-background: transparent;">
+              <children>
+      <ScrollPane fx:id="scrol" layoutX="208.0" layoutY="63.0" prefHeight="461.0" prefWidth="679.0" styleClass="transparent" stylesheets="@User.css">
+         <content>
+            <GridPane fx:id="grid" alignment="CENTER" prefHeight="0.0" prefWidth="0.0">
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+              </children>
+     </HBox>
+      <Button fx:id="charts" layoutX="739.0" layoutY="570.0" mnemonicParsing="false" onAction="#charts" text="charts" />
+      <TextField fx:id="recherche" layoutX="224.0" layoutY="14.0" promptText="Recherche par nom ..." />
+      
+   </children>
+</AnchorPane>

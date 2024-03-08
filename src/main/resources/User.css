@@ -1,0 +1,30 @@
+.transparent {
+    -fx-background-color: linear-gradient(from 2% 25% to 100% 100%,#060618,#A9C0EE);
+
+}
+.produit-cart {
+    -fx-background-color: linear-gradient(from 2% 25% to 100% 100%, #3ac982, #a5d5ba);
+
+}
+
+.button {
+    -fx-background-color: #FFD700;
+    -fx-background-radius: 5;
+}
+.delete-button {
+    -fx-background-color: #ff0000;
+    -fx-background-radius: 1000;
+}
+.back-button {
+    -fx-background-color: #36ef0c;
+    -fx-background-radius: 1000;
+}
+shadow{
+    -fx-effect: dropShadow(three-pass-box, rgba(0,0,0.2),10.0, 0.0, 0.0, 10.0);
+}
+
+.selected-button-container{
+    -fx-background-color: rgba(255,255,255,0.15);
+}
+.button-container-mouse-moved:pressed{
+    -fx-background-color: rgba(255,255,255,0.1);}

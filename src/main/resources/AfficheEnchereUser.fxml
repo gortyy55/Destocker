@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="792.0" prefWidth="1246.0" styleClass="gradient-background" stylesheets="@PanierStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.CodeCommanders.ControllersPanier.afficheEnchereUser">
+    <children>
+        <VBox alignment="TOP_CENTER" layoutX="14.0" layoutY="71.0" prefHeight="714.0" prefWidth="259.0" spacing="10.0" styleClass="container" stylesheets="@PanierStyle.css">
+            <children>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@IMG/femme%20(1).png" />
+                            </image>
+                        </ImageView>
+                        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="181.0">
+                            <children>
+                                <Label prefHeight="17.0" prefWidth="181.0" styleClass="shadow" text="Ghofrane B'F" textFill="#ffffffb5">
+                                    <font>
+                                        <Font size="22.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets left="20.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <Label prefHeight="7.0" prefWidth="181.0" styleClass="shadow" stylesheets="@PanierStyle.css" text="\@ghofranebf" textFill="WHITE">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets left="20.0" />
+                                    </VBox.margin>
+                                </Label>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                <Pane maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="1.0" prefWidth="250.0" styleClass="line-color" stylesheets="@PanierStyle.css" />
+                <VBox prefHeight="511.0" prefWidth="259.0">
+                    <children>
+                        <HBox fx:id="home1" onMouseClicked="#home1" alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="20.0">
+                            <children>
+                                <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@IMG/icons8-accueil-24.png" />
+                                    </image>
+                                    <HBox.margin>
+                                        <Insets left="10.0" />
+                                    </HBox.margin>
+                                </ImageView>
+                                <Label prefHeight="35.0" prefWidth="218.0" styleClass="shadow" text="Home" textFill="#ffffffb5">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="20.0">
+                            <children>
+                                <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@IMG/icons8-achat-50.png" />
+                                    </image>
+                                    <HBox.margin>
+                                        <Insets left="10.0" />
+                                    </HBox.margin>
+                                </ImageView>
+                                <Label prefHeight="35.0" prefWidth="218.0" styleClass="shadow" text="Stock" textFill="#ffffffb5">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="20.0">
+                            <children>
+                                <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@IMG/icons8-confiance-50.png" />
+                                    </image>
+                                    <HBox.margin>
+                                        <Insets left="10.0" />
+                                    </HBox.margin>
+                                </ImageView>
+                                <Label prefHeight="35.0" prefWidth="218.0" styleClass="shadow" text="Associations" textFill="#ffffffb5">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="20.0">
+                            <children>
+                                <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@IMG/icons8-vente-aux-enchères-50.png" />
+                                    </image>
+                                    <HBox.margin>
+                                        <Insets left="10.0" />
+                                    </HBox.margin>
+                                </ImageView>
+                                <Label prefHeight="35.0" prefWidth="218.0" styleClass="shadow" text="Bids" textFill="#ffffffb5">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="20.0">
+                            <children>
+                                <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@IMG/icons8-panier-30.png" />
+                                    </image>
+                                    <HBox.margin>
+                                        <Insets left="10.0" />
+                                    </HBox.margin>
+                                </ImageView>
+                                <Label prefHeight="35.0" prefWidth="218.0" styleClass="shadow" text="Panier" textFill="#ffffffb5">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="20.0">
+                            <children>
+                                <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@IMG/icons8-dollar-50.png" />
+                                    </image>
+                                    <HBox.margin>
+                                        <Insets left="10.0" />
+                                    </HBox.margin>
+                                </ImageView>
+                                <Label prefHeight="35.0" prefWidth="218.0" styleClass="shadow" text="Payement" textFill="#ffffffb5">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="20.0">
+                            <children>
+                                <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@IMG/icons8-accueil-24.png" />
+                                    </image>
+                                    <HBox.margin>
+                                        <Insets left="10.0" />
+                                    </HBox.margin>
+                                </ImageView>
+                                <Label prefHeight="35.0" prefWidth="218.0" styleClass="shadow" text="Reclamation" textFill="#ffffffb5">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+
+        <ScrollPane layoutX="282.0" layoutY="141.0" prefHeight="611.0" prefWidth="961.0" styleClass="transparent" stylesheets="@CardStyle.css" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="282.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="141.0">
+
+            <content>
+
+                <GridPane fx:id="grid">
+
+                </GridPane>
+
+            </content>
+        </ScrollPane>
+        <HBox alignment="CENTER" layoutX="19.0" layoutY="8.0" prefHeight="46.0" prefWidth="1226.0" spacing="20.0" styleClass="container" stylesheets="@PanierStyle.css">
+            <children>
+                <Label alignment="CENTER" prefHeight="46.0" prefWidth="256.0" styleClass="shadow" stylesheets="@PanierStyle.css" text="GESTION PANIER" textFill="WHITE">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Pane maxHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="1.0" prefWidth="1046.0" styleClass="line-color" stylesheets="@PanierStyle.css" />
+                <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+
+                    </image>
+                </ImageView>
+            </children>
+        </HBox>
+        <HBox layoutX="1013.0" layoutY="85.0" prefHeight="35.0" prefWidth="200.0">
+         <children>
+            <HBox prefHeight="55.0" prefWidth="206.0">
+               <children>
+                  <ImageView fitHeight="48.0" fitWidth="35.0" onMouseClicked="#handleImageViewClick" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@IMG/icons8-achat-50.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets top="20.0" />
+                     </HBox.margin>
+                  </ImageView>
+                   <Text fx:id="itemCountText" fill="red" text="0" wrappingWidth="13.8046875">
+                     <font>
+                        <Font name="System Bold" size="27.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin></Text>
+               </children>
+            </HBox>
+         </children></HBox>
+
+
+
+    </children>
+</AnchorPane>
