@@ -3,7 +3,6 @@ package tn.CodeCommanders.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -64,4 +63,22 @@ public class modulecontroller {
 
     }
 
+    public void bid(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/bid.fxml"));
+            Parent root = loader.load();
+
+            // Access the controller if needed
+            Bidcontroller bidcontroller = loader.getController();
+            bidcontroller.setId(this.enchere.getId()); // Setting the id
+
+            scene = new Scene(root);
+            stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.err.println("Error loading bid.fxml: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 }

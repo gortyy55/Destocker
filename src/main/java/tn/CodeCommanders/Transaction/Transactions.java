@@ -9,42 +9,44 @@ import java.util.ArrayList;
 
 public class Transactions {
 
-private Connection cnx;
+    private Connection cnx;
 
-public Transactions(){
+    public Transactions() {
 
-    cnx= JDBC.getInstance().getCnx();
+        cnx = JDBC.getInstance().getCnx();
 
-}
-
-
-    public void add(Enchere ench){
-
-    String query="INSERT INTO `Enchere` VALUES (?,?,?,?)";
-    try{
-        PreparedStatement stm=cnx.prepareStatement(query);
-        stm.setInt(1,ench.getId());
-        stm.setInt(2,ench.getStock());
-        stm.setString(3, ench.getProduit());
-        stm.setDouble(4,ench.getPrixint());
-        stm.executeUpdate();
-
-    } catch (SQLException e) {
-        throw new RuntimeException(e);
     }
 
+
+    public void add(Enchere ench) {
+
+        String query = "INSERT INTO `Enchere` VALUES (?,?,?,?,?,?)";
+        try {
+            PreparedStatement stm = cnx.prepareStatement(query);
+            stm.setInt(1, ench.getId());
+            stm.setInt(2, ench.getStock());
+            stm.setString(3, ench.getProduit());
+            stm.setDouble(4, ench.getPrixint());
+            stm.setString(5, "");
+            stm.setDouble(6, ench.getPrixint());
+            stm.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
+
+    }
 
 
     public ArrayList<Enchere> getAll() {
         ArrayList<Enchere> encheres = new ArrayList();
 
-        String query="SELECT * FROM `Enchere`";
+        String query = "SELECT * FROM `Enchere`";
 
         try {
-            Statement stm= cnx.createStatement();
-            ResultSet rs= stm.executeQuery(query);
-            while (rs.next()){
+            Statement stm = cnx.createStatement();
+            ResultSet rs = stm.executeQuery(query);
+            while (rs.next()) {
                 Enchere e = new Enchere();
                 e.setId(rs.getInt(1));
                 e.setStock(rs.getInt(2));
@@ -62,7 +64,7 @@ public Transactions(){
         return encheres;
     }
 
-    public void update(String idsql,String stock,String produit,String prixinit) {
+    public void update(String idsql, String stock, String produit, String prixinit) {
 
     /*
         Scanner obj = new Scanner(System.in);
@@ -83,13 +85,12 @@ public Transactions(){
         String prixinit = (obj.nextLine());*/
 
 
-
-        if (!stock.equals("")){
-            String query="UPDATE `Enchere` SET `stock` = ? WHERE `id` = ?";
+        if (!stock.equals("")) {
+            String query = "UPDATE `Enchere` SET `stock` = ? WHERE `id` = ?";
             try {
                 PreparedStatement stm = cnx.prepareStatement(query);
-                stm.setString(1,stock);
-                stm.setString(2,idsql);
+                stm.setString(1, stock);
+                stm.setString(2, idsql);
 
                 stm.executeUpdate();
 
@@ -99,12 +100,12 @@ public Transactions(){
             }
         }
 
-        if (!produit.equals("")){
-            String query="UPDATE `Enchere` SET `produit` = ? WHERE `id` = ?";
+        if (!produit.equals("")) {
+            String query = "UPDATE `Enchere` SET `produit` = ? WHERE `id` = ?";
             try {
                 PreparedStatement stm = cnx.prepareStatement(query);
-                stm.setString(1,produit);
-                stm.setString(2,idsql);
+                stm.setString(1, produit);
+                stm.setString(2, idsql);
 
                 stm.executeUpdate();
 
@@ -114,12 +115,12 @@ public Transactions(){
             }
         }
 
-        if (!prixinit.equals("")){
-            String query="UPDATE `Enchere` SET `prixinit` = ? WHERE `id` = ?";
+        if (!prixinit.equals("")) {
+            String query = "UPDATE `Enchere` SET `prixinit` = ? WHERE `id` = ?";
             try {
                 PreparedStatement stm = cnx.prepareStatement(query);
-                stm.setString(1,prixinit);
-                stm.setString(2,idsql);
+                stm.setString(1, prixinit);
+                stm.setString(2, idsql);
 
                 stm.executeUpdate();
 
@@ -135,11 +136,11 @@ public Transactions(){
 
     public void Delete(String idsql) {
 
-        String query="DELETE FROM `Enchere` WHERE id = ?";
+        String query = "DELETE FROM `Enchere` WHERE id = ?";
 
         try {
             PreparedStatement stm = cnx.prepareStatement(query);
-            stm.setString(1,idsql);
+            stm.setString(1, idsql);
             stm.executeUpdate();
 
         } catch (SQLException e) {
@@ -150,16 +151,16 @@ public Transactions(){
     }
 
 
-    public ArrayList<Produit> getlot(int idench){
+    public ArrayList<Produit> getlot(int idench) {
 
         ArrayList<Integer> prodlot = new ArrayList<>();
 
-        String query1="SELECT idproduit FROM `lot` where idenchere="+idench;
+        String query1 = "SELECT idproduit FROM `lot` where idenchere=" + idench;
 
         try {
-            Statement stm1= cnx.createStatement();
-            ResultSet rs1= stm1.executeQuery(query1);
-            while (rs1.next()){
+            Statement stm1 = cnx.createStatement();
+            ResultSet rs1 = stm1.executeQuery(query1);
+            while (rs1.next()) {
                 prodlot.add(rs1.getInt(1));
             }
         } catch (SQLException e) {
@@ -167,38 +168,80 @@ public Transactions(){
         }
 
 
-
-
         ArrayList<Produit> produits = new ArrayList();
 
-    for (int i=0;i<prodlot.size();i++){
-        String query="SELECT idproduit,produitname,quantite FROM `stockP` where idproduit="+prodlot.get(i);
+        for (int i = 0; i < prodlot.size(); i++) {
+            String query = "SELECT idproduit,produitname,quantite FROM `stockP` where idproduit=" + prodlot.get(i);
 
-        try {
-            Statement stm= cnx.createStatement();
-            ResultSet rs= stm.executeQuery(query);
-            while (rs.next()){
-                Produit e = new Produit();
-                e.setId(rs.getInt(1));
-                e.setName(rs.getString(2));
-                e.setQuantite(rs.getInt(3));
+            try {
+                Statement stm = cnx.createStatement();
+                ResultSet rs = stm.executeQuery(query);
+                while (rs.next()) {
+                    Produit e = new Produit();
+                    e.setId(rs.getInt(1));
+                    e.setName(rs.getString(2));
+                    e.setQuantite(rs.getInt(3));
 
-                produits.add(e);
+                    produits.add(e);
 
 
+                }
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }}
+        }
 
 
         return produits;
 
 
-
     }
 
+    public double prixactuel(int id) {
+        double prix = 0;
+        System.out.println(id);
+        String query = "SELECT `prixactuel` FROM `Enchere` WHERE `id` = ?";
+        try (PreparedStatement stm = cnx.prepareStatement(query)) {
+            stm.setInt(1, id); // Set the value of the parameter
+            ResultSet rs = stm.executeQuery();
+            if (rs.next()) {
+                prix = rs.getDouble("prixactuel");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return prix;
+    }
+
+    public void updateEnchere(int id, Double prix) {
+        String query = "UPDATE `Enchere` SET `prixactuel` = ? WHERE `id` = ?";
+        try {
+            PreparedStatement stm = cnx.prepareStatement(query);
+            stm.setDouble(1, prix);
+            stm.setInt(2, id);
+
+            stm.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+
+        }
+
+        String query2 = "UPDATE `Enchere` SET `idAchteur` = ? WHERE `id` = ?";
+        try {
+            PreparedStatement stm = cnx.prepareStatement(query2);
+            stm.setInt(1, 744);
+            stm.setInt(2, id);
+
+            stm.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+
+        }
+    }
 
 }
 

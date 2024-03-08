@@ -46,7 +46,7 @@
             </Label>
             <HBox prefHeight="38.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="encherir" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="Encherir">
+                  <Button fx:id="encherir" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" onAction="#bid" text="Encherir">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
